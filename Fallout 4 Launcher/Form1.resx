@@ -127,6 +127,16 @@ and quickly - as well as a mod loader.
 It was started by FlakTheMighty, but anyone can contribute to it.
 The Github repo can be found here</value>
   </data>
+  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>19, 18</value>
+  </metadata>
+  <data name="label1.Text" xml:space="preserve">
+    <value>If you have any questions, feedback,  comments,
+or concerns they can be directed to my email
+flakthemighty2@gmail.com
+Or you can post an issue on the repo and someone
+else might be able to help you.</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

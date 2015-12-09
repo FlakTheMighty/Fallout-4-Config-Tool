@@ -126,7 +126,7 @@ namespace Fallout_4_Launcher
             {
                 listAvailableMods.Items.Remove(listAvailableMods.SelectedItems[0]);
             }
-            
+
             savePluginList();
 
             //disregard this long chain of comments
@@ -151,7 +151,7 @@ namespace Fallout_4_Launcher
             makeFilesReadOnly();
 
             populateModLists();
-           
+
         }
 
         private void btnDeactivateSelected_Click(object sender, EventArgs e)
@@ -246,6 +246,20 @@ namespace Fallout_4_Launcher
             loadFallout4();
         }
 
+        private void btnRevertExecutables_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(fallout4InstallDirectory + @"\Fallout4-BACKUP.exe"))
+            {
+                File.Delete(fallout4InstallDirectory + @"\Fallout4.exe");
+                File.Copy(fallout4InstallDirectory + @"\Fallout4-BACKUP.exe", fallout4InstallDirectory + @"\Fallout4.exe");
+            }
+            if (File.Exists(fallout4InstallDirectory + @"\Fallout4Launcher-BACKUP.exe"))
+            {
+                File.Delete(fallout4InstallDirectory + @"\Fallout4Launcher.exe");
+                File.Copy(fallout4InstallDirectory + @"\Fallout4Launcher-BACKUP.exe", fallout4InstallDirectory + @"\Fallout4Launcher.exe");
+            }
+        }
+
         private void btnBackup_Click(object sender, EventArgs e)
         {
             File.Copy(fallout4AppDataDirectory + @"\plugins.txt", fallout4AppDataDirectory + @"\plugins-BACKUP.txt");
@@ -315,6 +329,15 @@ namespace Fallout_4_Launcher
             else
             {
                 chkSkipLauncher.Checked = false;
+            }
+
+            if (Properties.Settings.Default.firstPersonFOV != 80)
+            {
+                txtFOVFirstPerson.Text = Properties.Settings.Default.firstPersonFOV.ToString();
+            }
+            if (Properties.Settings.Default.thirdPersonFOV != 70)
+            {
+                txtFOVThirdPerson.Text = Properties.Settings.Default.thirdPersonFOV.ToString();
             }
         }
 
@@ -474,13 +497,13 @@ namespace Fallout_4_Launcher
             if (!File.Exists(fallout4InstallDirectory + @"\Fallout4-BACKUP.exe"))
             {
                 File.Copy(fallout4InstallDirectory + @"\Fallout4.exe", fallout4InstallDirectory + @"\Fallout4-BACKUP.exe");
-                
+
             }
 
             if (!File.Exists(fallout4InstallDirectory + @"\Fallout4Launcher-BACKUP.exe"))
             {
                 File.Copy(fallout4InstallDirectory + @"\Fallout4Launcher.exe", fallout4InstallDirectory + @"\Fallout4Launcher-BACKUP.exe");
-                
+
             }
 
             if (chkSkipLauncher.Checked)
@@ -491,6 +514,71 @@ namespace Fallout_4_Launcher
             {
                 btnGameLauncher.Visible = false;
             }
+        }
+
+        private void txtFOVFirstPerson_TextChanged(object sender, EventArgs e)
+        {
+            //if the ini already has it, we don't need it
+            if (!fallout4.Contains("fDefault1stPersonFOV="))
+            {
+                fallout4.Insert(fallout4.IndexOf("[Display]") + 1, "fDefault1stPersonFOV=" + 80);
+            }
+
+            //make sure the value is only an int
+            int parsedValue;
+            if (!int.TryParse(txtFOVFirstPerson.Text, out parsedValue))
+            {
+                txtFOVFirstPerson.Text = "80";
+            }
+
+            //don't rewrite to the ini if we don't have to
+            if (parsedValue != Properties.Settings.Default.firstPersonFOV)
+            {
+                Properties.Settings.Default.firstPersonFOV = parsedValue;
+                Properties.Settings.Default.Save();
+
+                //remove the item at index of whatever "fDefault1stPersonFOV=" is
+                fallout4.RemoveAll(i => i.StartsWith("fDefault1stPersonFOV="));
+                //add new copy with the parsed value
+                fallout4.Insert(fallout4.IndexOf("[Display]") + 1, "fDefault1stPersonFOV=" + parsedValue);
+            }
+
+            makeFilesReadWrite();
+            File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4.ini", fallout4);
+            makeFilesReadOnly();
+
+        }
+
+        private void txtFOVThirdPerson_TextChanged(object sender, EventArgs e)
+        {
+            //if the ini already has it, we don't need it
+            if (!fallout4.Contains("fDefaultWorldFOV="))
+            {
+                fallout4.Insert(fallout4.IndexOf("[Display]") + 1, "fDefaultWorldFOV=" + 70);
+            }
+
+            //make sure the value is only an int
+            int parsedValue;
+            if (!int.TryParse(txtFOVThirdPerson.Text, out parsedValue))
+            {
+                txtFOVThirdPerson.Text = "70";
+            }
+
+            //don't rewrite to the ini if we don't have to
+            if (parsedValue != Properties.Settings.Default.thirdPersonFOV)
+            {
+                Properties.Settings.Default.thirdPersonFOV = parsedValue;
+                Properties.Settings.Default.Save();
+
+                //remove the item at index of whatever "fDefaultWorldFOV=" is
+                fallout4.RemoveAll(i => i.StartsWith("fDefaultWorldFOV="));
+                //add new copy with the parsed value
+                fallout4.Insert(fallout4.IndexOf("[Display]") + 1, "fDefaultWorldFOV=" + parsedValue);
+            }
+
+            makeFilesReadWrite();
+            File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4.ini", fallout4);
+            makeFilesReadOnly();
         }
     }
 }

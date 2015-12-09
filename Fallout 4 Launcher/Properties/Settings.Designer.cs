@@ -70,5 +70,29 @@ namespace Fallout_4_Launcher.Properties {
                 this["appdataDirectory"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("80")]
+        public int firstPersonFOV {
+            get {
+                return ((int)(this["firstPersonFOV"]));
+            }
+            set {
+                this["firstPersonFOV"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("70")]
+        public int thirdPersonFOV {
+            get {
+                return ((int)(this["thirdPersonFOV"]));
+            }
+            set {
+                this["thirdPersonFOV"] = value;
+            }
+        }
     }
 }

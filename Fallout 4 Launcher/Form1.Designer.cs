@@ -57,6 +57,13 @@
             this.lblGitLink = new System.Windows.Forms.Label();
             this.lblAbout = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.btnRevertExecutables = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.grpFOV = new System.Windows.Forms.GroupBox();
+            this.txtFOVFirstPerson = new System.Windows.Forms.TextBox();
+            this.txtFOVThirdPerson = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -66,6 +73,7 @@
             this.tabMods.SuspendLayout();
             this.tabAbout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgVaultBoy)).BeginInit();
+            this.grpFOV.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -136,6 +144,7 @@
             this.tabSettings.BackColor = System.Drawing.SystemColors.Control;
             this.tabSettings.BackgroundImage = global::Fallout_4_Launcher.Properties.Resources.blue_background;
             this.tabSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabSettings.Controls.Add(this.grpFOV);
             this.tabSettings.Controls.Add(this.miscSettingsPanel);
             this.tabSettings.Controls.Add(this.chkSkipLauncher);
             this.tabSettings.Controls.Add(this.btnBackup);
@@ -153,9 +162,10 @@
             this.miscSettingsPanel.BackColor = System.Drawing.Color.Transparent;
             this.miscSettingsPanel.Controls.Add(this.btnReload);
             this.miscSettingsPanel.Controls.Add(this.btnGameLauncher);
+            this.miscSettingsPanel.Controls.Add(this.btnRevertExecutables);
             this.miscSettingsPanel.Location = new System.Drawing.Point(8, 315);
             this.miscSettingsPanel.Name = "miscSettingsPanel";
-            this.miscSettingsPanel.Size = new System.Drawing.Size(321, 28);
+            this.miscSettingsPanel.Size = new System.Drawing.Size(523, 28);
             this.miscSettingsPanel.TabIndex = 5;
             // 
             // btnReload
@@ -351,6 +361,7 @@
             // 
             this.tabAbout.BackgroundImage = global::Fallout_4_Launcher.Properties.Resources.blue_background;
             this.tabAbout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabAbout.Controls.Add(this.label1);
             this.tabAbout.Controls.Add(this.imgVaultBoy);
             this.tabAbout.Controls.Add(this.lblGitLink);
             this.tabAbout.Controls.Add(this.lblAbout);
@@ -366,9 +377,9 @@
             // 
             this.imgVaultBoy.BackgroundImage = global::Fallout_4_Launcher.Properties.Resources.vaultboy_thumbs;
             this.imgVaultBoy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.imgVaultBoy.Location = new System.Drawing.Point(388, 116);
+            this.imgVaultBoy.Location = new System.Drawing.Point(413, 132);
             this.imgVaultBoy.Name = "imgVaultBoy";
-            this.imgVaultBoy.Size = new System.Drawing.Size(239, 230);
+            this.imgVaultBoy.Size = new System.Drawing.Size(214, 214);
             this.imgVaultBoy.TabIndex = 5;
             this.imgVaultBoy.TabStop = false;
             this.toolTip.SetToolTip(this.imgVaultBoy, "Thanks for downloading, if you could star the repo that would be awesome!");
@@ -379,7 +390,7 @@
             this.lblGitLink.BackColor = System.Drawing.Color.Transparent;
             this.lblGitLink.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGitLink.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(120)))));
-            this.lblGitLink.Location = new System.Drawing.Point(81, 87);
+            this.lblGitLink.Location = new System.Drawing.Point(81, 108);
             this.lblGitLink.Name = "lblGitLink";
             this.lblGitLink.Size = new System.Drawing.Size(349, 21);
             this.lblGitLink.TabIndex = 4;
@@ -397,6 +408,84 @@
             this.lblAbout.Size = new System.Drawing.Size(472, 105);
             this.lblAbout.TabIndex = 3;
             this.lblAbout.Text = resources.GetString("lblAbout.Text");
+            // 
+            // btnRevertExecutables
+            // 
+            this.btnRevertExecutables.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F);
+            this.btnRevertExecutables.Location = new System.Drawing.Point(220, 3);
+            this.btnRevertExecutables.Name = "btnRevertExecutables";
+            this.btnRevertExecutables.Size = new System.Drawing.Size(109, 23);
+            this.btnRevertExecutables.TabIndex = 6;
+            this.btnRevertExecutables.Text = "Revert Executables";
+            this.toolTip.SetToolTip(this.btnRevertExecutables, "In the event the Skip Launcher option breaks, use this option");
+            this.btnRevertExecutables.UseVisualStyleBackColor = true;
+            this.btnRevertExecutables.Click += new System.EventHandler(this.btnRevertExecutables_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.label1.Location = new System.Drawing.Point(81, 129);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(295, 105);
+            this.label1.TabIndex = 6;
+            this.label1.Text = resources.GetString("label1.Text");
+            // 
+            // grpFOV
+            // 
+            this.grpFOV.BackColor = System.Drawing.Color.Transparent;
+            this.grpFOV.Controls.Add(this.label3);
+            this.grpFOV.Controls.Add(this.label2);
+            this.grpFOV.Controls.Add(this.txtFOVThirdPerson);
+            this.grpFOV.Controls.Add(this.txtFOVFirstPerson);
+            this.grpFOV.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.grpFOV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.grpFOV.Location = new System.Drawing.Point(450, 6);
+            this.grpFOV.Name = "grpFOV";
+            this.grpFOV.Size = new System.Drawing.Size(177, 90);
+            this.grpFOV.TabIndex = 6;
+            this.grpFOV.TabStop = false;
+            this.grpFOV.Text = "FOV Options";
+            // 
+            // txtFOVFirstPerson
+            // 
+            this.txtFOVFirstPerson.Location = new System.Drawing.Point(125, 24);
+            this.txtFOVFirstPerson.Name = "txtFOVFirstPerson";
+            this.txtFOVFirstPerson.Size = new System.Drawing.Size(43, 26);
+            this.txtFOVFirstPerson.TabIndex = 0;
+            this.txtFOVFirstPerson.Text = "80";
+            this.txtFOVFirstPerson.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtFOVFirstPerson.TextChanged += new System.EventHandler(this.txtFOVFirstPerson_TextChanged);
+            // 
+            // txtFOVThirdPerson
+            // 
+            this.txtFOVThirdPerson.Location = new System.Drawing.Point(125, 54);
+            this.txtFOVThirdPerson.Name = "txtFOVThirdPerson";
+            this.txtFOVThirdPerson.Size = new System.Drawing.Size(43, 26);
+            this.txtFOVThirdPerson.TabIndex = 1;
+            this.txtFOVThirdPerson.Text = "70";
+            this.txtFOVThirdPerson.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtFOVThirdPerson.TextChanged += new System.EventHandler(this.txtFOVThirdPerson_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(107, 21);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "First Person FOV:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 57);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(111, 21);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Third Person FOV:";
             // 
             // Form1
             // 
@@ -422,6 +511,8 @@
             this.tabAbout.ResumeLayout(false);
             this.tabAbout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgVaultBoy)).EndInit();
+            this.grpFOV.ResumeLayout(false);
+            this.grpFOV.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -453,8 +544,15 @@
         private System.Windows.Forms.Button btnGameLauncher;
         private System.Windows.Forms.TabPage tabAbout;
         private System.Windows.Forms.Label lblGitLink;
-        private System.Windows.Forms.Label lblAbout;
         private System.Windows.Forms.PictureBox imgVaultBoy;
+        private System.Windows.Forms.Button btnRevertExecutables;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblAbout;
+        private System.Windows.Forms.GroupBox grpFOV;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtFOVThirdPerson;
+        private System.Windows.Forms.TextBox txtFOVFirstPerson;
     }
 }
 
