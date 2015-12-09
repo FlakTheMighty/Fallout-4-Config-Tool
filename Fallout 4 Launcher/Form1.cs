@@ -172,6 +172,7 @@ namespace Fallout_4_Launcher
 
             savePluginList();
 
+            //disregard this as well
             //for (int i = listActiveMods.Items.Count - 1; i >= 0; i--)
             //{
             //    if (listActiveMods.SelectedIndex == (i))

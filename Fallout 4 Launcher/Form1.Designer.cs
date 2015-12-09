@@ -160,6 +160,7 @@
             // 
             // btnReload
             // 
+            this.btnReload.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F);
             this.btnReload.Location = new System.Drawing.Point(3, 3);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(75, 23);
@@ -171,6 +172,7 @@
             // 
             // btnGameLauncher
             // 
+            this.btnGameLauncher.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F);
             this.btnGameLauncher.Location = new System.Drawing.Point(84, 3);
             this.btnGameLauncher.Name = "btnGameLauncher";
             this.btnGameLauncher.Size = new System.Drawing.Size(130, 23);
@@ -184,11 +186,11 @@
             // 
             this.chkSkipLauncher.AutoSize = true;
             this.chkSkipLauncher.BackColor = System.Drawing.Color.Transparent;
-            this.chkSkipLauncher.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.chkSkipLauncher.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkSkipLauncher.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.chkSkipLauncher.Location = new System.Drawing.Point(8, 90);
+            this.chkSkipLauncher.Location = new System.Drawing.Point(8, 102);
             this.chkSkipLauncher.Name = "chkSkipLauncher";
-            this.chkSkipLauncher.Size = new System.Drawing.Size(116, 44);
+            this.chkSkipLauncher.Size = new System.Drawing.Size(93, 46);
             this.chkSkipLauncher.TabIndex = 4;
             this.chkSkipLauncher.Text = "Skip Game\r\n Launcher";
             this.toolTip.SetToolTip(this.chkSkipLauncher, "Renames the executables to skip the default launcher\r\n(creates a backup of origin" +
@@ -198,6 +200,7 @@
             // 
             // btnBackup
             // 
+            this.btnBackup.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F);
             this.btnBackup.Location = new System.Drawing.Point(537, 318);
             this.btnBackup.Name = "btnBackup";
             this.btnBackup.Size = new System.Drawing.Size(90, 23);
@@ -209,9 +212,10 @@
             // 
             // btnEnableMods
             // 
-            this.btnEnableMods.Location = new System.Drawing.Point(8, 48);
+            this.btnEnableMods.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnableMods.Location = new System.Drawing.Point(8, 54);
             this.btnEnableMods.Name = "btnEnableMods";
-            this.btnEnableMods.Size = new System.Drawing.Size(113, 36);
+            this.btnEnableMods.Size = new System.Drawing.Size(113, 42);
             this.btnEnableMods.TabIndex = 1;
             this.btnEnableMods.Text = "Enable Loading Mods";
             this.toolTip.SetToolTip(this.btnEnableMods, "Enables the ability to load mods by adding required lines to INI files");
@@ -220,9 +224,10 @@
             // 
             // btnSetReadOnly
             // 
+            this.btnSetReadOnly.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F);
             this.btnSetReadOnly.Location = new System.Drawing.Point(8, 6);
             this.btnSetReadOnly.Name = "btnSetReadOnly";
-            this.btnSetReadOnly.Size = new System.Drawing.Size(113, 36);
+            this.btnSetReadOnly.Size = new System.Drawing.Size(113, 42);
             this.btnSetReadOnly.TabIndex = 0;
             this.btnSetReadOnly.Text = "Toggle Read Only";
             this.toolTip.SetToolTip(this.btnSetReadOnly, "Toggles plugins.txt, Fallout4.ini, and Fallout4Prefs.ini from Read Only to Read W" +
@@ -265,7 +270,7 @@
             // txtDataDirectory
             // 
             this.txtDataDirectory.BackColor = System.Drawing.SystemColors.Control;
-            this.txtDataDirectory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDataDirectory.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDataDirectory.Location = new System.Drawing.Point(8, 17);
             this.txtDataDirectory.Name = "txtDataDirectory";
             this.txtDataDirectory.Size = new System.Drawing.Size(541, 26);
@@ -297,11 +302,11 @@
             // 
             this.lblInactiveMods.AutoSize = true;
             this.lblInactiveMods.BackColor = System.Drawing.Color.Transparent;
-            this.lblInactiveMods.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInactiveMods.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInactiveMods.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
             this.lblInactiveMods.Location = new System.Drawing.Point(383, 54);
             this.lblInactiveMods.Name = "lblInactiveMods";
-            this.lblInactiveMods.Size = new System.Drawing.Size(77, 20);
+            this.lblInactiveMods.Size = new System.Drawing.Size(60, 21);
             this.lblInactiveMods.TabIndex = 3;
             this.lblInactiveMods.Text = "Inactive:";
             // 
@@ -309,33 +314,37 @@
             // 
             this.lblActiveMods.AutoSize = true;
             this.lblActiveMods.BackColor = System.Drawing.Color.Transparent;
-            this.lblActiveMods.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActiveMods.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblActiveMods.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
             this.lblActiveMods.Location = new System.Drawing.Point(8, 54);
             this.lblActiveMods.Name = "lblActiveMods";
-            this.lblActiveMods.Size = new System.Drawing.Size(63, 20);
+            this.lblActiveMods.Size = new System.Drawing.Size(50, 21);
             this.lblActiveMods.TabIndex = 2;
             this.lblActiveMods.Text = "Active:";
             // 
             // listAvailableMods
             // 
             this.listAvailableMods.BackColor = System.Drawing.SystemColors.Control;
+            this.listAvailableMods.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listAvailableMods.FormattingEnabled = true;
+            this.listAvailableMods.ItemHeight = 16;
             this.listAvailableMods.Location = new System.Drawing.Point(387, 77);
             this.listAvailableMods.Name = "listAvailableMods";
             this.listAvailableMods.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listAvailableMods.Size = new System.Drawing.Size(240, 225);
+            this.listAvailableMods.Size = new System.Drawing.Size(240, 212);
             this.listAvailableMods.TabIndex = 1;
             // 
             // listActiveMods
             // 
             this.listActiveMods.AllowDrop = true;
             this.listActiveMods.BackColor = System.Drawing.SystemColors.Control;
+            this.listActiveMods.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listActiveMods.FormattingEnabled = true;
+            this.listActiveMods.ItemHeight = 16;
             this.listActiveMods.Location = new System.Drawing.Point(8, 77);
             this.listActiveMods.Name = "listActiveMods";
             this.listActiveMods.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listActiveMods.Size = new System.Drawing.Size(240, 225);
+            this.listActiveMods.Size = new System.Drawing.Size(240, 212);
             this.listActiveMods.TabIndex = 0;
             // 
             // tabAbout
@@ -368,11 +377,11 @@
             // 
             this.lblGitLink.AutoSize = true;
             this.lblGitLink.BackColor = System.Drawing.Color.Transparent;
-            this.lblGitLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGitLink.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGitLink.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(120)))));
-            this.lblGitLink.Location = new System.Drawing.Point(36, 83);
+            this.lblGitLink.Location = new System.Drawing.Point(81, 87);
             this.lblGitLink.Name = "lblGitLink";
-            this.lblGitLink.Size = new System.Drawing.Size(388, 16);
+            this.lblGitLink.Size = new System.Drawing.Size(349, 21);
             this.lblGitLink.TabIndex = 4;
             this.lblGitLink.Text = "https://github.com/FlakTheMighty/Fallout-4-Config-Tool";
             this.lblGitLink.Click += new System.EventHandler(this.lblGitLink_Click);
@@ -381,11 +390,11 @@
             // 
             this.lblAbout.AutoSize = true;
             this.lblAbout.BackColor = System.Drawing.Color.Transparent;
-            this.lblAbout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAbout.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAbout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.lblAbout.Location = new System.Drawing.Point(36, 3);
+            this.lblAbout.Location = new System.Drawing.Point(81, 3);
             this.lblAbout.Name = "lblAbout";
-            this.lblAbout.Size = new System.Drawing.Size(562, 80);
+            this.lblAbout.Size = new System.Drawing.Size(472, 105);
             this.lblAbout.TabIndex = 3;
             this.lblAbout.Text = resources.GetString("lblAbout.Text");
             // 
