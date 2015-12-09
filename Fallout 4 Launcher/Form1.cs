@@ -234,6 +234,12 @@ namespace Fallout_4_Launcher
             Process.Start(fallout4InstallDirectory + @"\Fallout4.exe");
         }
 
+        private void lblGitLink_Click(object sender, EventArgs e)
+        {
+            //link those friends to the repo!
+            Process.Start("https://github.com/FlakTheMighty/Fallout-4-Config-Tool");
+        }
+
         private void checkSettings()
         {
             if (Properties.Settings.Default.appdataDirectory != "")

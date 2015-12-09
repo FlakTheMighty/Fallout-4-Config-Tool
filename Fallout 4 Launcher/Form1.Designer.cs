@@ -31,13 +31,17 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl = new System.Windows.Forms.TabControl();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tabGame = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnLaunch = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.tabSettings = new System.Windows.Forms.TabPage();
-            this.btnBackup = new System.Windows.Forms.Button();
+            this.miscSettingsPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.btnReload = new System.Windows.Forms.Button();
+            this.btnGameLauncher = new System.Windows.Forms.Button();
+            this.chkSkipLauncher = new System.Windows.Forms.CheckBox();
+            this.btnBackup = new System.Windows.Forms.Button();
             this.btnEnableMods = new System.Windows.Forms.Button();
             this.btnSetReadOnly = new System.Windows.Forms.Button();
             this.tabMods = new System.Windows.Forms.TabPage();
@@ -45,21 +49,23 @@
             this.txtDataDirectory = new System.Windows.Forms.TextBox();
             this.btnDeactivateSelected = new System.Windows.Forms.Button();
             this.btnActivateSelected = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblInactiveMods = new System.Windows.Forms.Label();
+            this.lblActiveMods = new System.Windows.Forms.Label();
             this.listAvailableMods = new System.Windows.Forms.CheckedListBox();
             this.listActiveMods = new System.Windows.Forms.CheckedListBox();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.chkSkipLauncher = new System.Windows.Forms.CheckBox();
-            this.miscSettingsPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnGameLauncher = new System.Windows.Forms.Button();
+            this.tabAbout = new System.Windows.Forms.TabPage();
+            this.imgVaultBoy = new System.Windows.Forms.PictureBox();
+            this.lblGitLink = new System.Windows.Forms.Label();
+            this.lblAbout = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLaunch)).BeginInit();
             this.tabSettings.SuspendLayout();
-            this.tabMods.SuspendLayout();
             this.miscSettingsPanel.SuspendLayout();
+            this.tabMods.SuspendLayout();
+            this.tabAbout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgVaultBoy)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -67,6 +73,7 @@
             this.tabControl.Controls.Add(this.tabGame);
             this.tabControl.Controls.Add(this.tabSettings);
             this.tabControl.Controls.Add(this.tabMods);
+            this.tabControl.Controls.Add(this.tabAbout);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Name = "tabControl";
@@ -141,16 +148,15 @@
             this.tabSettings.TabIndex = 1;
             this.tabSettings.Text = "Settings";
             // 
-            // btnBackup
+            // miscSettingsPanel
             // 
-            this.btnBackup.Location = new System.Drawing.Point(537, 318);
-            this.btnBackup.Name = "btnBackup";
-            this.btnBackup.Size = new System.Drawing.Size(90, 23);
-            this.btnBackup.TabIndex = 3;
-            this.btnBackup.Text = "Backup Configs";
-            this.toolTip.SetToolTip(this.btnBackup, "Creates a copy of your config files located\r\nin the same folder as the original.");
-            this.btnBackup.UseVisualStyleBackColor = true;
-            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
+            this.miscSettingsPanel.BackColor = System.Drawing.Color.Transparent;
+            this.miscSettingsPanel.Controls.Add(this.btnReload);
+            this.miscSettingsPanel.Controls.Add(this.btnGameLauncher);
+            this.miscSettingsPanel.Location = new System.Drawing.Point(8, 315);
+            this.miscSettingsPanel.Name = "miscSettingsPanel";
+            this.miscSettingsPanel.Size = new System.Drawing.Size(321, 28);
+            this.miscSettingsPanel.TabIndex = 5;
             // 
             // btnReload
             // 
@@ -162,6 +168,44 @@
             this.toolTip.SetToolTip(this.btnReload, "Reloads any file loaded by the launcher(configs)");
             this.btnReload.UseVisualStyleBackColor = true;
             this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
+            // 
+            // btnGameLauncher
+            // 
+            this.btnGameLauncher.Location = new System.Drawing.Point(84, 3);
+            this.btnGameLauncher.Name = "btnGameLauncher";
+            this.btnGameLauncher.Size = new System.Drawing.Size(130, 23);
+            this.btnGameLauncher.TabIndex = 3;
+            this.btnGameLauncher.Text = "Open Game Launcher";
+            this.btnGameLauncher.UseVisualStyleBackColor = true;
+            this.btnGameLauncher.Visible = false;
+            this.btnGameLauncher.Click += new System.EventHandler(this.btnGameLauncher_Click);
+            // 
+            // chkSkipLauncher
+            // 
+            this.chkSkipLauncher.AutoSize = true;
+            this.chkSkipLauncher.BackColor = System.Drawing.Color.Transparent;
+            this.chkSkipLauncher.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.chkSkipLauncher.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.chkSkipLauncher.Location = new System.Drawing.Point(8, 90);
+            this.chkSkipLauncher.Name = "chkSkipLauncher";
+            this.chkSkipLauncher.Size = new System.Drawing.Size(116, 44);
+            this.chkSkipLauncher.TabIndex = 4;
+            this.chkSkipLauncher.Text = "Skip Game\r\n Launcher";
+            this.toolTip.SetToolTip(this.chkSkipLauncher, "Renames the executables to skip the default launcher\r\n(creates a backup of origin" +
+        "al two files)");
+            this.chkSkipLauncher.UseVisualStyleBackColor = false;
+            this.chkSkipLauncher.CheckedChanged += new System.EventHandler(this.chkSkipLauncher_CheckedChanged);
+            // 
+            // btnBackup
+            // 
+            this.btnBackup.Location = new System.Drawing.Point(537, 318);
+            this.btnBackup.Name = "btnBackup";
+            this.btnBackup.Size = new System.Drawing.Size(90, 23);
+            this.btnBackup.TabIndex = 3;
+            this.btnBackup.Text = "Backup Configs";
+            this.toolTip.SetToolTip(this.btnBackup, "Creates a copy of your config files located\r\nin the same folder as the original.");
+            this.btnBackup.UseVisualStyleBackColor = true;
+            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
             // 
             // btnEnableMods
             // 
@@ -195,8 +239,8 @@
             this.tabMods.Controls.Add(this.txtDataDirectory);
             this.tabMods.Controls.Add(this.btnDeactivateSelected);
             this.tabMods.Controls.Add(this.btnActivateSelected);
-            this.tabMods.Controls.Add(this.label2);
-            this.tabMods.Controls.Add(this.label1);
+            this.tabMods.Controls.Add(this.lblInactiveMods);
+            this.tabMods.Controls.Add(this.lblActiveMods);
             this.tabMods.Controls.Add(this.listAvailableMods);
             this.tabMods.Controls.Add(this.listActiveMods);
             this.tabMods.Location = new System.Drawing.Point(4, 22);
@@ -249,29 +293,29 @@
             this.btnActivateSelected.UseVisualStyleBackColor = true;
             this.btnActivateSelected.Click += new System.EventHandler(this.btnActivateSelected_Click);
             // 
-            // label2
+            // lblInactiveMods
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.label2.Location = new System.Drawing.Point(383, 54);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Inactive:";
+            this.lblInactiveMods.AutoSize = true;
+            this.lblInactiveMods.BackColor = System.Drawing.Color.Transparent;
+            this.lblInactiveMods.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInactiveMods.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.lblInactiveMods.Location = new System.Drawing.Point(383, 54);
+            this.lblInactiveMods.Name = "lblInactiveMods";
+            this.lblInactiveMods.Size = new System.Drawing.Size(77, 20);
+            this.lblInactiveMods.TabIndex = 3;
+            this.lblInactiveMods.Text = "Inactive:";
             // 
-            // label1
+            // lblActiveMods
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.label1.Location = new System.Drawing.Point(8, 54);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 20);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Active:";
+            this.lblActiveMods.AutoSize = true;
+            this.lblActiveMods.BackColor = System.Drawing.Color.Transparent;
+            this.lblActiveMods.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActiveMods.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.lblActiveMods.Location = new System.Drawing.Point(8, 54);
+            this.lblActiveMods.Name = "lblActiveMods";
+            this.lblActiveMods.Size = new System.Drawing.Size(63, 20);
+            this.lblActiveMods.TabIndex = 2;
+            this.lblActiveMods.Text = "Active:";
             // 
             // listAvailableMods
             // 
@@ -292,42 +336,56 @@
             this.listActiveMods.Size = new System.Drawing.Size(240, 229);
             this.listActiveMods.TabIndex = 0;
             // 
-            // chkSkipLauncher
+            // tabAbout
             // 
-            this.chkSkipLauncher.AutoSize = true;
-            this.chkSkipLauncher.BackColor = System.Drawing.Color.Transparent;
-            this.chkSkipLauncher.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.chkSkipLauncher.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.chkSkipLauncher.Location = new System.Drawing.Point(8, 90);
-            this.chkSkipLauncher.Name = "chkSkipLauncher";
-            this.chkSkipLauncher.Size = new System.Drawing.Size(116, 44);
-            this.chkSkipLauncher.TabIndex = 4;
-            this.chkSkipLauncher.Text = "Skip Game\r\n Launcher";
-            this.toolTip.SetToolTip(this.chkSkipLauncher, "Renames the executables to skip the default launcher\r\n(creates a backup of origin" +
-        "al two files)");
-            this.chkSkipLauncher.UseVisualStyleBackColor = false;
-            this.chkSkipLauncher.CheckedChanged += new System.EventHandler(this.chkSkipLauncher_CheckedChanged);
+            this.tabAbout.BackgroundImage = global::Fallout_4_Launcher.Properties.Resources.blue_background;
+            this.tabAbout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabAbout.Controls.Add(this.imgVaultBoy);
+            this.tabAbout.Controls.Add(this.lblGitLink);
+            this.tabAbout.Controls.Add(this.lblAbout);
+            this.tabAbout.Location = new System.Drawing.Point(4, 22);
+            this.tabAbout.Name = "tabAbout";
+            this.tabAbout.Padding = new System.Windows.Forms.Padding(3);
+            this.tabAbout.Size = new System.Drawing.Size(635, 349);
+            this.tabAbout.TabIndex = 3;
+            this.tabAbout.Text = "About";
+            this.tabAbout.UseVisualStyleBackColor = true;
             // 
-            // miscSettingsPanel
+            // imgVaultBoy
             // 
-            this.miscSettingsPanel.BackColor = System.Drawing.Color.Transparent;
-            this.miscSettingsPanel.Controls.Add(this.btnReload);
-            this.miscSettingsPanel.Controls.Add(this.btnGameLauncher);
-            this.miscSettingsPanel.Location = new System.Drawing.Point(8, 315);
-            this.miscSettingsPanel.Name = "miscSettingsPanel";
-            this.miscSettingsPanel.Size = new System.Drawing.Size(321, 28);
-            this.miscSettingsPanel.TabIndex = 5;
+            this.imgVaultBoy.BackgroundImage = global::Fallout_4_Launcher.Properties.Resources.vaultboy_thumbs;
+            this.imgVaultBoy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgVaultBoy.Location = new System.Drawing.Point(388, 116);
+            this.imgVaultBoy.Name = "imgVaultBoy";
+            this.imgVaultBoy.Size = new System.Drawing.Size(239, 230);
+            this.imgVaultBoy.TabIndex = 5;
+            this.imgVaultBoy.TabStop = false;
+            this.toolTip.SetToolTip(this.imgVaultBoy, "Thanks for downloading, if you could star the repo that would be awesome!");
             // 
-            // btnGameLauncher
+            // lblGitLink
             // 
-            this.btnGameLauncher.Location = new System.Drawing.Point(84, 3);
-            this.btnGameLauncher.Name = "btnGameLauncher";
-            this.btnGameLauncher.Size = new System.Drawing.Size(130, 23);
-            this.btnGameLauncher.TabIndex = 3;
-            this.btnGameLauncher.Text = "Open Game Launcher";
-            this.btnGameLauncher.UseVisualStyleBackColor = true;
-            this.btnGameLauncher.Visible = false;
-            this.btnGameLauncher.Click += new System.EventHandler(this.btnGameLauncher_Click);
+            this.lblGitLink.AutoSize = true;
+            this.lblGitLink.BackColor = System.Drawing.Color.Transparent;
+            this.lblGitLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGitLink.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(120)))));
+            this.lblGitLink.Location = new System.Drawing.Point(36, 83);
+            this.lblGitLink.Name = "lblGitLink";
+            this.lblGitLink.Size = new System.Drawing.Size(388, 16);
+            this.lblGitLink.TabIndex = 4;
+            this.lblGitLink.Text = "https://github.com/FlakTheMighty/Fallout-4-Config-Tool";
+            this.lblGitLink.Click += new System.EventHandler(this.lblGitLink_Click);
+            // 
+            // lblAbout
+            // 
+            this.lblAbout.AutoSize = true;
+            this.lblAbout.BackColor = System.Drawing.Color.Transparent;
+            this.lblAbout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAbout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.lblAbout.Location = new System.Drawing.Point(36, 3);
+            this.lblAbout.Name = "lblAbout";
+            this.lblAbout.Size = new System.Drawing.Size(562, 80);
+            this.lblAbout.TabIndex = 3;
+            this.lblAbout.Text = resources.GetString("lblAbout.Text");
             // 
             // Form1
             // 
@@ -347,9 +405,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnLaunch)).EndInit();
             this.tabSettings.ResumeLayout(false);
             this.tabSettings.PerformLayout();
+            this.miscSettingsPanel.ResumeLayout(false);
             this.tabMods.ResumeLayout(false);
             this.tabMods.PerformLayout();
-            this.miscSettingsPanel.ResumeLayout(false);
+            this.tabAbout.ResumeLayout(false);
+            this.tabAbout.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgVaultBoy)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -364,8 +425,8 @@
         private System.Windows.Forms.Button btnSetReadOnly;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.TabPage tabMods;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblInactiveMods;
+        private System.Windows.Forms.Label lblActiveMods;
         private System.Windows.Forms.CheckedListBox listAvailableMods;
         private System.Windows.Forms.CheckedListBox listActiveMods;
         private System.Windows.Forms.Button btnDeactivateSelected;
@@ -379,6 +440,10 @@
         private System.Windows.Forms.CheckBox chkSkipLauncher;
         private System.Windows.Forms.FlowLayoutPanel miscSettingsPanel;
         private System.Windows.Forms.Button btnGameLauncher;
+        private System.Windows.Forms.TabPage tabAbout;
+        private System.Windows.Forms.Label lblGitLink;
+        private System.Windows.Forms.Label lblAbout;
+        private System.Windows.Forms.PictureBox imgVaultBoy;
     }
 }
 

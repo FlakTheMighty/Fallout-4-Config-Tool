@@ -109,5 +109,15 @@ namespace Fallout_4_Launcher.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vaultboy_thumbs {
+            get {
+                object obj = ResourceManager.GetObject("vaultboy_thumbs", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

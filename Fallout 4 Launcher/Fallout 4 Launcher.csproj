@@ -97,6 +97,7 @@
     <None Include="img\fallout4-logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="img\vaultboy_thumbs.png" />
     <Content Include="vault_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
