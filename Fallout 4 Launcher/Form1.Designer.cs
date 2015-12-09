@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tabGame = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnLaunch = new System.Windows.Forms.PictureBox();
@@ -51,12 +50,13 @@
             this.btnActivateSelected = new System.Windows.Forms.Button();
             this.lblInactiveMods = new System.Windows.Forms.Label();
             this.lblActiveMods = new System.Windows.Forms.Label();
-            this.listAvailableMods = new System.Windows.Forms.CheckedListBox();
-            this.listActiveMods = new System.Windows.Forms.CheckedListBox();
+            this.listAvailableMods = new System.Windows.Forms.ListBox();
+            this.listActiveMods = new System.Windows.Forms.ListBox();
             this.tabAbout = new System.Windows.Forms.TabPage();
             this.imgVaultBoy = new System.Windows.Forms.PictureBox();
             this.lblGitLink = new System.Windows.Forms.Label();
             this.lblAbout = new System.Windows.Forms.Label();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tabControl.SuspendLayout();
             this.tabGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -323,7 +323,8 @@
             this.listAvailableMods.FormattingEnabled = true;
             this.listAvailableMods.Location = new System.Drawing.Point(387, 77);
             this.listAvailableMods.Name = "listAvailableMods";
-            this.listAvailableMods.Size = new System.Drawing.Size(240, 229);
+            this.listAvailableMods.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.listAvailableMods.Size = new System.Drawing.Size(240, 225);
             this.listAvailableMods.TabIndex = 1;
             // 
             // listActiveMods
@@ -333,7 +334,8 @@
             this.listActiveMods.FormattingEnabled = true;
             this.listActiveMods.Location = new System.Drawing.Point(8, 77);
             this.listActiveMods.Name = "listActiveMods";
-            this.listActiveMods.Size = new System.Drawing.Size(240, 229);
+            this.listActiveMods.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.listActiveMods.Size = new System.Drawing.Size(240, 225);
             this.listActiveMods.TabIndex = 0;
             // 
             // tabAbout
@@ -427,8 +429,8 @@
         private System.Windows.Forms.TabPage tabMods;
         private System.Windows.Forms.Label lblInactiveMods;
         private System.Windows.Forms.Label lblActiveMods;
-        private System.Windows.Forms.CheckedListBox listAvailableMods;
-        private System.Windows.Forms.CheckedListBox listActiveMods;
+        private System.Windows.Forms.ListBox listAvailableMods;
+        private System.Windows.Forms.ListBox listActiveMods;
         private System.Windows.Forms.Button btnDeactivateSelected;
         private System.Windows.Forms.Button btnActivateSelected;
         private System.Windows.Forms.PictureBox pictureBox1;

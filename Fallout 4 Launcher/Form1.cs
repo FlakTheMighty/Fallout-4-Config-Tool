@@ -114,24 +114,37 @@ namespace Fallout_4_Launcher
         private void btnActivateSelected_Click(object sender, EventArgs e)
         {
             makeFilesReadWrite();
-            for (int i = listAvailableMods.Items.Count - 1; i >= 0; i--)
+            ListBox.SelectedObjectCollection sourceItems = listAvailableMods.SelectedItems;
+
+            foreach (var item in sourceItems)
             {
-                if (listAvailableMods.GetItemCheckState(i) == CheckState.Checked)
-                {
-                    //removeFromPlugins(listAvailableMods.Items[i].ToString());
-
-                    addToPlugins(listAvailableMods.Items[i].ToString());
-
-                    listActiveMods.Items.Add(listAvailableMods.Items[i]);
-
-                    listActiveMods.ClearSelected();
-
-                    listAvailableMods.Items.Remove(listAvailableMods.Items[i]);
-
-                    savePluginList();
-
-                }
+                listActiveMods.Items.Add(item);
+                addToPlugins(item.ToString());
+                Console.WriteLine(pluginList);
             }
+            while (listAvailableMods.SelectedItems.Count > 0)
+            {
+                listAvailableMods.Items.Remove(listAvailableMods.SelectedItems[0]);
+            }
+            
+            savePluginList();
+
+            //disregard this long chain of comments
+            //for (int i = listAvailableMods.Items.Count - 1; i >= 0; i--)
+            //{
+            //    if (listAvailableMods.SelectedIndex == (i))
+            //    {
+            //        
+            //        listActiveMods.Items.Add(listAvailableMods.Items[i]);
+
+            //        listActiveMods.ClearSelected();
+
+            //        listAvailableMods.Items.Remove(listAvailableMods.Items[i]);
+
+            //        
+
+            //    }
+            //}
 
             //addto plugins.txt
 
@@ -144,22 +157,37 @@ namespace Fallout_4_Launcher
         private void btnDeactivateSelected_Click(object sender, EventArgs e)
         {
             makeFilesReadWrite();
-            for (int i = listActiveMods.Items.Count - 1; i >= 0; i--)
+
+            ListBox.SelectedObjectCollection sourceItems = listActiveMods.SelectedItems;
+
+            foreach (var item in sourceItems)
             {
-                if (listActiveMods.GetItemCheckState(i) == CheckState.Checked)
-                {
-                    removeFromPlugins(listActiveMods.Items[i].ToString());
-
-                    listAvailableMods.Items.Add(listActiveMods.Items[i]);
-
-                    listAvailableMods.ClearSelected();
-
-                    listActiveMods.Items.Remove(listActiveMods.Items[i]);
-
-                    savePluginList();
-
-                }
+                listAvailableMods.Items.Add(item);
+                removeFromPlugins(item.ToString());
             }
+            while (listActiveMods.SelectedItems.Count > 0)
+            {
+                listActiveMods.Items.Remove(listActiveMods.SelectedItems[0]);
+            }
+
+            savePluginList();
+
+            //for (int i = listActiveMods.Items.Count - 1; i >= 0; i--)
+            //{
+            //    if (listActiveMods.SelectedIndex == (i))
+            //    {
+            //        removeFromPlugins(listActiveMods.Items[i].ToString());
+
+            //        listAvailableMods.Items.Add(listActiveMods.Items[i]);
+
+            //        listAvailableMods.ClearSelected();
+
+            //        listActiveMods.Items.Remove(listActiveMods.Items[i]);
+
+            //        savePluginList();
+
+            //    }
+            //}
 
             //remove from plugins.txt
 
