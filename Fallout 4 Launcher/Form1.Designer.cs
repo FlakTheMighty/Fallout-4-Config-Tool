@@ -32,10 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabGame = new System.Windows.Forms.TabPage();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.imgFallout4 = new System.Windows.Forms.PictureBox();
             this.btnLaunch = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.tabSettings = new System.Windows.Forms.TabPage();
+            this.cmbDifficulty = new System.Windows.Forms.ComboBox();
+            this.chkCompanionApp = new System.Windows.Forms.CheckBox();
             this.grpFOV = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -64,9 +66,11 @@
             this.lblGitLink = new System.Windows.Forms.Label();
             this.lblAbout = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.lblDifficulty = new System.Windows.Forms.Label();
+            this.grpGeneral = new System.Windows.Forms.GroupBox();
             this.tabControl.SuspendLayout();
             this.tabGame.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgFallout4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLaunch)).BeginInit();
             this.tabSettings.SuspendLayout();
             this.grpFOV.SuspendLayout();
@@ -74,6 +78,7 @@
             this.tabMods.SuspendLayout();
             this.tabAbout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgVaultBoy)).BeginInit();
+            this.grpGeneral.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -94,7 +99,7 @@
             this.tabGame.BackColor = System.Drawing.SystemColors.Control;
             this.tabGame.BackgroundImage = global::Fallout_4_Launcher.Properties.Resources.blue_background;
             this.tabGame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabGame.Controls.Add(this.pictureBox1);
+            this.tabGame.Controls.Add(this.imgFallout4);
             this.tabGame.Controls.Add(this.btnLaunch);
             this.tabGame.Controls.Add(this.button1);
             this.tabGame.Location = new System.Drawing.Point(4, 22);
@@ -104,16 +109,16 @@
             this.tabGame.TabIndex = 0;
             this.tabGame.Text = "Game";
             // 
-            // pictureBox1
+            // imgFallout4
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::Fallout_4_Launcher.Properties.Resources.fallout4_logo;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 269);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(222, 80);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.imgFallout4.BackColor = System.Drawing.Color.Transparent;
+            this.imgFallout4.BackgroundImage = global::Fallout_4_Launcher.Properties.Resources.fallout4_logo;
+            this.imgFallout4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgFallout4.Location = new System.Drawing.Point(0, 269);
+            this.imgFallout4.Name = "imgFallout4";
+            this.imgFallout4.Size = new System.Drawing.Size(222, 80);
+            this.imgFallout4.TabIndex = 2;
+            this.imgFallout4.TabStop = false;
             // 
             // btnLaunch
             // 
@@ -144,6 +149,7 @@
             this.tabSettings.BackColor = System.Drawing.SystemColors.Control;
             this.tabSettings.BackgroundImage = global::Fallout_4_Launcher.Properties.Resources.blue_background;
             this.tabSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabSettings.Controls.Add(this.grpGeneral);
             this.tabSettings.Controls.Add(this.grpFOV);
             this.tabSettings.Controls.Add(this.miscSettingsPanel);
             this.tabSettings.Controls.Add(this.chkSkipLauncher);
@@ -157,6 +163,38 @@
             this.tabSettings.TabIndex = 1;
             this.tabSettings.Text = "Settings";
             // 
+            // cmbDifficulty
+            // 
+            this.cmbDifficulty.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F);
+            this.cmbDifficulty.FormattingEnabled = true;
+            this.cmbDifficulty.Items.AddRange(new object[] {
+            "Very Easy",
+            "Easy",
+            "Normal",
+            "Hard",
+            "Very Hard",
+            "Survival"});
+            this.cmbDifficulty.Location = new System.Drawing.Point(7, 44);
+            this.cmbDifficulty.Name = "cmbDifficulty";
+            this.cmbDifficulty.Size = new System.Drawing.Size(177, 25);
+            this.cmbDifficulty.TabIndex = 8;
+            this.cmbDifficulty.SelectedIndexChanged += new System.EventHandler(this.cmbDifficulty_SelectedIndexChanged);
+            // 
+            // chkCompanionApp
+            // 
+            this.chkCompanionApp.AutoSize = true;
+            this.chkCompanionApp.BackColor = System.Drawing.Color.Transparent;
+            this.chkCompanionApp.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkCompanionApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.chkCompanionApp.Location = new System.Drawing.Point(7, 75);
+            this.chkCompanionApp.Name = "chkCompanionApp";
+            this.chkCompanionApp.Size = new System.Drawing.Size(122, 25);
+            this.chkCompanionApp.TabIndex = 7;
+            this.chkCompanionApp.Text = "Companion App";
+            this.toolTip.SetToolTip(this.chkCompanionApp, "Enables the companion app");
+            this.chkCompanionApp.UseVisualStyleBackColor = false;
+            this.chkCompanionApp.CheckedChanged += new System.EventHandler(this.chkCompanionApp_CheckedChanged);
+            // 
             // grpFOV
             // 
             this.grpFOV.BackColor = System.Drawing.Color.Transparent;
@@ -166,9 +204,9 @@
             this.grpFOV.Controls.Add(this.txtFOVFirstPerson);
             this.grpFOV.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
             this.grpFOV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.grpFOV.Location = new System.Drawing.Point(450, 6);
+            this.grpFOV.Location = new System.Drawing.Point(434, 6);
             this.grpFOV.Name = "grpFOV";
-            this.grpFOV.Size = new System.Drawing.Size(177, 90);
+            this.grpFOV.Size = new System.Drawing.Size(193, 90);
             this.grpFOV.TabIndex = 6;
             this.grpFOV.TabStop = false;
             this.grpFOV.Text = "FOV Options";
@@ -176,7 +214,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 57);
+            this.label3.Location = new System.Drawing.Point(16, 57);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(111, 21);
             this.label3.TabIndex = 3;
@@ -185,7 +223,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 27);
+            this.label2.Location = new System.Drawing.Point(16, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 21);
             this.label2.TabIndex = 2;
@@ -193,7 +231,7 @@
             // 
             // txtFOVThirdPerson
             // 
-            this.txtFOVThirdPerson.Location = new System.Drawing.Point(125, 54);
+            this.txtFOVThirdPerson.Location = new System.Drawing.Point(133, 54);
             this.txtFOVThirdPerson.Name = "txtFOVThirdPerson";
             this.txtFOVThirdPerson.Size = new System.Drawing.Size(43, 26);
             this.txtFOVThirdPerson.TabIndex = 1;
@@ -203,7 +241,7 @@
             // 
             // txtFOVFirstPerson
             // 
-            this.txtFOVFirstPerson.Location = new System.Drawing.Point(125, 24);
+            this.txtFOVFirstPerson.Location = new System.Drawing.Point(133, 24);
             this.txtFOVFirstPerson.Name = "txtFOVFirstPerson";
             this.txtFOVFirstPerson.Size = new System.Drawing.Size(43, 26);
             this.txtFOVFirstPerson.TabIndex = 0;
@@ -487,6 +525,33 @@
             this.lblAbout.TabIndex = 3;
             this.lblAbout.Text = resources.GetString("lblAbout.Text");
             // 
+            // lblDifficulty
+            // 
+            this.lblDifficulty.AutoSize = true;
+            this.lblDifficulty.BackColor = System.Drawing.Color.Transparent;
+            this.lblDifficulty.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.lblDifficulty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.lblDifficulty.Location = new System.Drawing.Point(3, 20);
+            this.lblDifficulty.Name = "lblDifficulty";
+            this.lblDifficulty.Size = new System.Drawing.Size(67, 21);
+            this.lblDifficulty.TabIndex = 9;
+            this.lblDifficulty.Text = "Difficulty:";
+            // 
+            // grpGeneral
+            // 
+            this.grpGeneral.BackColor = System.Drawing.Color.Transparent;
+            this.grpGeneral.Controls.Add(this.lblDifficulty);
+            this.grpGeneral.Controls.Add(this.chkCompanionApp);
+            this.grpGeneral.Controls.Add(this.cmbDifficulty);
+            this.grpGeneral.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.grpGeneral.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.grpGeneral.Location = new System.Drawing.Point(434, 102);
+            this.grpGeneral.Name = "grpGeneral";
+            this.grpGeneral.Size = new System.Drawing.Size(193, 111);
+            this.grpGeneral.TabIndex = 7;
+            this.grpGeneral.TabStop = false;
+            this.grpGeneral.Text = "General Options";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -501,7 +566,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl.ResumeLayout(false);
             this.tabGame.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgFallout4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLaunch)).EndInit();
             this.tabSettings.ResumeLayout(false);
             this.tabSettings.PerformLayout();
@@ -513,6 +578,8 @@
             this.tabAbout.ResumeLayout(false);
             this.tabAbout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgVaultBoy)).EndInit();
+            this.grpGeneral.ResumeLayout(false);
+            this.grpGeneral.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -533,7 +600,7 @@
         private System.Windows.Forms.ListBox listActiveMods;
         private System.Windows.Forms.Button btnDeactivateSelected;
         private System.Windows.Forms.Button btnActivateSelected;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox imgFallout4;
         private System.Windows.Forms.Button btnReload;
         private System.Windows.Forms.Button btnEnableMods;
         private System.Windows.Forms.TextBox txtDataDirectory;
@@ -553,6 +620,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtFOVThirdPerson;
         private System.Windows.Forms.TextBox txtFOVFirstPerson;
+        private System.Windows.Forms.CheckBox chkCompanionApp;
+        private System.Windows.Forms.ComboBox cmbDifficulty;
+        private System.Windows.Forms.Label lblDifficulty;
+        private System.Windows.Forms.GroupBox grpGeneral;
     }
 }
 

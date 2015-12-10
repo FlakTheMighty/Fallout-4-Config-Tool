@@ -35,7 +35,7 @@ namespace Fallout_4_Launcher
 
         private void btnLaunch_Click(object sender, EventArgs e)
         {
-            if (chkSkipLauncher.Checked && !Properties.Settings.Default.skipLauncher)
+            if (chkSkipLauncher.Checked)
             {
                 //temporarily name Fallout4Launcher to a temporary name so we can rename Fallout4 to Fallout4Launcher
                 File.Move(fallout4InstallDirectory + @"\Fallout4Launcher.exe", fallout4InstallDirectory + @"\Fallout4-t.exe");
@@ -333,6 +333,15 @@ namespace Fallout_4_Launcher
                 chkSkipLauncher.Checked = false;
             }
 
+            if (Properties.Settings.Default.companionApp)
+            {
+                chkCompanionApp.Checked = true;
+            }
+            else
+            {
+                chkCompanionApp.Checked = false;
+            }
+
             if (Properties.Settings.Default.firstPersonFOV != 80)
             {
                 txtFOVFirstPerson.Text = Properties.Settings.Default.firstPersonFOV.ToString();
@@ -341,6 +350,18 @@ namespace Fallout_4_Launcher
             {
                 txtFOVThirdPerson.Text = Properties.Settings.Default.thirdPersonFOV.ToString();
             }
+
+            int indexOfDifficulty = -1;
+            foreach (string line in fallout4Prefs)
+            {
+                indexOfDifficulty++;
+                if (line.Contains("iDifficulty="))
+                {
+                    break;
+                }
+            }
+
+            cmbDifficulty.SelectedIndex = Convert.ToInt32(fallout4Prefs[indexOfDifficulty].Substring(12));
         }
 
         private void loadPluginList()
@@ -518,6 +539,44 @@ namespace Fallout_4_Launcher
             }
         }
 
+        private void chkCompanionApp_CheckedChanged(object sender, EventArgs e)
+        {
+            int indexOfCompanionApp = -1;
+            foreach (string line in fallout4Prefs)
+            {
+                indexOfCompanionApp++;
+                if (line.Contains("bPipboyCompanionEnabled="))
+                {
+                    break;
+                }
+            }
+
+            if (chkCompanionApp.Checked)
+            {
+                Properties.Settings.Default.companionApp = true;
+                Properties.Settings.Default.Save();
+
+                //remove the item at index of whatever "fDefaultWorldFOV=" is
+                fallout4Prefs.RemoveAt(indexOfCompanionApp);
+                //add new copy with
+                fallout4Prefs.Insert(indexOfCompanionApp, "bPipboyCompanionEnabled=" + 1);
+            }
+            else
+            {
+                chkCompanionApp.Checked = false;
+                Properties.Settings.Default.companionApp = false;
+                Properties.Settings.Default.Save();
+
+                //remove the item at index of whatever "bPipboyCompanionEnabled=" is
+                fallout4Prefs.RemoveAt(indexOfCompanionApp);
+                //add new copy
+                fallout4Prefs.Insert(indexOfCompanionApp, "bPipboyCompanionEnabled=" + 0);
+            }
+            makeFilesReadWrite();
+            File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4Prefs.ini", fallout4Prefs);
+            makeFilesReadOnly();
+        }
+
         private void txtFOVFirstPerson_TextChanged(object sender, EventArgs e)
         {
             int indexOfFirstPersonFOV = -1;
@@ -588,6 +647,27 @@ namespace Fallout_4_Launcher
 
             makeFilesReadWrite();
             File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4.ini", fallout4);
+            makeFilesReadOnly();
+        }
+
+        private void cmbDifficulty_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int indexOfDifficulty = -1;
+            foreach (string line in fallout4Prefs)
+            {
+                indexOfDifficulty++;
+                if (line.Contains("iDifficulty="))
+                {
+                    break;
+                }
+            }
+
+            //remove the item at index of whatever "iDifficulty=" is
+            fallout4Prefs.RemoveAt(indexOfDifficulty);
+            //add new copy with
+            fallout4Prefs.Insert(indexOfDifficulty, "iDifficulty=" + cmbDifficulty.SelectedIndex);
+            makeFilesReadWrite();
+            File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4Prefs.ini", fallout4Prefs);
             makeFilesReadOnly();
         }
     }

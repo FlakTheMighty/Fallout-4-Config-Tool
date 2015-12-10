@@ -20,5 +20,8 @@
     <Setting Name="thirdPersonFOV" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">70</Value>
     </Setting>
+    <Setting Name="companionApp" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
