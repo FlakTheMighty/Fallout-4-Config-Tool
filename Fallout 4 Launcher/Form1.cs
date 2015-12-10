@@ -582,11 +582,17 @@ namespace Fallout_4_Launcher
             int indexOfFirstPersonFOV = -1;
             foreach (string line in fallout4)
             {
-                indexOfFirstPersonFOV++;
-                if (line.Contains("fDefault1stPersonFOV="))
+                indexOfFirstPersonFOV++;//"fDefault1stPersonFOV="
+                if (line.Contains("[Display]"))
                 {
+                    indexOfFirstPersonFOV++;
                     break;
                 }
+            }
+
+            if (!fallout4[indexOfFirstPersonFOV].Contains("fDefault1stPersonFOV="))
+            {
+                fallout4.Insert(indexOfFirstPersonFOV, "fDefault1stPersonFOV=");
             }
 
             //make sure the value is only an int
@@ -618,11 +624,18 @@ namespace Fallout_4_Launcher
             int indexOfThirdPersonFOV = -1;
             foreach (string line in fallout4)
             {
-                indexOfThirdPersonFOV++;
-                if (line.Contains("fDefaultWorldFOV="))
+                indexOfThirdPersonFOV++;//fDefaultWorldFOV=
+                if (line.Contains("[Display]"))
                 {
+                    indexOfThirdPersonFOV += 2;
+
                     break;
                 }
+            }
+
+            if (!fallout4[indexOfThirdPersonFOV].Contains("fDefaultWorldFOV="))
+            {
+                fallout4.Insert(indexOfThirdPersonFOV, "fDefaultWorldFOV=");
             }
 
             //make sure the value is only an int
