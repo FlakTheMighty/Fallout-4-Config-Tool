@@ -76,6 +76,8 @@ namespace Fallout_4_Launcher
             loadFallout4Prefs();
             loadFallout4();
 
+            checkFileSensitiveSettings();
+
             txtDataDirectory.Text = fallout4InstallDirectory + @"\Data";
             Properties.Settings.Default.Save();
         }
@@ -321,7 +323,10 @@ namespace Fallout_4_Launcher
                 fallout4AppDataDirectory = fallout4AppDataDirectory.Remove(fallout4AppDataDirectory.IndexOf("Roaming"), 7);
                 Properties.Settings.Default.appdataDirectory = fallout4AppDataDirectory;
             }
+        }
 
+        private void checkFileSensitiveSettings()
+        {
             if (Properties.Settings.Default.skipLauncher)
             {
                 chkSkipLauncher.Checked = true;
@@ -518,17 +523,22 @@ namespace Fallout_4_Launcher
 
         private void txtFOVFirstPerson_TextChanged(object sender, EventArgs e)
         {
-            //if the ini already has it, we don't need it
-            if (!fallout4.Contains("fDefault1stPersonFOV="))
+            int indexOfFirstPersonFOV = -1;
+            foreach (string line in fallout4)
             {
-                fallout4.Insert(fallout4.IndexOf("[Display]") + 1, "fDefault1stPersonFOV=" + 80);
+                indexOfFirstPersonFOV++;
+                if (line.Contains("fDefault1stPersonFOV="))
+                {
+                    break;
+                }
             }
 
             //make sure the value is only an int
             int parsedValue;
             if (!int.TryParse(txtFOVFirstPerson.Text, out parsedValue))
             {
-                txtFOVFirstPerson.Text = "80";
+                txtFOVFirstPerson.Text = Properties.Settings.Default.firstPersonFOV.ToString();
+                parsedValue = 80;
             }
 
             //don't rewrite to the ini if we don't have to
@@ -536,32 +546,35 @@ namespace Fallout_4_Launcher
             {
                 Properties.Settings.Default.firstPersonFOV = parsedValue;
                 Properties.Settings.Default.Save();
-
                 //remove the item at index of whatever "fDefault1stPersonFOV=" is
-                fallout4.RemoveAll(i => i.StartsWith("fDefault1stPersonFOV="));
+                fallout4.RemoveAt(indexOfFirstPersonFOV);
                 //add new copy with the parsed value
-                fallout4.Insert(fallout4.IndexOf("[Display]") + 1, "fDefault1stPersonFOV=" + parsedValue);
+                fallout4.Insert(indexOfFirstPersonFOV, "fDefault1stPersonFOV=" + parsedValue);
             }
 
             makeFilesReadWrite();
             File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4.ini", fallout4);
             makeFilesReadOnly();
-
         }
 
         private void txtFOVThirdPerson_TextChanged(object sender, EventArgs e)
         {
-            //if the ini already has it, we don't need it
-            if (!fallout4.Contains("fDefaultWorldFOV="))
+            int indexOfThirdPersonFOV = -1;
+            foreach (string line in fallout4)
             {
-                fallout4.Insert(fallout4.IndexOf("[Display]") + 1, "fDefaultWorldFOV=" + 70);
+                indexOfThirdPersonFOV++;
+                if (line.Contains("fDefaultWorldFOV="))
+                {
+                    break;
+                }
             }
 
             //make sure the value is only an int
             int parsedValue;
             if (!int.TryParse(txtFOVThirdPerson.Text, out parsedValue))
             {
-                txtFOVThirdPerson.Text = "70";
+                txtFOVThirdPerson.Text = Properties.Settings.Default.thirdPersonFOV.ToString();
+                parsedValue = 70;
             }
 
             //don't rewrite to the ini if we don't have to
@@ -571,9 +584,9 @@ namespace Fallout_4_Launcher
                 Properties.Settings.Default.Save();
 
                 //remove the item at index of whatever "fDefaultWorldFOV=" is
-                fallout4.RemoveAll(i => i.StartsWith("fDefaultWorldFOV="));
+                fallout4.RemoveAt(indexOfThirdPersonFOV);
                 //add new copy with the parsed value
-                fallout4.Insert(fallout4.IndexOf("[Display]") + 1, "fDefaultWorldFOV=" + parsedValue);
+                fallout4.Insert(indexOfThirdPersonFOV, "fDefaultWorldFOV=" + parsedValue);
             }
 
             makeFilesReadWrite();
