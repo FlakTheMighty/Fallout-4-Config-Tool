@@ -23,9 +23,6 @@ namespace Fallout_4_Launcher
             listActiveMods.DragOver += listActiveMods_DragOver;
             listActiveMods.MouseDown += listActiveMods_MouseDown;
         }
-        //F:\SteamLibrary\SteamApps\common\Fallout 4
-        //C:\Users\flakt\Documents\My Games\Fallout4
-        //C:\Users\flakt\AppData\Local\Fallout4
         string fallout4DocsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\My Games\Fallout4";
         string fallout4InstallDirectory = @"C:\Program Files (x86)\Steam\steamapps\common\Fallout4";
         string fallout4AppDataDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"Local\Fallout4";
