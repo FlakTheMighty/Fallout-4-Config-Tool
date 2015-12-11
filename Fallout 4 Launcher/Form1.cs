@@ -11,6 +11,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+/*
+ * TODO
+ * Retain folder structure to allow for easily uninstalling mods with extra folders
+ * 
+ * 
+ */
 namespace Fallout_4_Launcher
 {
     public partial class Form1 : Form
@@ -35,33 +42,6 @@ namespace Fallout_4_Launcher
 
         private void btnLaunch_Click(object sender, EventArgs e)
         {
-            if (chkSkipLauncher.Checked)
-            {
-                //temporarily name Fallout4Launcher to a temporary name so we can rename Fallout4 to Fallout4Launcher
-                File.Move(fallout4InstallDirectory + @"\Fallout4Launcher.exe", fallout4InstallDirectory + @"\Fallout4-t.exe");
-                File.Move(fallout4InstallDirectory + @"\Fallout4.exe", fallout4InstallDirectory + @"\Fallout4Launcher.exe");
-                File.Move(fallout4InstallDirectory + @"\Fallout4-t.exe", fallout4InstallDirectory + @"\Fallout4.exe");
-            }
-            else
-            {
-                //just redo it
-                File.Move(fallout4InstallDirectory + @"\Fallout4Launcher.exe", fallout4InstallDirectory + @"\Fallout4-t.exe");
-                File.Move(fallout4InstallDirectory + @"\Fallout4.exe", fallout4InstallDirectory + @"\Fallout4Launcher.exe");
-                File.Move(fallout4InstallDirectory + @"\Fallout4-t.exe", fallout4InstallDirectory + @"\Fallout4.exe");
-            }
-
-            if (chkSkipLauncher.Checked)
-            {
-                Properties.Settings.Default.skipLauncher = true;
-            }
-            else
-            {
-                Properties.Settings.Default.skipLauncher = false;
-
-            }
-
-            Properties.Settings.Default.Save();
-
             Process.Start("steam://run/377160");
         }
 
@@ -528,6 +508,33 @@ namespace Fallout_4_Launcher
                 File.Copy(fallout4InstallDirectory + @"\Fallout4Launcher.exe", fallout4InstallDirectory + @"\Fallout4Launcher-BACKUP.exe");
 
             }
+
+            if (chkSkipLauncher.Checked && !Properties.Settings.Default.skipLauncher)
+            {
+                //temporarily name Fallout4Launcher to a temporary name so we can rename Fallout4 to Fallout4Launcher
+                File.Move(fallout4InstallDirectory + @"\Fallout4Launcher.exe", fallout4InstallDirectory + @"\Fallout4-t.exe");
+                File.Move(fallout4InstallDirectory + @"\Fallout4.exe", fallout4InstallDirectory + @"\Fallout4Launcher.exe");
+                File.Move(fallout4InstallDirectory + @"\Fallout4-t.exe", fallout4InstallDirectory + @"\Fallout4.exe");
+            }
+            else if(!chkSkipLauncher.Checked && Properties.Settings.Default.skipLauncher)
+            {
+                //just redo it
+                File.Move(fallout4InstallDirectory + @"\Fallout4Launcher.exe", fallout4InstallDirectory + @"\Fallout4-t.exe");
+                File.Move(fallout4InstallDirectory + @"\Fallout4.exe", fallout4InstallDirectory + @"\Fallout4Launcher.exe");
+                File.Move(fallout4InstallDirectory + @"\Fallout4-t.exe", fallout4InstallDirectory + @"\Fallout4.exe");
+            }
+
+            if (chkSkipLauncher.Checked)
+            {
+                Properties.Settings.Default.skipLauncher = true;
+            }
+            else
+            {
+                Properties.Settings.Default.skipLauncher = false;
+
+            }
+
+            Properties.Settings.Default.Save();
 
             if (chkSkipLauncher.Checked)
             {
