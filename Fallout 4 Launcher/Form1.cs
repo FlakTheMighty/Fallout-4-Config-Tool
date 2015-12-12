@@ -313,7 +313,9 @@ namespace Fallout_4_Launcher
                 chkSkipLauncher.Checked = false;
             }
 
-            if (Properties.Settings.Default.companionApp)
+            //check if the companion app is on
+            if (fallout4Prefs[parseFallout4PrefsINI("bPipboyCompanionEnabled=")].Contains("bPipboyCompanionEnabled=") && 
+                Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("bPipboyCompanionEnabled=")].Substring(24)) == 1)
             {
                 chkCompanionApp.Checked = true;
             }
@@ -322,26 +324,79 @@ namespace Fallout_4_Launcher
                 chkCompanionApp.Checked = false;
             }
 
-            if (Properties.Settings.Default.firstPersonFOV != 80)
+            //check for first person FOV value
+            if (fallout4[parseFallout4INI("fDefault1stPersonFOV=")].Contains("fDefault1stPersonFOV="))
             {
-                txtFOVFirstPerson.Text = Properties.Settings.Default.firstPersonFOV.ToString();
+                txtFOVFirstPerson.Text = fallout4[parseFallout4INI("fDefault1stPersonFOV=")].Substring(21);
             }
-            if (Properties.Settings.Default.thirdPersonFOV != 70)
+            else
             {
-                txtFOVThirdPerson.Text = Properties.Settings.Default.thirdPersonFOV.ToString();
+                txtFOVFirstPerson.Text = "80";
             }
 
-            int indexOfDifficulty = -1;
-            foreach (string line in fallout4Prefs)
+            //check for third person FOV value
+            if (fallout4[parseFallout4INI("fDefaultWorldFOV=")].Contains("fDefaultWorldFOV="))
             {
-                indexOfDifficulty++;
-                if (line.Contains("iDifficulty="))
+                txtFOVThirdPerson.Text = fallout4[parseFallout4INI("fDefaultWorldFOV=")].Substring(17);
+            }
+            else
+            {
+                txtFOVThirdPerson.Text = "70";
+            }
+
+            //set the difficulty
+            cmbDifficulty.SelectedIndex = Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("iDifficulty=")].Substring(12));
+        }
+        /// <summary>Parses the Fallout4.ini file and returns the index of that line, -1 if it's not found.
+        /// <para>(parseFor) The string you're looking for, keep = in the string.</para>
+        /// </summary>
+        private int parseFallout4INI(string parseFor)
+        {
+            int indexOfParam = -1;
+            foreach (string line in fallout4)
+            {
+                indexOfParam++;
+                if (line.Contains(parseFor))
                 {
                     break;
                 }
             }
 
-            cmbDifficulty.SelectedIndex = Convert.ToInt32(fallout4Prefs[indexOfDifficulty].Substring(12));
+            if (indexOfParam <= fallout4.Count())
+            {
+                return indexOfParam;
+            }
+            else
+            {
+                return -1;
+            }
+
+        }
+
+        /// <summary>Parses the Fallout4Prefs.ini file and returns the index of that line, -1 if it's not found.
+        /// <para>(parseFor) The string you're looking for, keep = in the string.</para>
+        /// </summary>
+        private int parseFallout4PrefsINI(string parseFor)
+        {
+            int indexOfParam = -1;
+            foreach (string line in fallout4Prefs)
+            {
+                indexOfParam++;
+                if (line.Contains(parseFor))
+                {
+                    break;
+                }
+            }
+
+            if (indexOfParam <= fallout4Prefs.Count())
+            {
+                return indexOfParam;
+            }
+            else
+            {
+                return -1;
+            }
+
         }
 
         private void loadPluginList()
@@ -548,21 +603,10 @@ namespace Fallout_4_Launcher
 
         private void chkCompanionApp_CheckedChanged(object sender, EventArgs e)
         {
-            int indexOfCompanionApp = -1;
-            foreach (string line in fallout4Prefs)
-            {
-                indexOfCompanionApp++;
-                if (line.Contains("bPipboyCompanionEnabled="))
-                {
-                    break;
-                }
-            }
+            int indexOfCompanionApp = parseFallout4PrefsINI("bPipboyCompanionEnabled=");
 
             if (chkCompanionApp.Checked)
             {
-                Properties.Settings.Default.companionApp = true;
-                Properties.Settings.Default.Save();
-
                 //remove the item at index of whatever "fDefaultWorldFOV=" is
                 fallout4Prefs.RemoveAt(indexOfCompanionApp);
                 //add new copy with
@@ -570,10 +614,6 @@ namespace Fallout_4_Launcher
             }
             else
             {
-                chkCompanionApp.Checked = false;
-                Properties.Settings.Default.companionApp = false;
-                Properties.Settings.Default.Save();
-
                 //remove the item at index of whatever "bPipboyCompanionEnabled=" is
                 fallout4Prefs.RemoveAt(indexOfCompanionApp);
                 //add new copy
@@ -586,6 +626,7 @@ namespace Fallout_4_Launcher
 
         private void txtFOVFirstPerson_TextChanged(object sender, EventArgs e)
         {
+            //this one has to stay the same without the parse methods, otherwise it's going to break and use the wrong entry for FOV
             int indexOfFirstPersonFOV = -1;
             foreach (string line in fallout4)
             {
@@ -606,20 +647,13 @@ namespace Fallout_4_Launcher
             int parsedValue;
             if (!int.TryParse(txtFOVFirstPerson.Text, out parsedValue))
             {
-                txtFOVFirstPerson.Text = Properties.Settings.Default.firstPersonFOV.ToString();
                 parsedValue = 80;
             }
 
-            //don't rewrite to the ini if we don't have to
-            if (parsedValue != Properties.Settings.Default.firstPersonFOV)
-            {
-                Properties.Settings.Default.firstPersonFOV = parsedValue;
-                Properties.Settings.Default.Save();
-                //remove the item at index of whatever "fDefault1stPersonFOV=" is
-                fallout4.RemoveAt(indexOfFirstPersonFOV);
-                //add new copy with the parsed value
-                fallout4.Insert(indexOfFirstPersonFOV, "fDefault1stPersonFOV=" + parsedValue);
-            }
+            //remove the item at index of whatever "fDefault1stPersonFOV=" is
+            fallout4.RemoveAt(indexOfFirstPersonFOV);
+            //add new copy with the parsed value
+            fallout4.Insert(indexOfFirstPersonFOV, "fDefault1stPersonFOV=" + parsedValue);
 
             makeFilesReadWrite();
             File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4.ini", fallout4);
@@ -628,6 +662,7 @@ namespace Fallout_4_Launcher
 
         private void txtFOVThirdPerson_TextChanged(object sender, EventArgs e)
         {
+            //this one has to stay the same without the parse methods, otherwise it's going to break and use the wrong entry for FOV
             int indexOfThirdPersonFOV = -1;
             foreach (string line in fallout4)
             {
@@ -649,21 +684,13 @@ namespace Fallout_4_Launcher
             int parsedValue;
             if (!int.TryParse(txtFOVThirdPerson.Text, out parsedValue))
             {
-                txtFOVThirdPerson.Text = Properties.Settings.Default.thirdPersonFOV.ToString();
                 parsedValue = 70;
             }
 
-            //don't rewrite to the ini if we don't have to
-            if (parsedValue != Properties.Settings.Default.thirdPersonFOV)
-            {
-                Properties.Settings.Default.thirdPersonFOV = parsedValue;
-                Properties.Settings.Default.Save();
-
-                //remove the item at index of whatever "fDefaultWorldFOV=" is
-                fallout4.RemoveAt(indexOfThirdPersonFOV);
-                //add new copy with the parsed value
-                fallout4.Insert(indexOfThirdPersonFOV, "fDefaultWorldFOV=" + parsedValue);
-            }
+            //remove the item at index of whatever "fDefaultWorldFOV=" is
+            fallout4.RemoveAt(indexOfThirdPersonFOV);
+            //add new copy with the parsed value
+            fallout4.Insert(indexOfThirdPersonFOV, "fDefaultWorldFOV=" + parsedValue);
 
             makeFilesReadWrite();
             File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4.ini", fallout4);
@@ -672,15 +699,7 @@ namespace Fallout_4_Launcher
 
         private void cmbDifficulty_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int indexOfDifficulty = -1;
-            foreach (string line in fallout4Prefs)
-            {
-                indexOfDifficulty++;
-                if (line.Contains("iDifficulty="))
-                {
-                    break;
-                }
-            }
+            int indexOfDifficulty = parseFallout4PrefsINI("iDifficulty=");
 
             //remove the item at index of whatever "iDifficulty=" is
             fallout4Prefs.RemoveAt(indexOfDifficulty);

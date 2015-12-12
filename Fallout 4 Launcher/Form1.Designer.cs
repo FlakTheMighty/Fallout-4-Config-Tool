@@ -36,8 +36,10 @@
             this.btnLaunch = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.tabSettings = new System.Windows.Forms.TabPage();
-            this.cmbDifficulty = new System.Windows.Forms.ComboBox();
+            this.grpGeneral = new System.Windows.Forms.GroupBox();
+            this.lblDifficulty = new System.Windows.Forms.Label();
             this.chkCompanionApp = new System.Windows.Forms.CheckBox();
+            this.cmbDifficulty = new System.Windows.Forms.ComboBox();
             this.grpFOV = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -66,19 +68,17 @@
             this.lblGitLink = new System.Windows.Forms.Label();
             this.lblAbout = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.lblDifficulty = new System.Windows.Forms.Label();
-            this.grpGeneral = new System.Windows.Forms.GroupBox();
             this.tabControl.SuspendLayout();
             this.tabGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgFallout4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLaunch)).BeginInit();
             this.tabSettings.SuspendLayout();
+            this.grpGeneral.SuspendLayout();
             this.grpFOV.SuspendLayout();
             this.miscSettingsPanel.SuspendLayout();
             this.tabMods.SuspendLayout();
             this.tabAbout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgVaultBoy)).BeginInit();
-            this.grpGeneral.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -163,6 +163,48 @@
             this.tabSettings.TabIndex = 1;
             this.tabSettings.Text = "Settings";
             // 
+            // grpGeneral
+            // 
+            this.grpGeneral.BackColor = System.Drawing.Color.Transparent;
+            this.grpGeneral.Controls.Add(this.lblDifficulty);
+            this.grpGeneral.Controls.Add(this.chkCompanionApp);
+            this.grpGeneral.Controls.Add(this.cmbDifficulty);
+            this.grpGeneral.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.grpGeneral.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.grpGeneral.Location = new System.Drawing.Point(434, 102);
+            this.grpGeneral.Name = "grpGeneral";
+            this.grpGeneral.Size = new System.Drawing.Size(193, 111);
+            this.grpGeneral.TabIndex = 7;
+            this.grpGeneral.TabStop = false;
+            this.grpGeneral.Text = "General Options";
+            // 
+            // lblDifficulty
+            // 
+            this.lblDifficulty.AutoSize = true;
+            this.lblDifficulty.BackColor = System.Drawing.Color.Transparent;
+            this.lblDifficulty.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.lblDifficulty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.lblDifficulty.Location = new System.Drawing.Point(3, 20);
+            this.lblDifficulty.Name = "lblDifficulty";
+            this.lblDifficulty.Size = new System.Drawing.Size(67, 21);
+            this.lblDifficulty.TabIndex = 9;
+            this.lblDifficulty.Text = "Difficulty:";
+            // 
+            // chkCompanionApp
+            // 
+            this.chkCompanionApp.AutoSize = true;
+            this.chkCompanionApp.BackColor = System.Drawing.Color.Transparent;
+            this.chkCompanionApp.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkCompanionApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.chkCompanionApp.Location = new System.Drawing.Point(7, 75);
+            this.chkCompanionApp.Name = "chkCompanionApp";
+            this.chkCompanionApp.Size = new System.Drawing.Size(122, 25);
+            this.chkCompanionApp.TabIndex = 7;
+            this.chkCompanionApp.Text = "Companion App";
+            this.toolTip.SetToolTip(this.chkCompanionApp, "Enables the companion app");
+            this.chkCompanionApp.UseVisualStyleBackColor = false;
+            this.chkCompanionApp.CheckedChanged += new System.EventHandler(this.chkCompanionApp_CheckedChanged);
+            // 
             // cmbDifficulty
             // 
             this.cmbDifficulty.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F);
@@ -179,21 +221,6 @@
             this.cmbDifficulty.Size = new System.Drawing.Size(177, 25);
             this.cmbDifficulty.TabIndex = 8;
             this.cmbDifficulty.SelectedIndexChanged += new System.EventHandler(this.cmbDifficulty_SelectedIndexChanged);
-            // 
-            // chkCompanionApp
-            // 
-            this.chkCompanionApp.AutoSize = true;
-            this.chkCompanionApp.BackColor = System.Drawing.Color.Transparent;
-            this.chkCompanionApp.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkCompanionApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.chkCompanionApp.Location = new System.Drawing.Point(7, 75);
-            this.chkCompanionApp.Name = "chkCompanionApp";
-            this.chkCompanionApp.Size = new System.Drawing.Size(122, 25);
-            this.chkCompanionApp.TabIndex = 7;
-            this.chkCompanionApp.Text = "Companion App";
-            this.toolTip.SetToolTip(this.chkCompanionApp, "Enables the companion app");
-            this.chkCompanionApp.UseVisualStyleBackColor = false;
-            this.chkCompanionApp.CheckedChanged += new System.EventHandler(this.chkCompanionApp_CheckedChanged);
             // 
             // grpFOV
             // 
@@ -213,6 +240,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(16, 57);
             this.label3.Name = "label3";
@@ -222,6 +250,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(16, 27);
             this.label2.Name = "label2";
@@ -231,6 +260,7 @@
             // 
             // txtFOVThirdPerson
             // 
+            this.txtFOVThirdPerson.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.txtFOVThirdPerson.Location = new System.Drawing.Point(133, 54);
             this.txtFOVThirdPerson.Name = "txtFOVThirdPerson";
             this.txtFOVThirdPerson.Size = new System.Drawing.Size(43, 26);
@@ -241,6 +271,7 @@
             // 
             // txtFOVFirstPerson
             // 
+            this.txtFOVFirstPerson.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.txtFOVFirstPerson.Location = new System.Drawing.Point(133, 24);
             this.txtFOVFirstPerson.Name = "txtFOVFirstPerson";
             this.txtFOVFirstPerson.Size = new System.Drawing.Size(43, 26);
@@ -491,6 +522,7 @@
             // 
             // imgVaultBoy
             // 
+            this.imgVaultBoy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.imgVaultBoy.BackgroundImage = global::Fallout_4_Launcher.Properties.Resources.vaultboy_thumbs;
             this.imgVaultBoy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.imgVaultBoy.Location = new System.Drawing.Point(413, 132);
@@ -525,33 +557,6 @@
             this.lblAbout.TabIndex = 3;
             this.lblAbout.Text = resources.GetString("lblAbout.Text");
             // 
-            // lblDifficulty
-            // 
-            this.lblDifficulty.AutoSize = true;
-            this.lblDifficulty.BackColor = System.Drawing.Color.Transparent;
-            this.lblDifficulty.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.lblDifficulty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.lblDifficulty.Location = new System.Drawing.Point(3, 20);
-            this.lblDifficulty.Name = "lblDifficulty";
-            this.lblDifficulty.Size = new System.Drawing.Size(67, 21);
-            this.lblDifficulty.TabIndex = 9;
-            this.lblDifficulty.Text = "Difficulty:";
-            // 
-            // grpGeneral
-            // 
-            this.grpGeneral.BackColor = System.Drawing.Color.Transparent;
-            this.grpGeneral.Controls.Add(this.lblDifficulty);
-            this.grpGeneral.Controls.Add(this.chkCompanionApp);
-            this.grpGeneral.Controls.Add(this.cmbDifficulty);
-            this.grpGeneral.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.grpGeneral.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.grpGeneral.Location = new System.Drawing.Point(434, 102);
-            this.grpGeneral.Name = "grpGeneral";
-            this.grpGeneral.Size = new System.Drawing.Size(193, 111);
-            this.grpGeneral.TabIndex = 7;
-            this.grpGeneral.TabStop = false;
-            this.grpGeneral.Text = "General Options";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -570,6 +575,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnLaunch)).EndInit();
             this.tabSettings.ResumeLayout(false);
             this.tabSettings.PerformLayout();
+            this.grpGeneral.ResumeLayout(false);
+            this.grpGeneral.PerformLayout();
             this.grpFOV.ResumeLayout(false);
             this.grpFOV.PerformLayout();
             this.miscSettingsPanel.ResumeLayout(false);
@@ -578,8 +585,6 @@
             this.tabAbout.ResumeLayout(false);
             this.tabAbout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgVaultBoy)).EndInit();
-            this.grpGeneral.ResumeLayout(false);
-            this.grpGeneral.PerformLayout();
             this.ResumeLayout(false);
 
         }
