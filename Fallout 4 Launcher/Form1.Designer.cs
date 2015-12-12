@@ -241,7 +241,6 @@
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(16, 57);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(111, 21);
@@ -251,7 +250,6 @@
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(16, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 21);
@@ -510,7 +508,6 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
@@ -534,7 +531,6 @@
             // 
             // lblGitLink
             // 
-            this.lblGitLink.AutoSize = true;
             this.lblGitLink.BackColor = System.Drawing.Color.Transparent;
             this.lblGitLink.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGitLink.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(120)))));
@@ -547,7 +543,6 @@
             // 
             // lblAbout
             // 
-            this.lblAbout.AutoSize = true;
             this.lblAbout.BackColor = System.Drawing.Color.Transparent;
             this.lblAbout.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAbout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
@@ -583,7 +578,6 @@
             this.tabMods.ResumeLayout(false);
             this.tabMods.PerformLayout();
             this.tabAbout.ResumeLayout(false);
-            this.tabAbout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgVaultBoy)).EndInit();
             this.ResumeLayout(false);
 
