@@ -29,7 +29,21 @@ namespace Fallout_4_Launcher
             listActiveMods.DragDrop += listActiveMods_DragDrop;
             listActiveMods.DragOver += listActiveMods_DragOver;
             listActiveMods.MouseDown += listActiveMods_MouseDown;
+
+            //the following have not been implemented yet
+            cmbAmbientOcclusion.Enabled = false;
+            cmbDOF.Enabled = false;
+            cmbTextureQuality.Enabled = false;
+            cmbShadowQuality.Enabled = false;
+            cmbDecalQuantity.Enabled = false;
+            cmbLightingQuality.Enabled = false;
+            chkMotionBlur.Enabled = false;
+            chkRainOcclusion.Enabled = false;
+            chkScreenSpaceReflections.Enabled = false;
+            chkWetness.Enabled = false;
+            chkLensFlare.Enabled = false;
         }
+
         string fallout4DocsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\My Games\Fallout4";
         string fallout4InstallDirectory = @"C:\Program Files (x86)\Steam\steamapps\common\Fallout4";
         string fallout4AppDataDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"Local\Fallout4";
@@ -346,7 +360,112 @@ namespace Fallout_4_Launcher
 
             //set the difficulty
             cmbDifficulty.SelectedIndex = Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("iDifficulty=")].Substring(12));
+
+            //set the antialiasing
+            switch(fallout4Prefs[parseFallout4PrefsINI("sAntiAliasing=")].Substring(14)){
+                case "":
+                    cmbAntialiasing.SelectedIndex = 0;
+                    break;
+                case "FXAA":
+                    cmbAntialiasing.SelectedIndex = 1;
+                    break;
+                case "TAA":
+                    cmbAntialiasing.SelectedIndex = 2;
+                    break;
+            }
+
+            //set the anisotropic filtering
+            switch (Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("iMaxAnisotropy=")].Substring(15)))
+            {
+                case 1:
+                    cmbAnisotropicFiltering.SelectedIndex = 0;
+                    break;
+                case 2:
+                    cmbAnisotropicFiltering.SelectedIndex = 1;
+                    break;
+                case 4:
+                    cmbAnisotropicFiltering.SelectedIndex = 2;
+                    break;
+                case 8:
+                    cmbAnisotropicFiltering.SelectedIndex = 3;
+                    break;
+                case 12:
+                    cmbAnisotropicFiltering.SelectedIndex = 4;
+                    break;
+                case 16:
+                    cmbAnisotropicFiltering.SelectedIndex = 5;
+                    break;
+            }
+
+            //set the godray quality
+            //check if it's enabled first, otherwise set it to off
+            if (Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("bVolumetricLightingEnable=")].Substring(26)) == 1)
+            {
+                switch (Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("iVolumetricLightingQuality=")].Substring(27)))
+                {
+                    case 0:
+                        cmbGodrayQuality.SelectedIndex = 1;
+                        //bVolumetricLightingEnable=1
+                        break;
+                    case 1:
+                        cmbGodrayQuality.SelectedIndex = 2;
+                        break;
+                    case 2:
+                        cmbGodrayQuality.SelectedIndex = 3;
+                        break;
+                    case 3:
+                        cmbGodrayQuality.SelectedIndex = 4;
+                        break;
+                }
+            }
+            else
+            {
+                cmbGodrayQuality.SelectedIndex = 0;
+            }
+
+            //fDirShadowDistance=
+            //fShadowDistance=
+            //set the shadow distance
+            switch (Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("fDirShadowDistance=")].Substring(19)))
+            {
+                case 3000:
+                    cmbShadowDistance.SelectedIndex = 0;
+                    break;
+                case 14000:
+                    cmbShadowDistance.SelectedIndex = 1;
+                    break;
+                case 20000:
+                    cmbShadowDistance.SelectedIndex = 2;
+                    break;
+            }
+
+            //decals
+            /*
+             * iMaxSkinDecalsPerFrame=
+             * iMaxDecalsPerFrame=
+             * uMaxDecals=
+             * bDecals=
+             * bSkinnedDecals=
+             * uMaxSkinDecals=
+             * uMaxSkinDecalsPerActor=
+             */
+
+            //set the shadow quality
+            //shadow quality modifies multiple things, doing later
+            //switch (Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("iShadowMapResolution=")].Substring(21)))
+            //{
+            //    case 1024:
+            //        cmbShadowQuality.SelectedIndex = 0;
+            //        break;
+            //    case 2048:
+            //        cmbShadowQuality.SelectedIndex = 1;
+            //        break;
+            //    case 20000:
+            //        cmbShadowQuality.SelectedIndex = 2;
+            //        break;
+            //}
         }
+
         /// <summary>Parses the Fallout4.ini file and returns the index of that line, -1 if it's not found.
         /// <para>(parseFor) The string you're looking for, keep = in the string.</para>
         /// </summary>
@@ -705,6 +824,132 @@ namespace Fallout_4_Launcher
             fallout4Prefs.RemoveAt(indexOfDifficulty);
             //add new copy with
             fallout4Prefs.Insert(indexOfDifficulty, "iDifficulty=" + cmbDifficulty.SelectedIndex);
+            makeFilesReadWrite();
+            File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4Prefs.ini", fallout4Prefs);
+            makeFilesReadOnly();
+        }
+
+        private void cmbAntialiasing_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string writeToFile = "";
+            int indexOfAliasing = parseFallout4PrefsINI("sAntiAliasing=");
+            switch (cmbAntialiasing.SelectedIndex)
+            {
+
+                case 0:
+                    break;
+                case 1:
+                    writeToFile = "FXAA";
+                    break;
+                case 2:
+                    writeToFile = "TAA";
+                    break;
+            }
+            fallout4Prefs.Remove(fallout4Prefs[indexOfAliasing]);
+            fallout4Prefs.Insert(indexOfAliasing, "sAntiAliasing=" + writeToFile);
+
+            makeFilesReadWrite();
+            File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4Prefs.ini", fallout4Prefs);
+            makeFilesReadOnly();
+        }
+
+        private void cmbAnisotropicFiltering_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int writeToFile = 1;
+            int indexOfAnisotropic = parseFallout4PrefsINI("iMaxAnisotropy=");
+            switch (cmbAnisotropicFiltering.SelectedIndex)
+            {
+
+                case 0:
+                    break;
+                case 1:
+                    writeToFile = 2;
+                    break;
+                case 2:
+                    writeToFile = 4;
+                    break;
+                case 3:
+                    writeToFile = 8;
+                    break;
+                case 4:
+                    writeToFile = 12;
+                    break;
+                case 5:
+                    writeToFile = 16;
+                    break;
+            }
+            fallout4Prefs.Remove(fallout4Prefs[indexOfAnisotropic]);
+            fallout4Prefs.Insert(indexOfAnisotropic, "iMaxAnisotropy=" + writeToFile);
+
+            makeFilesReadWrite();
+            File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4Prefs.ini", fallout4Prefs);
+            makeFilesReadOnly();
+        }
+
+        private void cmbShadowDistance_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int writeToFile = 3000;
+            int indexOfShadowDist = parseFallout4PrefsINI("fDirShadowDistance=");
+            int indexOfShadowDist2 = parseFallout4PrefsINI("fShadowDistance=");
+            switch (cmbShadowDistance.SelectedIndex)
+            {
+                case 0:
+                    break;
+                case 1:
+                    writeToFile = 14000;
+                    break;
+                case 2:
+                    writeToFile = 20000;
+                    break;
+            }
+            fallout4Prefs.Remove(fallout4Prefs[indexOfShadowDist]);
+            fallout4Prefs.Insert(indexOfShadowDist, "fDirShadowDistance=" + writeToFile);
+            fallout4Prefs.Remove(fallout4Prefs[indexOfShadowDist2]);
+            fallout4Prefs.Insert(indexOfShadowDist2, "fShadowDistance=" + writeToFile);
+
+            makeFilesReadWrite();
+            File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4Prefs.ini", fallout4Prefs);
+            makeFilesReadOnly();
+        }
+
+        private void cmbGodrayQuality_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int writeToFile = 0;
+            int indexOfGodrayEnabled = parseFallout4PrefsINI("bVolumetricLightingEnable=");
+            int indexOfGodrayQuality = parseFallout4PrefsINI("iVolumetricLightingQuality=");
+
+            if (cmbGodrayQuality.SelectedIndex > 0)
+            {
+                switch (cmbGodrayQuality.SelectedIndex)
+                {
+                    case 1:
+                        writeToFile = 0;
+                        //bVolumetricLightingEnable=1
+                        break;
+                    case 2:
+                        writeToFile = 1;
+                        break;
+                    case 3:
+                        writeToFile = 2;
+                        break;
+                    case 4:
+                        writeToFile = 3;
+                        break;
+                }
+
+                fallout4Prefs.Remove(fallout4Prefs[indexOfGodrayEnabled]);
+                fallout4Prefs.Insert(indexOfGodrayEnabled, "bVolumetricLightingEnable=1");
+            }
+            else
+            {
+                writeToFile = 0;
+                fallout4Prefs.Remove(fallout4Prefs[indexOfGodrayEnabled]);
+                fallout4Prefs.Insert(indexOfGodrayEnabled, "bVolumetricLightingEnable=0");
+            }
+
+            fallout4Prefs.Remove(fallout4Prefs[indexOfGodrayQuality]);
+            fallout4Prefs.Insert(indexOfGodrayQuality, "iVolumetricLightingQuality=" + writeToFile);
+
             makeFilesReadWrite();
             File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4Prefs.ini", fallout4Prefs);
             makeFilesReadOnly();
