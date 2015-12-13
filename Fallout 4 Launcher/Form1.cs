@@ -89,6 +89,7 @@ namespace Fallout_4_Launcher
             }
         }
 
+        //moves mods from the inactive list to the active list
         private void btnActivateSelected_Click(object sender, EventArgs e)
         {
             makeFilesReadWrite();
@@ -132,6 +133,7 @@ namespace Fallout_4_Launcher
 
         }
 
+        //moves mods form the active list to the inactive list
         private void btnDeactivateSelected_Click(object sender, EventArgs e)
         {
             makeFilesReadWrite();
@@ -546,6 +548,11 @@ namespace Fallout_4_Launcher
             makeFilesReadWrite();
             File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4Prefs.ini", fallout4Prefs);
             makeFilesReadOnly();
+        }
+
+        private void btnReloadMods_Click(object sender, EventArgs e)
+        {
+            refreshModLists();
         }
 
         /// <summary> Loads plugins.txt into List pluginList

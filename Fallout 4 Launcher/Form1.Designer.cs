@@ -94,6 +94,7 @@
             this.lblGitLink = new System.Windows.Forms.Label();
             this.lblAbout = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.btnReloadMods = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgFallout4)).BeginInit();
@@ -757,6 +758,7 @@
             this.tabMods.BackColor = System.Drawing.SystemColors.Control;
             this.tabMods.BackgroundImage = global::Fallout_4_Launcher.Properties.Resources.blue_background;
             this.tabMods.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabMods.Controls.Add(this.btnReloadMods);
             this.tabMods.Controls.Add(this.btnOpenDataFolder);
             this.tabMods.Controls.Add(this.txtDataDirectory);
             this.tabMods.Controls.Add(this.btnDeactivateSelected);
@@ -926,6 +928,18 @@
             this.lblAbout.TabIndex = 3;
             this.lblAbout.Text = resources.GetString("lblAbout.Text");
             // 
+            // btnReloadMods
+            // 
+            this.btnReloadMods.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F);
+            this.btnReloadMods.Location = new System.Drawing.Point(278, 144);
+            this.btnReloadMods.Name = "btnReloadMods";
+            this.btnReloadMods.Size = new System.Drawing.Size(75, 23);
+            this.btnReloadMods.TabIndex = 8;
+            this.btnReloadMods.Text = "Reload";
+            this.toolTip.SetToolTip(this.btnReloadMods, "Reloads the mod lists");
+            this.btnReloadMods.UseVisualStyleBackColor = true;
+            this.btnReloadMods.Click += new System.EventHandler(this.btnReloadMods_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1024,6 +1038,7 @@
         private System.Windows.Forms.ComboBox cmbAnisotropicFiltering;
         private System.Windows.Forms.Label lblAntialiasing;
         private System.Windows.Forms.ComboBox cmbAntialiasing;
+        private System.Windows.Forms.Button btnReloadMods;
     }
 }
 
