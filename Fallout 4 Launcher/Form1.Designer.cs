@@ -35,6 +35,32 @@
             this.imgFallout4 = new System.Windows.Forms.PictureBox();
             this.btnLaunch = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.tabVideoSettings = new System.Windows.Forms.TabPage();
+            this.chkLensFlare = new System.Windows.Forms.CheckBox();
+            this.chkMotionBlur = new System.Windows.Forms.CheckBox();
+            this.chkRainOcclusion = new System.Windows.Forms.CheckBox();
+            this.chkWetness = new System.Windows.Forms.CheckBox();
+            this.chkScreenSpaceReflections = new System.Windows.Forms.CheckBox();
+            this.lblAmbientOcclusion = new System.Windows.Forms.Label();
+            this.cmbAmbientOcclusion = new System.Windows.Forms.ComboBox();
+            this.lblDOF = new System.Windows.Forms.Label();
+            this.cmbDOF = new System.Windows.Forms.ComboBox();
+            this.lblGodrayQualtiy = new System.Windows.Forms.Label();
+            this.cmbGodrayQuality = new System.Windows.Forms.ComboBox();
+            this.lblLightingQuality = new System.Windows.Forms.Label();
+            this.cmbLightingQuality = new System.Windows.Forms.ComboBox();
+            this.lblDecalQuantity = new System.Windows.Forms.Label();
+            this.cmbDecalQuantity = new System.Windows.Forms.ComboBox();
+            this.lblShadowDistance = new System.Windows.Forms.Label();
+            this.cmbShadowDistance = new System.Windows.Forms.ComboBox();
+            this.lblShadowQuality = new System.Windows.Forms.Label();
+            this.cmbShadowQuality = new System.Windows.Forms.ComboBox();
+            this.lblTextureQuality = new System.Windows.Forms.Label();
+            this.cmbTextureQuality = new System.Windows.Forms.ComboBox();
+            this.lblAnisotropicFiltering = new System.Windows.Forms.Label();
+            this.cmbAnisotropicFiltering = new System.Windows.Forms.ComboBox();
+            this.lblAntialiasing = new System.Windows.Forms.Label();
+            this.cmbAntialiasing = new System.Windows.Forms.ComboBox();
             this.tabExtraSettings = new System.Windows.Forms.TabPage();
             this.grpGeneral = new System.Windows.Forms.GroupBox();
             this.lblDifficulty = new System.Windows.Forms.Label();
@@ -68,36 +94,11 @@
             this.lblGitLink = new System.Windows.Forms.Label();
             this.lblAbout = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.tabVideoSettings = new System.Windows.Forms.TabPage();
-            this.cmbAntialiasing = new System.Windows.Forms.ComboBox();
-            this.lblAntialiasing = new System.Windows.Forms.Label();
-            this.lblAnisotropicFiltering = new System.Windows.Forms.Label();
-            this.cmbAnisotropicFiltering = new System.Windows.Forms.ComboBox();
-            this.lblTextureQuality = new System.Windows.Forms.Label();
-            this.cmbTextureQuality = new System.Windows.Forms.ComboBox();
-            this.lblShadowQuality = new System.Windows.Forms.Label();
-            this.cmbShadowQuality = new System.Windows.Forms.ComboBox();
-            this.lblShadowDistance = new System.Windows.Forms.Label();
-            this.cmbShadowDistance = new System.Windows.Forms.ComboBox();
-            this.lblDecalQuantity = new System.Windows.Forms.Label();
-            this.cmbDecalQuantity = new System.Windows.Forms.ComboBox();
-            this.lblLightingQuality = new System.Windows.Forms.Label();
-            this.cmbLightingQuality = new System.Windows.Forms.ComboBox();
-            this.lblGodrayQualtiy = new System.Windows.Forms.Label();
-            this.cmbGodrayQuality = new System.Windows.Forms.ComboBox();
-            this.lblDOF = new System.Windows.Forms.Label();
-            this.cmbDOF = new System.Windows.Forms.ComboBox();
-            this.lblAmbientOcclusion = new System.Windows.Forms.Label();
-            this.cmbAmbientOcclusion = new System.Windows.Forms.ComboBox();
-            this.chkScreenSpaceReflections = new System.Windows.Forms.CheckBox();
-            this.chkWetness = new System.Windows.Forms.CheckBox();
-            this.chkRainOcclusion = new System.Windows.Forms.CheckBox();
-            this.chkMotionBlur = new System.Windows.Forms.CheckBox();
-            this.chkLensFlare = new System.Windows.Forms.CheckBox();
             this.tabControl.SuspendLayout();
             this.tabGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgFallout4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLaunch)).BeginInit();
+            this.tabVideoSettings.SuspendLayout();
             this.tabExtraSettings.SuspendLayout();
             this.grpGeneral.SuspendLayout();
             this.grpFOV.SuspendLayout();
@@ -105,7 +106,6 @@
             this.tabMods.SuspendLayout();
             this.tabAbout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgVaultBoy)).BeginInit();
-            this.tabVideoSettings.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -172,6 +172,352 @@
             this.button1.TabIndex = 0;
             this.button1.UseVisualStyleBackColor = false;
             // 
+            // tabVideoSettings
+            // 
+            this.tabVideoSettings.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.tabVideoSettings.BackgroundImage = global::Fallout_4_Launcher.Properties.Resources.blue_background;
+            this.tabVideoSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabVideoSettings.Controls.Add(this.chkLensFlare);
+            this.tabVideoSettings.Controls.Add(this.chkMotionBlur);
+            this.tabVideoSettings.Controls.Add(this.chkRainOcclusion);
+            this.tabVideoSettings.Controls.Add(this.chkWetness);
+            this.tabVideoSettings.Controls.Add(this.chkScreenSpaceReflections);
+            this.tabVideoSettings.Controls.Add(this.lblAmbientOcclusion);
+            this.tabVideoSettings.Controls.Add(this.cmbAmbientOcclusion);
+            this.tabVideoSettings.Controls.Add(this.lblDOF);
+            this.tabVideoSettings.Controls.Add(this.cmbDOF);
+            this.tabVideoSettings.Controls.Add(this.lblGodrayQualtiy);
+            this.tabVideoSettings.Controls.Add(this.cmbGodrayQuality);
+            this.tabVideoSettings.Controls.Add(this.lblLightingQuality);
+            this.tabVideoSettings.Controls.Add(this.cmbLightingQuality);
+            this.tabVideoSettings.Controls.Add(this.lblDecalQuantity);
+            this.tabVideoSettings.Controls.Add(this.cmbDecalQuantity);
+            this.tabVideoSettings.Controls.Add(this.lblShadowDistance);
+            this.tabVideoSettings.Controls.Add(this.cmbShadowDistance);
+            this.tabVideoSettings.Controls.Add(this.lblShadowQuality);
+            this.tabVideoSettings.Controls.Add(this.cmbShadowQuality);
+            this.tabVideoSettings.Controls.Add(this.lblTextureQuality);
+            this.tabVideoSettings.Controls.Add(this.cmbTextureQuality);
+            this.tabVideoSettings.Controls.Add(this.lblAnisotropicFiltering);
+            this.tabVideoSettings.Controls.Add(this.cmbAnisotropicFiltering);
+            this.tabVideoSettings.Controls.Add(this.lblAntialiasing);
+            this.tabVideoSettings.Controls.Add(this.cmbAntialiasing);
+            this.tabVideoSettings.Location = new System.Drawing.Point(4, 22);
+            this.tabVideoSettings.Name = "tabVideoSettings";
+            this.tabVideoSettings.Padding = new System.Windows.Forms.Padding(3);
+            this.tabVideoSettings.Size = new System.Drawing.Size(635, 349);
+            this.tabVideoSettings.TabIndex = 4;
+            this.tabVideoSettings.Text = "Video Settings";
+            // 
+            // chkLensFlare
+            // 
+            this.chkLensFlare.BackColor = System.Drawing.Color.Transparent;
+            this.chkLensFlare.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.chkLensFlare.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.chkLensFlare.Location = new System.Drawing.Point(401, 244);
+            this.chkLensFlare.Name = "chkLensFlare";
+            this.chkLensFlare.Size = new System.Drawing.Size(88, 25);
+            this.chkLensFlare.TabIndex = 24;
+            this.chkLensFlare.Text = "Lens Flare";
+            this.chkLensFlare.UseVisualStyleBackColor = false;
+            // 
+            // chkMotionBlur
+            // 
+            this.chkMotionBlur.BackColor = System.Drawing.Color.Transparent;
+            this.chkMotionBlur.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.chkMotionBlur.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.chkMotionBlur.Location = new System.Drawing.Point(401, 203);
+            this.chkMotionBlur.Name = "chkMotionBlur";
+            this.chkMotionBlur.Size = new System.Drawing.Size(96, 25);
+            this.chkMotionBlur.TabIndex = 23;
+            this.chkMotionBlur.Text = "Motion Blur";
+            this.chkMotionBlur.UseVisualStyleBackColor = false;
+            // 
+            // chkRainOcclusion
+            // 
+            this.chkRainOcclusion.BackColor = System.Drawing.Color.Transparent;
+            this.chkRainOcclusion.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.chkRainOcclusion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.chkRainOcclusion.Location = new System.Drawing.Point(401, 162);
+            this.chkRainOcclusion.Name = "chkRainOcclusion";
+            this.chkRainOcclusion.Size = new System.Drawing.Size(116, 25);
+            this.chkRainOcclusion.TabIndex = 22;
+            this.chkRainOcclusion.Text = "Rain Occlusion";
+            this.chkRainOcclusion.UseVisualStyleBackColor = false;
+            // 
+            // chkWetness
+            // 
+            this.chkWetness.BackColor = System.Drawing.Color.Transparent;
+            this.chkWetness.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.chkWetness.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.chkWetness.Location = new System.Drawing.Point(401, 121);
+            this.chkWetness.Name = "chkWetness";
+            this.chkWetness.Size = new System.Drawing.Size(77, 25);
+            this.chkWetness.TabIndex = 21;
+            this.chkWetness.Text = "Wetness";
+            this.chkWetness.UseVisualStyleBackColor = false;
+            // 
+            // chkScreenSpaceReflections
+            // 
+            this.chkScreenSpaceReflections.BackColor = System.Drawing.Color.Transparent;
+            this.chkScreenSpaceReflections.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.chkScreenSpaceReflections.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.chkScreenSpaceReflections.Location = new System.Drawing.Point(401, 80);
+            this.chkScreenSpaceReflections.Name = "chkScreenSpaceReflections";
+            this.chkScreenSpaceReflections.Size = new System.Drawing.Size(177, 25);
+            this.chkScreenSpaceReflections.TabIndex = 20;
+            this.chkScreenSpaceReflections.Text = "Screen Space Reflections";
+            this.chkScreenSpaceReflections.UseVisualStyleBackColor = false;
+            // 
+            // lblAmbientOcclusion
+            // 
+            this.lblAmbientOcclusion.BackColor = System.Drawing.Color.Transparent;
+            this.lblAmbientOcclusion.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.lblAmbientOcclusion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.lblAmbientOcclusion.Location = new System.Drawing.Point(56, 172);
+            this.lblAmbientOcclusion.Name = "lblAmbientOcclusion";
+            this.lblAmbientOcclusion.Size = new System.Drawing.Size(124, 21);
+            this.lblAmbientOcclusion.TabIndex = 19;
+            this.lblAmbientOcclusion.Text = "Ambient Occlusion:";
+            // 
+            // cmbAmbientOcclusion
+            // 
+            this.cmbAmbientOcclusion.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.cmbAmbientOcclusion.FormattingEnabled = true;
+            this.cmbAmbientOcclusion.Items.AddRange(new object[] {
+            "Off",
+            "SSAO"});
+            this.cmbAmbientOcclusion.Location = new System.Drawing.Point(60, 196);
+            this.cmbAmbientOcclusion.Name = "cmbAmbientOcclusion";
+            this.cmbAmbientOcclusion.Size = new System.Drawing.Size(121, 29);
+            this.cmbAmbientOcclusion.TabIndex = 18;
+            // 
+            // lblDOF
+            // 
+            this.lblDOF.BackColor = System.Drawing.Color.Transparent;
+            this.lblDOF.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.lblDOF.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.lblDOF.Location = new System.Drawing.Point(56, 228);
+            this.lblDOF.Name = "lblDOF";
+            this.lblDOF.Size = new System.Drawing.Size(39, 21);
+            this.lblDOF.TabIndex = 17;
+            this.lblDOF.Text = "DOF:";
+            // 
+            // cmbDOF
+            // 
+            this.cmbDOF.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.cmbDOF.FormattingEnabled = true;
+            this.cmbDOF.Items.AddRange(new object[] {
+            "Standard",
+            "Bokeh"});
+            this.cmbDOF.Location = new System.Drawing.Point(60, 252);
+            this.cmbDOF.Name = "cmbDOF";
+            this.cmbDOF.Size = new System.Drawing.Size(121, 29);
+            this.cmbDOF.TabIndex = 16;
+            // 
+            // lblGodrayQualtiy
+            // 
+            this.lblGodrayQualtiy.BackColor = System.Drawing.Color.Transparent;
+            this.lblGodrayQualtiy.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.lblGodrayQualtiy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.lblGodrayQualtiy.Location = new System.Drawing.Point(227, 284);
+            this.lblGodrayQualtiy.Name = "lblGodrayQualtiy";
+            this.lblGodrayQualtiy.Size = new System.Drawing.Size(105, 21);
+            this.lblGodrayQualtiy.TabIndex = 15;
+            this.lblGodrayQualtiy.Text = "Godrays Quality:";
+            // 
+            // cmbGodrayQuality
+            // 
+            this.cmbGodrayQuality.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.cmbGodrayQuality.FormattingEnabled = true;
+            this.cmbGodrayQuality.Items.AddRange(new object[] {
+            "Off",
+            "Low",
+            "Medium",
+            "High",
+            "Ultra"});
+            this.cmbGodrayQuality.Location = new System.Drawing.Point(231, 308);
+            this.cmbGodrayQuality.Name = "cmbGodrayQuality";
+            this.cmbGodrayQuality.Size = new System.Drawing.Size(121, 29);
+            this.cmbGodrayQuality.TabIndex = 14;
+            this.cmbGodrayQuality.SelectedIndexChanged += new System.EventHandler(this.cmbGodrayQuality_SelectedIndexChanged);
+            // 
+            // lblLightingQuality
+            // 
+            this.lblLightingQuality.BackColor = System.Drawing.Color.Transparent;
+            this.lblLightingQuality.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.lblLightingQuality.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.lblLightingQuality.Location = new System.Drawing.Point(227, 228);
+            this.lblLightingQuality.Name = "lblLightingQuality";
+            this.lblLightingQuality.Size = new System.Drawing.Size(105, 21);
+            this.lblLightingQuality.TabIndex = 13;
+            this.lblLightingQuality.Text = "Lighting Quality:";
+            // 
+            // cmbLightingQuality
+            // 
+            this.cmbLightingQuality.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.cmbLightingQuality.FormattingEnabled = true;
+            this.cmbLightingQuality.Items.AddRange(new object[] {
+            "Medium",
+            "High",
+            "Ultra"});
+            this.cmbLightingQuality.Location = new System.Drawing.Point(231, 252);
+            this.cmbLightingQuality.Name = "cmbLightingQuality";
+            this.cmbLightingQuality.Size = new System.Drawing.Size(121, 29);
+            this.cmbLightingQuality.TabIndex = 12;
+            // 
+            // lblDecalQuantity
+            // 
+            this.lblDecalQuantity.BackColor = System.Drawing.Color.Transparent;
+            this.lblDecalQuantity.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.lblDecalQuantity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.lblDecalQuantity.Location = new System.Drawing.Point(227, 172);
+            this.lblDecalQuantity.Name = "lblDecalQuantity";
+            this.lblDecalQuantity.Size = new System.Drawing.Size(99, 21);
+            this.lblDecalQuantity.TabIndex = 11;
+            this.lblDecalQuantity.Text = "Decal Quantity:";
+            // 
+            // cmbDecalQuantity
+            // 
+            this.cmbDecalQuantity.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.cmbDecalQuantity.FormattingEnabled = true;
+            this.cmbDecalQuantity.Items.AddRange(new object[] {
+            "None",
+            "Medium",
+            "High",
+            "Ultra"});
+            this.cmbDecalQuantity.Location = new System.Drawing.Point(231, 196);
+            this.cmbDecalQuantity.Name = "cmbDecalQuantity";
+            this.cmbDecalQuantity.Size = new System.Drawing.Size(121, 29);
+            this.cmbDecalQuantity.TabIndex = 10;
+            // 
+            // lblShadowDistance
+            // 
+            this.lblShadowDistance.BackColor = System.Drawing.Color.Transparent;
+            this.lblShadowDistance.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.lblShadowDistance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.lblShadowDistance.Location = new System.Drawing.Point(227, 116);
+            this.lblShadowDistance.Name = "lblShadowDistance";
+            this.lblShadowDistance.Size = new System.Drawing.Size(114, 21);
+            this.lblShadowDistance.TabIndex = 9;
+            this.lblShadowDistance.Text = "Shadow Distance:";
+            // 
+            // cmbShadowDistance
+            // 
+            this.cmbShadowDistance.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.cmbShadowDistance.FormattingEnabled = true;
+            this.cmbShadowDistance.Items.AddRange(new object[] {
+            "Medium",
+            "High",
+            "Ultra"});
+            this.cmbShadowDistance.Location = new System.Drawing.Point(231, 140);
+            this.cmbShadowDistance.Name = "cmbShadowDistance";
+            this.cmbShadowDistance.Size = new System.Drawing.Size(121, 29);
+            this.cmbShadowDistance.TabIndex = 8;
+            this.cmbShadowDistance.SelectedIndexChanged += new System.EventHandler(this.cmbShadowDistance_SelectedIndexChanged);
+            // 
+            // lblShadowQuality
+            // 
+            this.lblShadowQuality.BackColor = System.Drawing.Color.Transparent;
+            this.lblShadowQuality.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.lblShadowQuality.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.lblShadowQuality.Location = new System.Drawing.Point(227, 60);
+            this.lblShadowQuality.Name = "lblShadowQuality";
+            this.lblShadowQuality.Size = new System.Drawing.Size(104, 21);
+            this.lblShadowQuality.TabIndex = 7;
+            this.lblShadowQuality.Text = "Shadow Quality:";
+            // 
+            // cmbShadowQuality
+            // 
+            this.cmbShadowQuality.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.cmbShadowQuality.FormattingEnabled = true;
+            this.cmbShadowQuality.Items.AddRange(new object[] {
+            "Low",
+            "Medium",
+            "High",
+            "Ultra"});
+            this.cmbShadowQuality.Location = new System.Drawing.Point(231, 84);
+            this.cmbShadowQuality.Name = "cmbShadowQuality";
+            this.cmbShadowQuality.Size = new System.Drawing.Size(121, 29);
+            this.cmbShadowQuality.TabIndex = 6;
+            // 
+            // lblTextureQuality
+            // 
+            this.lblTextureQuality.BackColor = System.Drawing.Color.Transparent;
+            this.lblTextureQuality.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.lblTextureQuality.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.lblTextureQuality.Location = new System.Drawing.Point(227, 4);
+            this.lblTextureQuality.Name = "lblTextureQuality";
+            this.lblTextureQuality.Size = new System.Drawing.Size(99, 21);
+            this.lblTextureQuality.TabIndex = 5;
+            this.lblTextureQuality.Text = "Texture Quality:";
+            // 
+            // cmbTextureQuality
+            // 
+            this.cmbTextureQuality.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.cmbTextureQuality.FormattingEnabled = true;
+            this.cmbTextureQuality.Items.AddRange(new object[] {
+            "Medium",
+            "High",
+            "Ultra"});
+            this.cmbTextureQuality.Location = new System.Drawing.Point(231, 28);
+            this.cmbTextureQuality.Name = "cmbTextureQuality";
+            this.cmbTextureQuality.Size = new System.Drawing.Size(121, 29);
+            this.cmbTextureQuality.TabIndex = 4;
+            // 
+            // lblAnisotropicFiltering
+            // 
+            this.lblAnisotropicFiltering.BackColor = System.Drawing.Color.Transparent;
+            this.lblAnisotropicFiltering.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.lblAnisotropicFiltering.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.lblAnisotropicFiltering.Location = new System.Drawing.Point(56, 116);
+            this.lblAnisotropicFiltering.Name = "lblAnisotropicFiltering";
+            this.lblAnisotropicFiltering.Size = new System.Drawing.Size(131, 21);
+            this.lblAnisotropicFiltering.TabIndex = 3;
+            this.lblAnisotropicFiltering.Text = "Anisotropic Filtering:";
+            // 
+            // cmbAnisotropicFiltering
+            // 
+            this.cmbAnisotropicFiltering.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.cmbAnisotropicFiltering.FormattingEnabled = true;
+            this.cmbAnisotropicFiltering.Items.AddRange(new object[] {
+            "Off",
+            "2 Samples",
+            "4 Samples",
+            "8 Samples",
+            "12 Samples",
+            "16 Samples"});
+            this.cmbAnisotropicFiltering.Location = new System.Drawing.Point(60, 140);
+            this.cmbAnisotropicFiltering.Name = "cmbAnisotropicFiltering";
+            this.cmbAnisotropicFiltering.Size = new System.Drawing.Size(121, 29);
+            this.cmbAnisotropicFiltering.TabIndex = 2;
+            this.cmbAnisotropicFiltering.SelectedIndexChanged += new System.EventHandler(this.cmbAnisotropicFiltering_SelectedIndexChanged);
+            // 
+            // lblAntialiasing
+            // 
+            this.lblAntialiasing.BackColor = System.Drawing.Color.Transparent;
+            this.lblAntialiasing.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.lblAntialiasing.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.lblAntialiasing.Location = new System.Drawing.Point(56, 60);
+            this.lblAntialiasing.Name = "lblAntialiasing";
+            this.lblAntialiasing.Size = new System.Drawing.Size(83, 21);
+            this.lblAntialiasing.TabIndex = 1;
+            this.lblAntialiasing.Text = "Antialiasing:";
+            // 
+            // cmbAntialiasing
+            // 
+            this.cmbAntialiasing.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.cmbAntialiasing.FormattingEnabled = true;
+            this.cmbAntialiasing.Items.AddRange(new object[] {
+            "Off",
+            "FXAA",
+            "TAA"});
+            this.cmbAntialiasing.Location = new System.Drawing.Point(60, 84);
+            this.cmbAntialiasing.Name = "cmbAntialiasing";
+            this.cmbAntialiasing.Size = new System.Drawing.Size(121, 29);
+            this.cmbAntialiasing.TabIndex = 0;
+            this.cmbAntialiasing.SelectedIndexChanged += new System.EventHandler(this.cmbAntialiasing_SelectedIndexChanged);
+            // 
             // tabExtraSettings
             // 
             this.tabExtraSettings.BackColor = System.Drawing.SystemColors.Control;
@@ -212,7 +558,7 @@
             this.lblDifficulty.BackColor = System.Drawing.Color.Transparent;
             this.lblDifficulty.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
             this.lblDifficulty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.lblDifficulty.Location = new System.Drawing.Point(3, 20);
+            this.lblDifficulty.Location = new System.Drawing.Point(24, 22);
             this.lblDifficulty.Name = "lblDifficulty";
             this.lblDifficulty.Size = new System.Drawing.Size(67, 21);
             this.lblDifficulty.TabIndex = 9;
@@ -224,7 +570,7 @@
             this.chkCompanionApp.BackColor = System.Drawing.Color.Transparent;
             this.chkCompanionApp.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkCompanionApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.chkCompanionApp.Location = new System.Drawing.Point(7, 75);
+            this.chkCompanionApp.Location = new System.Drawing.Point(28, 77);
             this.chkCompanionApp.Name = "chkCompanionApp";
             this.chkCompanionApp.Size = new System.Drawing.Size(122, 25);
             this.chkCompanionApp.TabIndex = 7;
@@ -235,7 +581,7 @@
             // 
             // cmbDifficulty
             // 
-            this.cmbDifficulty.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F);
+            this.cmbDifficulty.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
             this.cmbDifficulty.FormattingEnabled = true;
             this.cmbDifficulty.Items.AddRange(new object[] {
             "Very Easy",
@@ -244,9 +590,9 @@
             "Hard",
             "Very Hard",
             "Survival"});
-            this.cmbDifficulty.Location = new System.Drawing.Point(7, 44);
+            this.cmbDifficulty.Location = new System.Drawing.Point(28, 46);
             this.cmbDifficulty.Name = "cmbDifficulty";
-            this.cmbDifficulty.Size = new System.Drawing.Size(177, 25);
+            this.cmbDifficulty.Size = new System.Drawing.Size(141, 29);
             this.cmbDifficulty.TabIndex = 8;
             this.cmbDifficulty.SelectedIndexChanged += new System.EventHandler(this.cmbDifficulty_SelectedIndexChanged);
             // 
@@ -580,367 +926,6 @@
             this.lblAbout.TabIndex = 3;
             this.lblAbout.Text = resources.GetString("lblAbout.Text");
             // 
-            // tabVideoSettings
-            // 
-            this.tabVideoSettings.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.tabVideoSettings.BackgroundImage = global::Fallout_4_Launcher.Properties.Resources.blue_background;
-            this.tabVideoSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabVideoSettings.Controls.Add(this.chkLensFlare);
-            this.tabVideoSettings.Controls.Add(this.chkMotionBlur);
-            this.tabVideoSettings.Controls.Add(this.chkRainOcclusion);
-            this.tabVideoSettings.Controls.Add(this.chkWetness);
-            this.tabVideoSettings.Controls.Add(this.chkScreenSpaceReflections);
-            this.tabVideoSettings.Controls.Add(this.lblAmbientOcclusion);
-            this.tabVideoSettings.Controls.Add(this.cmbAmbientOcclusion);
-            this.tabVideoSettings.Controls.Add(this.lblDOF);
-            this.tabVideoSettings.Controls.Add(this.cmbDOF);
-            this.tabVideoSettings.Controls.Add(this.lblGodrayQualtiy);
-            this.tabVideoSettings.Controls.Add(this.cmbGodrayQuality);
-            this.tabVideoSettings.Controls.Add(this.lblLightingQuality);
-            this.tabVideoSettings.Controls.Add(this.cmbLightingQuality);
-            this.tabVideoSettings.Controls.Add(this.lblDecalQuantity);
-            this.tabVideoSettings.Controls.Add(this.cmbDecalQuantity);
-            this.tabVideoSettings.Controls.Add(this.lblShadowDistance);
-            this.tabVideoSettings.Controls.Add(this.cmbShadowDistance);
-            this.tabVideoSettings.Controls.Add(this.lblShadowQuality);
-            this.tabVideoSettings.Controls.Add(this.cmbShadowQuality);
-            this.tabVideoSettings.Controls.Add(this.lblTextureQuality);
-            this.tabVideoSettings.Controls.Add(this.cmbTextureQuality);
-            this.tabVideoSettings.Controls.Add(this.lblAnisotropicFiltering);
-            this.tabVideoSettings.Controls.Add(this.cmbAnisotropicFiltering);
-            this.tabVideoSettings.Controls.Add(this.lblAntialiasing);
-            this.tabVideoSettings.Controls.Add(this.cmbAntialiasing);
-            this.tabVideoSettings.Location = new System.Drawing.Point(4, 22);
-            this.tabVideoSettings.Name = "tabVideoSettings";
-            this.tabVideoSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.tabVideoSettings.Size = new System.Drawing.Size(635, 349);
-            this.tabVideoSettings.TabIndex = 4;
-            this.tabVideoSettings.Text = "Video Settings";
-            // 
-            // cmbAntialiasing
-            // 
-            this.cmbAntialiasing.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.cmbAntialiasing.FormattingEnabled = true;
-            this.cmbAntialiasing.Items.AddRange(new object[] {
-            "Off",
-            "FXAA",
-            "TAA"});
-            this.cmbAntialiasing.Location = new System.Drawing.Point(60, 84);
-            this.cmbAntialiasing.Name = "cmbAntialiasing";
-            this.cmbAntialiasing.Size = new System.Drawing.Size(121, 29);
-            this.cmbAntialiasing.TabIndex = 0;
-            this.cmbAntialiasing.SelectedIndexChanged += new System.EventHandler(this.cmbAntialiasing_SelectedIndexChanged);
-            // 
-            // lblAntialiasing
-            // 
-            this.lblAntialiasing.AutoSize = true;
-            this.lblAntialiasing.BackColor = System.Drawing.Color.Transparent;
-            this.lblAntialiasing.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.lblAntialiasing.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.lblAntialiasing.Location = new System.Drawing.Point(56, 60);
-            this.lblAntialiasing.Name = "lblAntialiasing";
-            this.lblAntialiasing.Size = new System.Drawing.Size(79, 21);
-            this.lblAntialiasing.TabIndex = 1;
-            this.lblAntialiasing.Text = "Antialiasing";
-            // 
-            // lblAnisotropicFiltering
-            // 
-            this.lblAnisotropicFiltering.AutoSize = true;
-            this.lblAnisotropicFiltering.BackColor = System.Drawing.Color.Transparent;
-            this.lblAnisotropicFiltering.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.lblAnisotropicFiltering.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.lblAnisotropicFiltering.Location = new System.Drawing.Point(56, 116);
-            this.lblAnisotropicFiltering.Name = "lblAnisotropicFiltering";
-            this.lblAnisotropicFiltering.Size = new System.Drawing.Size(127, 21);
-            this.lblAnisotropicFiltering.TabIndex = 3;
-            this.lblAnisotropicFiltering.Text = "Anisotropic Filtering";
-            // 
-            // cmbAnisotropicFiltering
-            // 
-            this.cmbAnisotropicFiltering.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.cmbAnisotropicFiltering.FormattingEnabled = true;
-            this.cmbAnisotropicFiltering.Items.AddRange(new object[] {
-            "Off",
-            "2 Samples",
-            "4 Samples",
-            "8 Samples",
-            "12 Samples",
-            "16 Samples"});
-            this.cmbAnisotropicFiltering.Location = new System.Drawing.Point(60, 140);
-            this.cmbAnisotropicFiltering.Name = "cmbAnisotropicFiltering";
-            this.cmbAnisotropicFiltering.Size = new System.Drawing.Size(121, 29);
-            this.cmbAnisotropicFiltering.TabIndex = 2;
-            this.cmbAnisotropicFiltering.SelectedIndexChanged += new System.EventHandler(this.cmbAnisotropicFiltering_SelectedIndexChanged);
-            // 
-            // lblTextureQuality
-            // 
-            this.lblTextureQuality.AutoSize = true;
-            this.lblTextureQuality.BackColor = System.Drawing.Color.Transparent;
-            this.lblTextureQuality.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.lblTextureQuality.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.lblTextureQuality.Location = new System.Drawing.Point(227, 4);
-            this.lblTextureQuality.Name = "lblTextureQuality";
-            this.lblTextureQuality.Size = new System.Drawing.Size(95, 21);
-            this.lblTextureQuality.TabIndex = 5;
-            this.lblTextureQuality.Text = "Texture Quality";
-            // 
-            // cmbTextureQuality
-            // 
-            this.cmbTextureQuality.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.cmbTextureQuality.FormattingEnabled = true;
-            this.cmbTextureQuality.Items.AddRange(new object[] {
-            "Medium",
-            "High",
-            "Ultra"});
-            this.cmbTextureQuality.Location = new System.Drawing.Point(231, 28);
-            this.cmbTextureQuality.Name = "cmbTextureQuality";
-            this.cmbTextureQuality.Size = new System.Drawing.Size(121, 29);
-            this.cmbTextureQuality.TabIndex = 4;
-            // 
-            // lblShadowQuality
-            // 
-            this.lblShadowQuality.AutoSize = true;
-            this.lblShadowQuality.BackColor = System.Drawing.Color.Transparent;
-            this.lblShadowQuality.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.lblShadowQuality.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.lblShadowQuality.Location = new System.Drawing.Point(227, 60);
-            this.lblShadowQuality.Name = "lblShadowQuality";
-            this.lblShadowQuality.Size = new System.Drawing.Size(100, 21);
-            this.lblShadowQuality.TabIndex = 7;
-            this.lblShadowQuality.Text = "Shadow Quality";
-            // 
-            // cmbShadowQuality
-            // 
-            this.cmbShadowQuality.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.cmbShadowQuality.FormattingEnabled = true;
-            this.cmbShadowQuality.Items.AddRange(new object[] {
-            "Low",
-            "Medium",
-            "High",
-            "Ultra"});
-            this.cmbShadowQuality.Location = new System.Drawing.Point(231, 84);
-            this.cmbShadowQuality.Name = "cmbShadowQuality";
-            this.cmbShadowQuality.Size = new System.Drawing.Size(121, 29);
-            this.cmbShadowQuality.TabIndex = 6;
-            // 
-            // lblShadowDistance
-            // 
-            this.lblShadowDistance.AutoSize = true;
-            this.lblShadowDistance.BackColor = System.Drawing.Color.Transparent;
-            this.lblShadowDistance.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.lblShadowDistance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.lblShadowDistance.Location = new System.Drawing.Point(227, 116);
-            this.lblShadowDistance.Name = "lblShadowDistance";
-            this.lblShadowDistance.Size = new System.Drawing.Size(110, 21);
-            this.lblShadowDistance.TabIndex = 9;
-            this.lblShadowDistance.Text = "Shadow Distance";
-            // 
-            // cmbShadowDistance
-            // 
-            this.cmbShadowDistance.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.cmbShadowDistance.FormattingEnabled = true;
-            this.cmbShadowDistance.Items.AddRange(new object[] {
-            "Medium",
-            "High",
-            "Ultra"});
-            this.cmbShadowDistance.Location = new System.Drawing.Point(231, 140);
-            this.cmbShadowDistance.Name = "cmbShadowDistance";
-            this.cmbShadowDistance.Size = new System.Drawing.Size(121, 29);
-            this.cmbShadowDistance.TabIndex = 8;
-            this.cmbShadowDistance.SelectedIndexChanged += new System.EventHandler(this.cmbShadowDistance_SelectedIndexChanged);
-            // 
-            // lblDecalQuantity
-            // 
-            this.lblDecalQuantity.AutoSize = true;
-            this.lblDecalQuantity.BackColor = System.Drawing.Color.Transparent;
-            this.lblDecalQuantity.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.lblDecalQuantity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.lblDecalQuantity.Location = new System.Drawing.Point(227, 172);
-            this.lblDecalQuantity.Name = "lblDecalQuantity";
-            this.lblDecalQuantity.Size = new System.Drawing.Size(95, 21);
-            this.lblDecalQuantity.TabIndex = 11;
-            this.lblDecalQuantity.Text = "Decal Quantity";
-            // 
-            // cmbDecalQuantity
-            // 
-            this.cmbDecalQuantity.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.cmbDecalQuantity.FormattingEnabled = true;
-            this.cmbDecalQuantity.Items.AddRange(new object[] {
-            "None",
-            "Medium",
-            "High",
-            "Ultra"});
-            this.cmbDecalQuantity.Location = new System.Drawing.Point(231, 196);
-            this.cmbDecalQuantity.Name = "cmbDecalQuantity";
-            this.cmbDecalQuantity.Size = new System.Drawing.Size(121, 29);
-            this.cmbDecalQuantity.TabIndex = 10;
-            // 
-            // lblLightingQuality
-            // 
-            this.lblLightingQuality.AutoSize = true;
-            this.lblLightingQuality.BackColor = System.Drawing.Color.Transparent;
-            this.lblLightingQuality.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.lblLightingQuality.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.lblLightingQuality.Location = new System.Drawing.Point(227, 228);
-            this.lblLightingQuality.Name = "lblLightingQuality";
-            this.lblLightingQuality.Size = new System.Drawing.Size(101, 21);
-            this.lblLightingQuality.TabIndex = 13;
-            this.lblLightingQuality.Text = "Lighting Quality";
-            // 
-            // cmbLightingQuality
-            // 
-            this.cmbLightingQuality.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.cmbLightingQuality.FormattingEnabled = true;
-            this.cmbLightingQuality.Items.AddRange(new object[] {
-            "Medium",
-            "High",
-            "Ultra"});
-            this.cmbLightingQuality.Location = new System.Drawing.Point(231, 252);
-            this.cmbLightingQuality.Name = "cmbLightingQuality";
-            this.cmbLightingQuality.Size = new System.Drawing.Size(121, 29);
-            this.cmbLightingQuality.TabIndex = 12;
-            // 
-            // lblGodrayQualtiy
-            // 
-            this.lblGodrayQualtiy.AutoSize = true;
-            this.lblGodrayQualtiy.BackColor = System.Drawing.Color.Transparent;
-            this.lblGodrayQualtiy.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.lblGodrayQualtiy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.lblGodrayQualtiy.Location = new System.Drawing.Point(227, 284);
-            this.lblGodrayQualtiy.Name = "lblGodrayQualtiy";
-            this.lblGodrayQualtiy.Size = new System.Drawing.Size(101, 21);
-            this.lblGodrayQualtiy.TabIndex = 15;
-            this.lblGodrayQualtiy.Text = "Godrays Quality";
-            // 
-            // cmbGodrayQuality
-            // 
-            this.cmbGodrayQuality.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.cmbGodrayQuality.FormattingEnabled = true;
-            this.cmbGodrayQuality.Items.AddRange(new object[] {
-            "Off",
-            "Low",
-            "Medium",
-            "High",
-            "Ultra"});
-            this.cmbGodrayQuality.Location = new System.Drawing.Point(231, 308);
-            this.cmbGodrayQuality.Name = "cmbGodrayQuality";
-            this.cmbGodrayQuality.Size = new System.Drawing.Size(121, 29);
-            this.cmbGodrayQuality.TabIndex = 14;
-            this.cmbGodrayQuality.SelectedIndexChanged += new System.EventHandler(this.cmbGodrayQuality_SelectedIndexChanged);
-            // 
-            // lblDOF
-            // 
-            this.lblDOF.AutoSize = true;
-            this.lblDOF.BackColor = System.Drawing.Color.Transparent;
-            this.lblDOF.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.lblDOF.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.lblDOF.Location = new System.Drawing.Point(56, 228);
-            this.lblDOF.Name = "lblDOF";
-            this.lblDOF.Size = new System.Drawing.Size(35, 21);
-            this.lblDOF.TabIndex = 17;
-            this.lblDOF.Text = "DOF";
-            // 
-            // cmbDOF
-            // 
-            this.cmbDOF.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.cmbDOF.FormattingEnabled = true;
-            this.cmbDOF.Items.AddRange(new object[] {
-            "Standard",
-            "Bokeh"});
-            this.cmbDOF.Location = new System.Drawing.Point(60, 252);
-            this.cmbDOF.Name = "cmbDOF";
-            this.cmbDOF.Size = new System.Drawing.Size(121, 29);
-            this.cmbDOF.TabIndex = 16;
-            // 
-            // lblAmbientOcclusion
-            // 
-            this.lblAmbientOcclusion.AutoSize = true;
-            this.lblAmbientOcclusion.BackColor = System.Drawing.Color.Transparent;
-            this.lblAmbientOcclusion.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.lblAmbientOcclusion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.lblAmbientOcclusion.Location = new System.Drawing.Point(56, 172);
-            this.lblAmbientOcclusion.Name = "lblAmbientOcclusion";
-            this.lblAmbientOcclusion.Size = new System.Drawing.Size(120, 21);
-            this.lblAmbientOcclusion.TabIndex = 19;
-            this.lblAmbientOcclusion.Text = "Ambient Occlusion";
-            // 
-            // cmbAmbientOcclusion
-            // 
-            this.cmbAmbientOcclusion.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.cmbAmbientOcclusion.FormattingEnabled = true;
-            this.cmbAmbientOcclusion.Items.AddRange(new object[] {
-            "Off",
-            "SSAO"});
-            this.cmbAmbientOcclusion.Location = new System.Drawing.Point(60, 196);
-            this.cmbAmbientOcclusion.Name = "cmbAmbientOcclusion";
-            this.cmbAmbientOcclusion.Size = new System.Drawing.Size(121, 29);
-            this.cmbAmbientOcclusion.TabIndex = 18;
-            // 
-            // chkScreenSpaceReflections
-            // 
-            this.chkScreenSpaceReflections.AutoSize = true;
-            this.chkScreenSpaceReflections.BackColor = System.Drawing.Color.Transparent;
-            this.chkScreenSpaceReflections.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.chkScreenSpaceReflections.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.chkScreenSpaceReflections.Location = new System.Drawing.Point(401, 80);
-            this.chkScreenSpaceReflections.Name = "chkScreenSpaceReflections";
-            this.chkScreenSpaceReflections.Size = new System.Drawing.Size(177, 25);
-            this.chkScreenSpaceReflections.TabIndex = 20;
-            this.chkScreenSpaceReflections.Text = "Screen Space Reflections";
-            this.chkScreenSpaceReflections.UseVisualStyleBackColor = false;
-            // 
-            // chkWetness
-            // 
-            this.chkWetness.AutoSize = true;
-            this.chkWetness.BackColor = System.Drawing.Color.Transparent;
-            this.chkWetness.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.chkWetness.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.chkWetness.Location = new System.Drawing.Point(401, 121);
-            this.chkWetness.Name = "chkWetness";
-            this.chkWetness.Size = new System.Drawing.Size(77, 25);
-            this.chkWetness.TabIndex = 21;
-            this.chkWetness.Text = "Wetness";
-            this.chkWetness.UseVisualStyleBackColor = false;
-            // 
-            // chkRainOcclusion
-            // 
-            this.chkRainOcclusion.AutoSize = true;
-            this.chkRainOcclusion.BackColor = System.Drawing.Color.Transparent;
-            this.chkRainOcclusion.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.chkRainOcclusion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.chkRainOcclusion.Location = new System.Drawing.Point(401, 162);
-            this.chkRainOcclusion.Name = "chkRainOcclusion";
-            this.chkRainOcclusion.Size = new System.Drawing.Size(116, 25);
-            this.chkRainOcclusion.TabIndex = 22;
-            this.chkRainOcclusion.Text = "Rain Occlusion";
-            this.chkRainOcclusion.UseVisualStyleBackColor = false;
-            // 
-            // chkMotionBlur
-            // 
-            this.chkMotionBlur.AutoSize = true;
-            this.chkMotionBlur.BackColor = System.Drawing.Color.Transparent;
-            this.chkMotionBlur.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.chkMotionBlur.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.chkMotionBlur.Location = new System.Drawing.Point(401, 203);
-            this.chkMotionBlur.Name = "chkMotionBlur";
-            this.chkMotionBlur.Size = new System.Drawing.Size(96, 25);
-            this.chkMotionBlur.TabIndex = 23;
-            this.chkMotionBlur.Text = "Motion Blur";
-            this.chkMotionBlur.UseVisualStyleBackColor = false;
-            // 
-            // chkLensFlare
-            // 
-            this.chkLensFlare.AutoSize = true;
-            this.chkLensFlare.BackColor = System.Drawing.Color.Transparent;
-            this.chkLensFlare.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.chkLensFlare.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.chkLensFlare.Location = new System.Drawing.Point(401, 244);
-            this.chkLensFlare.Name = "chkLensFlare";
-            this.chkLensFlare.Size = new System.Drawing.Size(88, 25);
-            this.chkLensFlare.TabIndex = 24;
-            this.chkLensFlare.Text = "Lens Flare";
-            this.chkLensFlare.UseVisualStyleBackColor = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -957,6 +942,7 @@
             this.tabGame.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgFallout4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLaunch)).EndInit();
+            this.tabVideoSettings.ResumeLayout(false);
             this.tabExtraSettings.ResumeLayout(false);
             this.tabExtraSettings.PerformLayout();
             this.grpGeneral.ResumeLayout(false);
@@ -968,8 +954,6 @@
             this.tabMods.PerformLayout();
             this.tabAbout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgVaultBoy)).EndInit();
-            this.tabVideoSettings.ResumeLayout(false);
-            this.tabVideoSettings.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -22,6 +22,15 @@ namespace Fallout_4_Launcher
 {
     public partial class Form1 : Form
     {
+        string fallout4DocsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\My Games\Fallout4";
+        string fallout4InstallDirectory = @"C:\Program Files (x86)\Steam\steamapps\common\Fallout4";
+        string fallout4AppDataDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"Local\Fallout4";
+
+        List<string> pluginList = new List<string>();
+        List<string> fallout4Prefs = new List<string>();
+        List<string> fallout4 = new List<string>();
+
+        List<string> pluginOrder = new List<string>();
         public Form1()
         {
             InitializeComponent();
@@ -44,20 +53,8 @@ namespace Fallout_4_Launcher
             chkLensFlare.Enabled = false;
         }
 
-        string fallout4DocsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\My Games\Fallout4";
-        string fallout4InstallDirectory = @"C:\Program Files (x86)\Steam\steamapps\common\Fallout4";
-        string fallout4AppDataDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"Local\Fallout4";
 
-        List<string> pluginList = new List<string>();
-        List<string> fallout4Prefs = new List<string>();
-        List<string> fallout4 = new List<string>();
 
-        List<string> pluginOrder = new List<string>();
-
-        private void btnLaunch_Click(object sender, EventArgs e)
-        {
-            Process.Start("steam://run/377160");
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -73,35 +70,23 @@ namespace Fallout_4_Launcher
             Properties.Settings.Default.Save();
         }
 
+        private void btnLaunch_Click(object sender, EventArgs e)
+        {
+            Process.Start("steam://run/377160");
+        }
+
         private void btnSetReadOnly_Click(object sender, EventArgs e)
         {
-            bool state = false;
             FileAttributes attributes = File.GetAttributes(fallout4AppDataDirectory + @"\plugins.txt");
 
             if ((attributes & FileAttributes.ReadOnly) == FileAttributes.ReadOnly)
             {
                 makeFilesReadWrite();
-                state = false;
             }
             else
             {
                 makeFilesReadOnly();
-                state = true;
             }
-        }
-
-        private void makeFilesReadOnly()
-        {
-            File.SetAttributes(fallout4AppDataDirectory + @"\plugins.txt", FileAttributes.ReadOnly);
-            File.SetAttributes(fallout4DocsDirectory + @"\fallout4.ini", FileAttributes.ReadOnly);
-            File.SetAttributes(fallout4DocsDirectory + @"\fallout4prefs.ini", FileAttributes.ReadOnly);
-        }
-
-        private void makeFilesReadWrite()
-        {
-            File.SetAttributes(fallout4AppDataDirectory + @"\plugins.txt", FileAttributes.Normal);
-            File.SetAttributes(fallout4DocsDirectory + @"\fallout4.ini", FileAttributes.Normal);
-            File.SetAttributes(fallout4DocsDirectory + @"\fallout4prefs.ini", FileAttributes.Normal);
         }
 
         private void btnActivateSelected_Click(object sender, EventArgs e)
@@ -276,398 +261,6 @@ namespace Fallout_4_Launcher
             Process.Start("https://github.com/FlakTheMighty/Fallout-4-Config-Tool");
         }
 
-        private void checkSettings()
-        {
-            if (Properties.Settings.Default.appdataDirectory != "")
-            {
-                fallout4AppDataDirectory = Properties.Settings.Default.appdataDirectory;
-            }
-
-            if (Properties.Settings.Default.installDirectory != "")
-            {
-                fallout4InstallDirectory = Properties.Settings.Default.installDirectory;
-            }
-
-            if (Properties.Settings.Default.docsDirectory != "")
-            {
-                fallout4DocsDirectory = Properties.Settings.Default.docsDirectory;
-            }
-
-            if (!Directory.Exists(fallout4InstallDirectory))
-            {
-                MessageBox.Show("Cannot find your install directory, please show me where it is.", "Whoops");
-                OpenFileDialog ofd = new OpenFileDialog();
-                ofd.InitialDirectory = "";
-                ofd.Filter = "Fallout4 (.exe)|Fallout4.exe";
-
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    fallout4InstallDirectory = ofd.FileName;
-                    //remove the exe from the path
-                    fallout4InstallDirectory = fallout4InstallDirectory.Remove(fallout4InstallDirectory.IndexOf(@"\Fallout4.exe"));
-                    Properties.Settings.Default.installDirectory = fallout4InstallDirectory;
-                }
-            }
-
-            if (fallout4AppDataDirectory.Contains("Roaming"))
-            {
-                fallout4AppDataDirectory = fallout4AppDataDirectory.Remove(fallout4AppDataDirectory.IndexOf("Roaming"), 7);
-                Properties.Settings.Default.appdataDirectory = fallout4AppDataDirectory;
-            }
-        }
-
-        private void checkFileSensitiveSettings()
-        {
-            if (Properties.Settings.Default.skipLauncher)
-            {
-                chkSkipLauncher.Checked = true;
-            }
-            else
-            {
-                chkSkipLauncher.Checked = false;
-            }
-
-            //check if the companion app is on
-            if (fallout4Prefs[parseFallout4PrefsINI("bPipboyCompanionEnabled=")].Contains("bPipboyCompanionEnabled=") && 
-                Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("bPipboyCompanionEnabled=")].Substring(24)) == 1)
-            {
-                chkCompanionApp.Checked = true;
-            }
-            else
-            {
-                chkCompanionApp.Checked = false;
-            }
-
-            //check for first person FOV value
-            if (fallout4[parseFallout4INI("fDefault1stPersonFOV=")].Contains("fDefault1stPersonFOV="))
-            {
-                txtFOVFirstPerson.Text = fallout4[parseFallout4INI("fDefault1stPersonFOV=")].Substring(21);
-            }
-            else
-            {
-                txtFOVFirstPerson.Text = "80";
-            }
-
-            //check for third person FOV value
-            if (fallout4[parseFallout4INI("fDefaultWorldFOV=")].Contains("fDefaultWorldFOV="))
-            {
-                txtFOVThirdPerson.Text = fallout4[parseFallout4INI("fDefaultWorldFOV=")].Substring(17);
-            }
-            else
-            {
-                txtFOVThirdPerson.Text = "70";
-            }
-
-            //set the difficulty
-            cmbDifficulty.SelectedIndex = Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("iDifficulty=")].Substring(12));
-
-            //set the antialiasing
-            switch(fallout4Prefs[parseFallout4PrefsINI("sAntiAliasing=")].Substring(14)){
-                case "":
-                    cmbAntialiasing.SelectedIndex = 0;
-                    break;
-                case "FXAA":
-                    cmbAntialiasing.SelectedIndex = 1;
-                    break;
-                case "TAA":
-                    cmbAntialiasing.SelectedIndex = 2;
-                    break;
-            }
-
-            //set the anisotropic filtering
-            switch (Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("iMaxAnisotropy=")].Substring(15)))
-            {
-                case 1:
-                    cmbAnisotropicFiltering.SelectedIndex = 0;
-                    break;
-                case 2:
-                    cmbAnisotropicFiltering.SelectedIndex = 1;
-                    break;
-                case 4:
-                    cmbAnisotropicFiltering.SelectedIndex = 2;
-                    break;
-                case 8:
-                    cmbAnisotropicFiltering.SelectedIndex = 3;
-                    break;
-                case 12:
-                    cmbAnisotropicFiltering.SelectedIndex = 4;
-                    break;
-                case 16:
-                    cmbAnisotropicFiltering.SelectedIndex = 5;
-                    break;
-            }
-
-            //set the godray quality
-            //check if it's enabled first, otherwise set it to off
-            if (Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("bVolumetricLightingEnable=")].Substring(26)) == 1)
-            {
-                switch (Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("iVolumetricLightingQuality=")].Substring(27)))
-                {
-                    case 0:
-                        cmbGodrayQuality.SelectedIndex = 1;
-                        //bVolumetricLightingEnable=1
-                        break;
-                    case 1:
-                        cmbGodrayQuality.SelectedIndex = 2;
-                        break;
-                    case 2:
-                        cmbGodrayQuality.SelectedIndex = 3;
-                        break;
-                    case 3:
-                        cmbGodrayQuality.SelectedIndex = 4;
-                        break;
-                }
-            }
-            else
-            {
-                cmbGodrayQuality.SelectedIndex = 0;
-            }
-
-            //fDirShadowDistance=
-            //fShadowDistance=
-            //set the shadow distance
-            switch (Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("fDirShadowDistance=")].Substring(19)))
-            {
-                case 3000:
-                    cmbShadowDistance.SelectedIndex = 0;
-                    break;
-                case 14000:
-                    cmbShadowDistance.SelectedIndex = 1;
-                    break;
-                case 20000:
-                    cmbShadowDistance.SelectedIndex = 2;
-                    break;
-            }
-
-            //decals
-            /*
-             * iMaxSkinDecalsPerFrame=
-             * iMaxDecalsPerFrame=
-             * uMaxDecals=
-             * bDecals=
-             * bSkinnedDecals=
-             * uMaxSkinDecals=
-             * uMaxSkinDecalsPerActor=
-             */
-
-            //set the shadow quality
-            //shadow quality modifies multiple things, doing later
-            //switch (Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("iShadowMapResolution=")].Substring(21)))
-            //{
-            //    case 1024:
-            //        cmbShadowQuality.SelectedIndex = 0;
-            //        break;
-            //    case 2048:
-            //        cmbShadowQuality.SelectedIndex = 1;
-            //        break;
-            //    case 20000:
-            //        cmbShadowQuality.SelectedIndex = 2;
-            //        break;
-            //}
-        }
-
-        /// <summary>Parses the Fallout4.ini file and returns the index of that line, -1 if it's not found.
-        /// <para>(parseFor) The string you're looking for, keep = in the string.</para>
-        /// </summary>
-        private int parseFallout4INI(string parseFor)
-        {
-            int indexOfParam = -1;
-            foreach (string line in fallout4)
-            {
-                indexOfParam++;
-                if (line.Contains(parseFor))
-                {
-                    break;
-                }
-            }
-
-            if (indexOfParam <= fallout4.Count())
-            {
-                return indexOfParam;
-            }
-            else
-            {
-                return -1;
-            }
-
-        }
-
-        /// <summary>Parses the Fallout4Prefs.ini file and returns the index of that line, -1 if it's not found.
-        /// <para>(parseFor) The string you're looking for, keep = in the string.</para>
-        /// </summary>
-        private int parseFallout4PrefsINI(string parseFor)
-        {
-            int indexOfParam = -1;
-            foreach (string line in fallout4Prefs)
-            {
-                indexOfParam++;
-                if (line.Contains(parseFor))
-                {
-                    break;
-                }
-            }
-
-            if (indexOfParam <= fallout4Prefs.Count())
-            {
-                return indexOfParam;
-            }
-            else
-            {
-                return -1;
-            }
-
-        }
-
-        private void loadPluginList()
-        {
-            pluginList.Clear();
-
-            TextReader tr;
-            tr = File.OpenText(fallout4AppDataDirectory + @"\plugins.txt");
-
-            string line;
-            line = tr.ReadLine();
-            while (line != null)
-            {
-                pluginList.Add(line);
-                line = tr.ReadLine();
-            }
-            tr.Close();
-            populateModLists();
-        }
-
-        private void loadFallout4Prefs()
-        {
-            fallout4Prefs.Clear();
-
-            TextReader tr;
-            tr = File.OpenText(fallout4DocsDirectory + @"\Fallout4Prefs.ini");
-
-            string line;
-            line = tr.ReadLine();
-            while (line != null)
-            {
-                fallout4Prefs.Add(line);
-                line = tr.ReadLine();
-            }
-            tr.Close();
-        }
-
-        private void loadFallout4()
-        {
-            fallout4.Clear();
-
-            TextReader tr;
-            tr = File.OpenText(fallout4DocsDirectory + @"\Fallout4.ini");
-
-            string line;
-            line = tr.ReadLine();
-            while (line != null)
-            {
-                fallout4.Add(line);
-                line = tr.ReadLine();
-            }
-            tr.Close();
-        }
-
-        private void populateModLists()
-        {
-            listActiveMods.Items.Clear();
-            listAvailableMods.Items.Clear();
-            //check the files in the Data Folder
-            string[] files = System.IO.Directory.GetFiles(fallout4InstallDirectory + @"\Data", "*.esp");
-            List<string> fileNames = new List<string>();
-
-            //add them to the available, regardless of them being active
-            for (int i = 0; i < files.Length; i++)
-            {
-                if (File.Exists(files[i]))
-                {
-                    fileNames.Add(Path.GetFileName(files[i]));
-                    listAvailableMods.Items.Add(fileNames[i]);
-                }
-            }
-
-            //set the active mods to the active list
-            for (int i = 2; i < pluginList.Count(); i++)
-            {
-                //only add them if it's not commented out!
-                if (!pluginList[i].Contains("#"))
-                {
-                    listActiveMods.Items.Add(pluginList[i]);
-                }
-            }
-
-            //remove active mods from available
-            for (int i = 0; i < listActiveMods.Items.Count; i++)
-            {
-                for (int j = 0; j < listAvailableMods.Items.Count; j++)
-                {
-                    if (listActiveMods.Items[i].Equals(listAvailableMods.Items[j]))
-                    {
-                        listAvailableMods.Items.RemoveAt(j);
-                    }
-                }
-            }
-
-
-        }
-
-        private void refreshModLists()
-        {
-            loadPluginList();
-        }
-
-        private void removeFromPlugins(string modName)
-        {
-            pluginList.Remove(modName);
-        }
-
-        private void addToPlugins(string modName)
-        {
-            pluginList.Add(modName);
-        }
-
-        private void overridePlugins()
-        {
-            List<string> temp = new List<string>();
-            temp.Add("# This file is used by Fallout4 to keep track of your downloaded content.");
-            temp.Add("# Please do not modify this file.");
-            for (int i = 0; i < pluginOrder.Count; i++)
-            {
-                temp.Add(pluginOrder[i]);
-            }
-
-            makeFilesReadWrite();
-            File.WriteAllLines(fallout4AppDataDirectory + @"\plugins.txt", temp);
-            makeFilesReadOnly();
-        }
-
-        private void savePluginList()
-        {
-            File.WriteAllLines(fallout4AppDataDirectory + @"\plugins.txt", pluginList);
-        }
-
-        private void enableMods()
-        {
-            try
-            {
-                fallout4Prefs.Insert(fallout4Prefs.IndexOf("[Launcher]") + 1, "bEnableFileSelection=1");
-                fallout4.Insert(fallout4.IndexOf(@"sResourceDataDirsFinal=STRINGS\"),
-                    @"sResourceDataDirsFinal=STRINGS\, TEXTURES\, MUSIC\, SOUND\, INTERFACE\, MESHES\, PROGRAMS\, MATERIALS\, LODSETTINGS\, VIS\, MISC\, SCRIPTS\, SHADERSFX\ ");
-                fallout4.RemoveAt(fallout4.IndexOf(@"sResourceDataDirsFinal=STRINGS\"));
-
-                makeFilesReadWrite();
-                File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4.ini", fallout4);
-                File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4Prefs.ini", fallout4Prefs);
-                makeFilesReadOnly();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Looks like you already have mod loading enabled.", "Whoops", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void chkSkipLauncher_CheckedChanged(object sender, EventArgs e)
         {
             //backups just in case ;)
@@ -690,7 +283,7 @@ namespace Fallout_4_Launcher
                 File.Move(fallout4InstallDirectory + @"\Fallout4.exe", fallout4InstallDirectory + @"\Fallout4Launcher.exe");
                 File.Move(fallout4InstallDirectory + @"\Fallout4-t.exe", fallout4InstallDirectory + @"\Fallout4.exe");
             }
-            else if(!chkSkipLauncher.Checked && Properties.Settings.Default.skipLauncher)
+            else if (!chkSkipLauncher.Checked && Properties.Settings.Default.skipLauncher)
             {
                 //just redo it
                 File.Move(fallout4InstallDirectory + @"\Fallout4Launcher.exe", fallout4InstallDirectory + @"\Fallout4-t.exe");
@@ -953,6 +546,441 @@ namespace Fallout_4_Launcher
             makeFilesReadWrite();
             File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4Prefs.ini", fallout4Prefs);
             makeFilesReadOnly();
+        }
+
+        /// <summary> Loads plugins.txt into List pluginList
+        /// </summary>
+        private void loadPluginList()
+        {
+            pluginList.Clear();
+
+            TextReader tr;
+            tr = File.OpenText(fallout4AppDataDirectory + @"\plugins.txt");
+
+            string line;
+            line = tr.ReadLine();
+            while (line != null)
+            {
+                pluginList.Add(line);
+                line = tr.ReadLine();
+            }
+            tr.Close();
+            populateModLists();
+        }
+
+        /// <summary> Loads Fallout4Prefs.ini into List Fallout4Prefs
+        /// </summary>
+        private void loadFallout4Prefs()
+        {
+            fallout4Prefs.Clear();
+
+            TextReader tr;
+            tr = File.OpenText(fallout4DocsDirectory + @"\Fallout4Prefs.ini");
+
+            string line;
+            line = tr.ReadLine();
+            while (line != null)
+            {
+                fallout4Prefs.Add(line);
+                line = tr.ReadLine();
+            }
+            tr.Close();
+        }
+
+        /// <summary>Loads the Fallout4.ini file into List fallout4
+        /// </summary>
+        private void loadFallout4()
+        {
+            fallout4.Clear();
+
+            TextReader tr;
+            tr = File.OpenText(fallout4DocsDirectory + @"\Fallout4.ini");
+
+            string line;
+            line = tr.ReadLine();
+            while (line != null)
+            {
+                fallout4.Add(line);
+                line = tr.ReadLine();
+            }
+            tr.Close();
+        }
+
+        /// <summary>Checks settings that do not require a file to have been loaded
+        /// </summary>
+        private void checkSettings()
+        {
+            if (Properties.Settings.Default.appdataDirectory != "")
+            {
+                fallout4AppDataDirectory = Properties.Settings.Default.appdataDirectory;
+            }
+
+            if (Properties.Settings.Default.installDirectory != "")
+            {
+                fallout4InstallDirectory = Properties.Settings.Default.installDirectory;
+            }
+
+            if (Properties.Settings.Default.docsDirectory != "")
+            {
+                fallout4DocsDirectory = Properties.Settings.Default.docsDirectory;
+            }
+
+            if (!Directory.Exists(fallout4InstallDirectory))
+            {
+                MessageBox.Show("Cannot find your install directory, please show me where it is.", "Whoops");
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.InitialDirectory = "";
+                ofd.Filter = "Fallout4 (.exe)|Fallout4.exe";
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    fallout4InstallDirectory = ofd.FileName;
+                    //remove the exe from the path
+                    fallout4InstallDirectory = fallout4InstallDirectory.Remove(fallout4InstallDirectory.IndexOf(@"\Fallout4.exe"));
+                    Properties.Settings.Default.installDirectory = fallout4InstallDirectory;
+                }
+            }
+
+            if (fallout4AppDataDirectory.Contains("Roaming"))
+            {
+                fallout4AppDataDirectory = fallout4AppDataDirectory.Remove(fallout4AppDataDirectory.IndexOf("Roaming"), 7);
+                Properties.Settings.Default.appdataDirectory = fallout4AppDataDirectory;
+            }
+        }
+
+        /// <summary>Checks settings that require files to have been loaded and sets corresponding element to their value
+        /// </summary>
+        private void checkFileSensitiveSettings()
+        {
+            if (Properties.Settings.Default.skipLauncher)
+            {
+                chkSkipLauncher.Checked = true;
+            }
+            else
+            {
+                chkSkipLauncher.Checked = false;
+            }
+
+            //check if the companion app is on
+            if (fallout4Prefs[parseFallout4PrefsINI("bPipboyCompanionEnabled=")].Contains("bPipboyCompanionEnabled=") &&
+                Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("bPipboyCompanionEnabled=")].Substring(24)) == 1)
+            {
+                chkCompanionApp.Checked = true;
+            }
+            else
+            {
+                chkCompanionApp.Checked = false;
+            }
+
+            //check for first person FOV value
+            if (fallout4[parseFallout4INI("fDefault1stPersonFOV=")].Contains("fDefault1stPersonFOV="))
+            {
+                txtFOVFirstPerson.Text = fallout4[parseFallout4INI("fDefault1stPersonFOV=")].Substring(21);
+            }
+            else
+            {
+                txtFOVFirstPerson.Text = "80";
+            }
+
+            //check for third person FOV value
+            if (fallout4[parseFallout4INI("fDefaultWorldFOV=")].Contains("fDefaultWorldFOV="))
+            {
+                txtFOVThirdPerson.Text = fallout4[parseFallout4INI("fDefaultWorldFOV=")].Substring(17);
+            }
+            else
+            {
+                txtFOVThirdPerson.Text = "70";
+            }
+
+            //set the difficulty
+            cmbDifficulty.SelectedIndex = Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("iDifficulty=")].Substring(12));
+
+            //set the antialiasing
+            switch (fallout4Prefs[parseFallout4PrefsINI("sAntiAliasing=")].Substring(14))
+            {
+                case "":
+                    cmbAntialiasing.SelectedIndex = 0;
+                    break;
+                case "FXAA":
+                    cmbAntialiasing.SelectedIndex = 1;
+                    break;
+                case "TAA":
+                    cmbAntialiasing.SelectedIndex = 2;
+                    break;
+            }
+
+            //set the anisotropic filtering
+            switch (Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("iMaxAnisotropy=")].Substring(15)))
+            {
+                case 1:
+                    cmbAnisotropicFiltering.SelectedIndex = 0;
+                    break;
+                case 2:
+                    cmbAnisotropicFiltering.SelectedIndex = 1;
+                    break;
+                case 4:
+                    cmbAnisotropicFiltering.SelectedIndex = 2;
+                    break;
+                case 8:
+                    cmbAnisotropicFiltering.SelectedIndex = 3;
+                    break;
+                case 12:
+                    cmbAnisotropicFiltering.SelectedIndex = 4;
+                    break;
+                case 16:
+                    cmbAnisotropicFiltering.SelectedIndex = 5;
+                    break;
+            }
+
+            //set the godray quality
+            //check if it's enabled first, otherwise set it to off
+            if (Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("bVolumetricLightingEnable=")].Substring(26)) == 1)
+            {
+                switch (Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("iVolumetricLightingQuality=")].Substring(27)))
+                {
+                    case 0:
+                        cmbGodrayQuality.SelectedIndex = 1;
+                        //bVolumetricLightingEnable=1
+                        break;
+                    case 1:
+                        cmbGodrayQuality.SelectedIndex = 2;
+                        break;
+                    case 2:
+                        cmbGodrayQuality.SelectedIndex = 3;
+                        break;
+                    case 3:
+                        cmbGodrayQuality.SelectedIndex = 4;
+                        break;
+                }
+            }
+            else
+            {
+                cmbGodrayQuality.SelectedIndex = 0;
+            }
+
+            //fDirShadowDistance=
+            //fShadowDistance=
+            //set the shadow distance
+            switch (Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("fDirShadowDistance=")].Substring(19)))
+            {
+                case 3000:
+                    cmbShadowDistance.SelectedIndex = 0;
+                    break;
+                case 14000:
+                    cmbShadowDistance.SelectedIndex = 1;
+                    break;
+                case 20000:
+                    cmbShadowDistance.SelectedIndex = 2;
+                    break;
+            }
+
+            //decals
+            /*
+             * iMaxSkinDecalsPerFrame=
+             * iMaxDecalsPerFrame=
+             * uMaxDecals=
+             * bDecals=
+             * bSkinnedDecals=
+             * uMaxSkinDecals=
+             * uMaxSkinDecalsPerActor=
+             */
+
+            //set the shadow quality
+            //shadow quality modifies multiple things, doing later
+            //switch (Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("iShadowMapResolution=")].Substring(21)))
+            //{
+            //    case 1024:
+            //        cmbShadowQuality.SelectedIndex = 0;
+            //        break;
+            //    case 2048:
+            //        cmbShadowQuality.SelectedIndex = 1;
+            //        break;
+            //    case 20000:
+            //        cmbShadowQuality.SelectedIndex = 2;
+            //        break;
+            //}
+        }
+
+        /// <summary>Adds the Read Only attribute to ini files and plugins.txt
+        /// </summary>
+        private void makeFilesReadOnly()
+        {
+            File.SetAttributes(fallout4AppDataDirectory + @"\plugins.txt", FileAttributes.ReadOnly);
+            File.SetAttributes(fallout4DocsDirectory + @"\fallout4.ini", FileAttributes.ReadOnly);
+            File.SetAttributes(fallout4DocsDirectory + @"\fallout4prefs.ini", FileAttributes.ReadOnly);
+        }
+
+        /// <summary>Removes the Read Only attribute to ini files and plugins.txt
+        /// </summary>
+        private void makeFilesReadWrite()
+        {
+            File.SetAttributes(fallout4AppDataDirectory + @"\plugins.txt", FileAttributes.Normal);
+            File.SetAttributes(fallout4DocsDirectory + @"\fallout4.ini", FileAttributes.Normal);
+            File.SetAttributes(fallout4DocsDirectory + @"\fallout4prefs.ini", FileAttributes.Normal);
+        }
+
+        /// <summary>Parses the Fallout4.ini file and returns the index of that line, -1 if it's not found.
+        /// <para>(parseFor) The string you're looking for, keep = in the string.</para>
+        /// </summary>
+        private int parseFallout4INI(string parseFor)
+        {
+            int indexOfParam = -1;
+            foreach (string line in fallout4)
+            {
+                indexOfParam++;
+                if (line.Contains(parseFor))
+                {
+                    break;
+                }
+            }
+
+            if (indexOfParam <= fallout4.Count())
+            {
+                return indexOfParam;
+            }
+            else
+            {
+                return -1;
+            }
+
+        }
+
+        /// <summary>Parses the Fallout4Prefs.ini file and returns the index of that line, -1 if it's not found.
+        /// <para>(parseFor) The string you're looking for, keep = in the string.</para>
+        /// </summary>
+        private int parseFallout4PrefsINI(string parseFor)
+        {
+            int indexOfParam = -1;
+            foreach (string line in fallout4Prefs)
+            {
+                indexOfParam++;
+                if (line.Contains(parseFor))
+                {
+                    break;
+                }
+            }
+
+            if (indexOfParam <= fallout4Prefs.Count())
+            {
+                return indexOfParam;
+            }
+            else
+            {
+                return -1;
+            }
+
+        }
+
+        /// <summary> Populates the Active and Inactive lists with mods from Data folder and plugins.txt
+        /// </summary>
+        private void populateModLists()
+        {
+            listActiveMods.Items.Clear();
+            listAvailableMods.Items.Clear();
+            //check the files in the Data Folder
+            string[] files = System.IO.Directory.GetFiles(fallout4InstallDirectory + @"\Data", "*.esp");
+            List<string> fileNames = new List<string>();
+
+            //add them to the available, regardless of them being active
+            for (int i = 0; i < files.Length; i++)
+            {
+                if (File.Exists(files[i]))
+                {
+                    fileNames.Add(Path.GetFileName(files[i]));
+                    listAvailableMods.Items.Add(fileNames[i]);
+                }
+            }
+
+            //set the active mods to the active list
+            for (int i = 2; i < pluginList.Count(); i++)
+            {
+                //only add them if it's not commented out!
+                if (!pluginList[i].Contains("#"))
+                {
+                    listActiveMods.Items.Add(pluginList[i]);
+                }
+            }
+
+            //remove active mods from available
+            for (int i = 0; i < listActiveMods.Items.Count; i++)
+            {
+                for (int j = 0; j < listAvailableMods.Items.Count; j++)
+                {
+                    if (listActiveMods.Items[i].Equals(listAvailableMods.Items[j]))
+                    {
+                        listAvailableMods.Items.RemoveAt(j);
+                    }
+                }
+            }
+        }
+
+        /// <summary>Reloads both mod lists
+        /// </summary>
+        private void refreshModLists()
+        {
+            loadPluginList();
+        }
+
+        /// <summary>Removes an item to List pluginList
+        /// <param name="modName">File to remove</param>
+        /// </summary>
+        private void removeFromPlugins(string modName)
+        {
+            pluginList.Remove(modName);
+        }
+
+        /// <summary>Adds an item to List pluginList
+        /// <param name="modName">File to add</param>
+        /// </summary>
+        private void addToPlugins(string modName)
+        {
+            pluginList.Add(modName);
+        }
+
+        /// <summary>Adds Bethesda comments to plugins.txt
+        /// </summary>
+        private void overridePlugins()
+        {
+            List<string> temp = new List<string>();
+            temp.Add("# This file is used by Fallout4 to keep track of your downloaded content.");
+            temp.Add("# Please do not modify this file.");
+            for (int i = 0; i < pluginOrder.Count; i++)
+            {
+                temp.Add(pluginOrder[i]);
+            }
+
+            makeFilesReadWrite();
+            File.WriteAllLines(fallout4AppDataDirectory + @"\plugins.txt", temp);
+            makeFilesReadOnly();
+        }
+
+        /// <summary>Writes the List pluginList to plugins.txt
+        /// </summary>
+        private void savePluginList()
+        {
+            File.WriteAllLines(fallout4AppDataDirectory + @"\plugins.txt", pluginList);
+        }
+
+        /// <summary>Adds the required lines to the ini files to allow loading mods
+        /// </summary>
+        private void enableMods()
+        {
+            try
+            {
+                fallout4Prefs.Insert(fallout4Prefs.IndexOf("[Launcher]") + 1, "bEnableFileSelection=1");
+                fallout4.Insert(fallout4.IndexOf(@"sResourceDataDirsFinal=STRINGS\"),
+                    @"sResourceDataDirsFinal=STRINGS\, TEXTURES\, MUSIC\, SOUND\, INTERFACE\, MESHES\, PROGRAMS\, MATERIALS\, LODSETTINGS\, VIS\, MISC\, SCRIPTS\, SHADERSFX\ ");
+                fallout4.RemoveAt(fallout4.IndexOf(@"sResourceDataDirsFinal=STRINGS\"));
+
+                makeFilesReadWrite();
+                File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4.ini", fallout4);
+                File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4Prefs.ini", fallout4Prefs);
+                makeFilesReadOnly();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Looks like you already have mod loading enabled.", "Whoops", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
