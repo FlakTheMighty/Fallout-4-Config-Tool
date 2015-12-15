@@ -768,7 +768,8 @@ namespace Fallout_4_Launcher
             //fDirShadowDistance=
             //fShadowDistance=
             //set the shadow distance
-            switch (Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("fDirShadowDistance=")].Substring(19)))
+            //convert it to a double first because if you save ingame, it'll save as a double for some reason
+            switch (Convert.ToInt32(Convert.ToDouble(fallout4Prefs[parseFallout4PrefsINI("fDirShadowDistance=")].Substring(19))))
             {
                 case 3000:
                     cmbShadowDistance.SelectedIndex = 0;
