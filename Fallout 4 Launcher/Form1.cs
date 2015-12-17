@@ -923,11 +923,11 @@ namespace Fallout_4_Launcher
             //set lens flare
             if (Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("bLensFlare=")].Substring(11)) == 1)
             {
-                chkRainOcclusion.Checked = true;
+                chkLensFlare.Checked = true;
             }
             else
             {
-                chkRainOcclusion.Checked = false;
+                chkLensFlare.Checked = false;
             }
 
             //decals
