@@ -80,6 +80,7 @@
             this.btnEnableMods = new System.Windows.Forms.Button();
             this.btnSetReadOnly = new System.Windows.Forms.Button();
             this.tabMods = new System.Windows.Forms.TabPage();
+            this.btnReloadMods = new System.Windows.Forms.Button();
             this.btnOpenDataFolder = new System.Windows.Forms.Button();
             this.txtDataDirectory = new System.Windows.Forms.TextBox();
             this.btnDeactivateSelected = new System.Windows.Forms.Button();
@@ -94,7 +95,6 @@
             this.lblGitLink = new System.Windows.Forms.Label();
             this.lblAbout = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.btnReloadMods = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgFallout4)).BeginInit();
@@ -221,6 +221,7 @@
             this.chkLensFlare.TabIndex = 24;
             this.chkLensFlare.Text = "Lens Flare";
             this.chkLensFlare.UseVisualStyleBackColor = false;
+            this.chkLensFlare.CheckedChanged += new System.EventHandler(this.chkLensFlare_CheckedChanged);
             // 
             // chkMotionBlur
             // 
@@ -245,6 +246,7 @@
             this.chkRainOcclusion.TabIndex = 22;
             this.chkRainOcclusion.Text = "Rain Occlusion";
             this.chkRainOcclusion.UseVisualStyleBackColor = false;
+            this.chkRainOcclusion.CheckedChanged += new System.EventHandler(this.chkRainOcclusion_CheckedChanged);
             // 
             // chkWetness
             // 
@@ -257,6 +259,7 @@
             this.chkWetness.TabIndex = 21;
             this.chkWetness.Text = "Wetness";
             this.chkWetness.UseVisualStyleBackColor = false;
+            this.chkWetness.CheckedChanged += new System.EventHandler(this.chkWetness_CheckedChanged);
             // 
             // chkScreenSpaceReflections
             // 
@@ -309,12 +312,14 @@
             this.cmbDOF.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
             this.cmbDOF.FormattingEnabled = true;
             this.cmbDOF.Items.AddRange(new object[] {
+            "Off",
             "Standard",
             "Bokeh"});
             this.cmbDOF.Location = new System.Drawing.Point(60, 252);
             this.cmbDOF.Name = "cmbDOF";
             this.cmbDOF.Size = new System.Drawing.Size(121, 29);
             this.cmbDOF.TabIndex = 16;
+            this.cmbDOF.SelectedIndexChanged += new System.EventHandler(this.cmbDOF_SelectedIndexChanged);
             // 
             // lblGodrayQualtiy
             // 
@@ -465,6 +470,7 @@
             this.cmbTextureQuality.Name = "cmbTextureQuality";
             this.cmbTextureQuality.Size = new System.Drawing.Size(121, 29);
             this.cmbTextureQuality.TabIndex = 4;
+            this.cmbTextureQuality.SelectedIndexChanged += new System.EventHandler(this.cmbTextureQuality_SelectedIndexChanged);
             // 
             // lblAnisotropicFiltering
             // 
@@ -774,6 +780,18 @@
             this.tabMods.TabIndex = 2;
             this.tabMods.Text = "Mods";
             // 
+            // btnReloadMods
+            // 
+            this.btnReloadMods.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F);
+            this.btnReloadMods.Location = new System.Drawing.Point(278, 144);
+            this.btnReloadMods.Name = "btnReloadMods";
+            this.btnReloadMods.Size = new System.Drawing.Size(75, 23);
+            this.btnReloadMods.TabIndex = 8;
+            this.btnReloadMods.Text = "Reload";
+            this.toolTip.SetToolTip(this.btnReloadMods, "Reloads the mod lists");
+            this.btnReloadMods.UseVisualStyleBackColor = true;
+            this.btnReloadMods.Click += new System.EventHandler(this.btnReloadMods_Click);
+            // 
             // btnOpenDataFolder
             // 
             this.btnOpenDataFolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -927,18 +945,6 @@
             this.lblAbout.Size = new System.Drawing.Size(472, 105);
             this.lblAbout.TabIndex = 3;
             this.lblAbout.Text = resources.GetString("lblAbout.Text");
-            // 
-            // btnReloadMods
-            // 
-            this.btnReloadMods.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F);
-            this.btnReloadMods.Location = new System.Drawing.Point(278, 144);
-            this.btnReloadMods.Name = "btnReloadMods";
-            this.btnReloadMods.Size = new System.Drawing.Size(75, 23);
-            this.btnReloadMods.TabIndex = 8;
-            this.btnReloadMods.Text = "Reload";
-            this.toolTip.SetToolTip(this.btnReloadMods, "Reloads the mod lists");
-            this.btnReloadMods.UseVisualStyleBackColor = true;
-            this.btnReloadMods.Click += new System.EventHandler(this.btnReloadMods_Click);
             // 
             // Form1
             // 

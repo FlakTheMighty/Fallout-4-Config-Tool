@@ -41,16 +41,12 @@ namespace Fallout_4_Launcher
 
             //the following have not been implemented yet
             cmbAmbientOcclusion.Enabled = false;
-            cmbDOF.Enabled = false;
             cmbTextureQuality.Enabled = false;
             cmbShadowQuality.Enabled = false;
             cmbDecalQuantity.Enabled = false;
             cmbLightingQuality.Enabled = false;
             chkMotionBlur.Enabled = false;
-            chkRainOcclusion.Enabled = false;
             chkScreenSpaceReflections.Enabled = false;
-            chkWetness.Enabled = false;
-            chkLensFlare.Enabled = false;
         }
 
 
@@ -550,6 +546,110 @@ namespace Fallout_4_Launcher
             makeFilesReadOnly();
         }
 
+        private void cmbTextureQuality_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbDOF_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int writeToFile = 0;
+            int indexOfDOF = parseFallout4PrefsINI("bDoDepthOfField=");
+            int indexOfBokeh = parseFallout4PrefsINI("bScreenSpaceBokeh=");
+
+            if (cmbDOF.SelectedIndex > 0)
+            {
+                switch (cmbDOF.SelectedIndex)
+                {
+                    case 1:
+                        writeToFile = 0;
+                        break;
+                    case 2:
+                        writeToFile = 1;
+                        break;
+                }
+
+                fallout4Prefs.Remove(fallout4Prefs[indexOfDOF]);
+                fallout4Prefs.Insert(indexOfDOF, "bDoDepthOfField=1");
+            }
+            else
+            {
+                writeToFile = 0;
+                fallout4Prefs.Remove(fallout4Prefs[indexOfDOF]);
+                fallout4Prefs.Insert(indexOfDOF, "bDoDepthOfField=0");
+            }
+
+            fallout4Prefs.Remove(fallout4Prefs[indexOfBokeh]);
+            fallout4Prefs.Insert(indexOfBokeh, "bScreenSpaceBokeh=" + writeToFile);
+
+            makeFilesReadWrite();
+            File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4Prefs.ini", fallout4Prefs);
+            makeFilesReadOnly();
+        }
+
+        private void chkWetness_CheckedChanged(object sender, EventArgs e)
+        {
+            int writeToFile = 1;
+            int indexOfWetness = parseFallout4PrefsINI("bEnableWetnessMaterials=");
+            if (chkWetness.Checked)
+            {
+                writeToFile = 1;
+            }
+            else
+            {
+                writeToFile = 0;
+            }
+
+            fallout4Prefs.Remove(fallout4Prefs[indexOfWetness]);
+            fallout4Prefs.Insert(indexOfWetness, "bEnableWetnessMaterials=" + writeToFile);
+
+            makeFilesReadWrite();
+            File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4Prefs.ini", fallout4Prefs);
+            makeFilesReadOnly();
+        }
+
+        private void chkRainOcclusion_CheckedChanged(object sender, EventArgs e)
+        {
+            int writeToFile = 1;
+            int indexOfRainOcclusion = parseFallout4PrefsINI("bEnableRainOcclusion=");
+            if (chkRainOcclusion.Checked)
+            {
+                writeToFile = 1;
+            }
+            else
+            {
+                writeToFile = 0;
+            }
+
+            fallout4Prefs.Remove(fallout4Prefs[indexOfRainOcclusion]);
+            fallout4Prefs.Insert(indexOfRainOcclusion, "bEnableRainOcclusion=" + writeToFile);
+
+            makeFilesReadWrite();
+            File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4Prefs.ini", fallout4Prefs);
+            makeFilesReadOnly();
+        }
+
+        private void chkLensFlare_CheckedChanged(object sender, EventArgs e)
+        {
+            int writeToFile = 1;
+            int indexOfLensFlare = parseFallout4PrefsINI("bLensFlare=");
+            if (chkRainOcclusion.Checked)
+            {
+                writeToFile = 1;
+            }
+            else
+            {
+                writeToFile = 0;
+            }
+
+            fallout4Prefs.Remove(fallout4Prefs[indexOfLensFlare]);
+            fallout4Prefs.Insert(indexOfLensFlare, "bLensFlare=" + writeToFile);
+
+            makeFilesReadWrite();
+            File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4Prefs.ini", fallout4Prefs);
+            makeFilesReadOnly();
+        }
+
         private void btnReloadMods_Click(object sender, EventArgs e)
         {
             refreshModLists();
@@ -780,6 +880,54 @@ namespace Fallout_4_Launcher
                 case 20000:
                     cmbShadowDistance.SelectedIndex = 2;
                     break;
+            }
+
+            //set depth of field
+            if (Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("bDoDepthOfField=")].Substring(16)) == 1)
+            {
+                switch (Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("bScreenSpaceBokeh=")].Substring(18)))
+                {
+                    case 0:
+                        cmbDOF.SelectedIndex = 1;
+                        break;
+                    case 1:
+                        cmbDOF.SelectedIndex = 2;
+                        break;
+                }
+            }
+            else
+            {
+                cmbDOF.SelectedIndex = 0;
+            }
+
+            //set wetness
+            if (Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("bEnableWetnessMaterials=")].Substring(24)) == 1)
+            {
+                chkWetness.Checked = true;
+            }
+            else
+            {
+                chkWetness.Checked = false;
+            }
+
+            //set rain occlusion
+            if (Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("bEnableRainOcclusion=")].Substring(21)) == 1)
+            {
+                chkRainOcclusion.Checked = true;
+            }
+            else
+            {
+                chkRainOcclusion.Checked = false;
+            }
+
+            //set lens flare
+            if (Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("bLensFlare=")].Substring(11)) == 1)
+            {
+                chkRainOcclusion.Checked = true;
+            }
+            else
+            {
+                chkRainOcclusion.Checked = false;
             }
 
             //decals
