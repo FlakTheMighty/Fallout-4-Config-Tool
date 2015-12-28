@@ -295,6 +295,7 @@
             this.cmbAmbientOcclusion.Name = "cmbAmbientOcclusion";
             this.cmbAmbientOcclusion.Size = new System.Drawing.Size(121, 29);
             this.cmbAmbientOcclusion.TabIndex = 18;
+            this.cmbAmbientOcclusion.SelectedIndexChanged += new System.EventHandler(this.cmbAmbientOcclusion_SelectedIndexChanged);
             // 
             // lblDOF
             // 

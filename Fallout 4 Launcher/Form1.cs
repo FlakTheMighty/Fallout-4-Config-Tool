@@ -14,9 +14,17 @@ using System.Windows.Forms;
 
 /*
  * TODO
- * Retain folder structure to allow for easily uninstalling mods with extra folders
+ * Retain folder structure to allow for easily uninstalling mods with loose files
  * 
- * bEssentialTakeNoDamage
+ * bEssentialTakeNoDamage?
+ * 
+ * Find the remaining parts of the ini
+ * - Texture Quality
+ * - Shadow Quality
+ * - Lighting Quality
+ * - Motion Blur
+ * - Screen Space Reflections
+ * (already found decal, it's just a lot of different parts, need to check how they interact)
  */
 namespace Fallout_4_Launcher
 {
@@ -40,7 +48,6 @@ namespace Fallout_4_Launcher
             listActiveMods.MouseDown += listActiveMods_MouseDown;
 
             //the following have not been implemented yet
-            cmbAmbientOcclusion.Enabled = false;
             cmbTextureQuality.Enabled = false;
             cmbShadowQuality.Enabled = false;
             cmbDecalQuantity.Enabled = false;
@@ -587,6 +594,28 @@ namespace Fallout_4_Launcher
             makeFilesReadOnly();
         }
 
+        private void cmbAmbientOcclusion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int writeToFile = 0;
+            int indexOfAO = parseFallout4PrefsINI("bSAOEnable=");
+            switch (cmbAmbientOcclusion.SelectedIndex)
+            {
+                case 0:
+                    writeToFile = 0;
+                    break;
+                case 1:
+                    writeToFile = 1;
+                    break;
+            }
+
+            fallout4Prefs.Remove(fallout4Prefs[indexOfAO]);
+            fallout4Prefs.Insert(indexOfAO, "bSAOEnable=" + writeToFile);
+
+            makeFilesReadWrite();
+            File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4Prefs.ini", fallout4Prefs);
+            makeFilesReadOnly();
+        }
+
         private void chkWetness_CheckedChanged(object sender, EventArgs e)
         {
             int writeToFile = 1;
@@ -898,6 +927,18 @@ namespace Fallout_4_Launcher
             else
             {
                 cmbDOF.SelectedIndex = 0;
+            }
+
+            //set ambient occlusion
+            //bSAOEnable=
+            switch (Convert.ToInt32(Convert.ToDouble(fallout4Prefs[parseFallout4PrefsINI("bSAOEnable=")].Substring(11))))
+            {
+                case 0:
+                    cmbAmbientOcclusion.SelectedIndex = 0;
+                    break;
+                case 1:
+                    cmbAmbientOcclusion.SelectedIndex = 1;
+                    break;
             }
 
             //set wetness
