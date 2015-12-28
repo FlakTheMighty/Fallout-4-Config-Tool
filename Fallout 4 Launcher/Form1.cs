@@ -16,7 +16,7 @@ using System.Windows.Forms;
  * TODO
  * Retain folder structure to allow for easily uninstalling mods with extra folders
  * 
- * 
+ * bEssentialTakeNoDamage
  */
 namespace Fallout_4_Launcher
 {
@@ -1034,7 +1034,40 @@ namespace Fallout_4_Launcher
             listActiveMods.Items.Clear();
             listAvailableMods.Items.Clear();
             //check the files in the Data Folder
-            string[] files = System.IO.Directory.GetFiles(fallout4InstallDirectory + @"\Data", "*.esp");
+            string[] espFiles = System.IO.Directory.GetFiles(fallout4InstallDirectory + @"\Data", "*.esp");
+            string[] esmFiles = System.IO.Directory.GetFiles(fallout4InstallDirectory + @"\Data", "*.esm");
+
+            List<string> filesTemp = new List<string>();
+
+            //add the esm files to the temporary list first, they're more important
+            for (int i = 0; i < esmFiles.Count(); i++)
+            {
+                filesTemp.Add(esmFiles[i]);
+            }
+            //add the esp files to the temporary list
+            for (int i = 0; i < espFiles.Count(); i++)
+            {
+                filesTemp.Add(espFiles[i]);
+            }
+
+            //remove the Fallout4.esm since it isn't in plugins.txt
+            for (int i = 0; i < filesTemp.Count(); i++)
+            {
+                if (filesTemp[i].Contains("Fallout4.esm") || filesTemp[i].Contains("fallout4.esm"))
+                {
+                    filesTemp.RemoveAt(i);
+                    break;
+                }
+            }
+
+            //set the files array to the complete list of all esm and esp files
+            string[] files = new string[filesTemp.Count()];
+
+            for (int i = 0; i < files.Length; i++)
+            {
+                files[i] = filesTemp[i];
+            }
+
             List<string> fileNames = new List<string>();
 
             //add them to the available, regardless of them being active
