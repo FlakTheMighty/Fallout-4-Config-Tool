@@ -111,23 +111,6 @@ namespace Fallout_4_Launcher
 
             savePluginList();
 
-            //disregard this long chain of comments
-            //for (int i = listAvailableMods.Items.Count - 1; i >= 0; i--)
-            //{
-            //    if (listAvailableMods.SelectedIndex == (i))
-            //    {
-            //        
-            //        listActiveMods.Items.Add(listAvailableMods.Items[i]);
-
-            //        listActiveMods.ClearSelected();
-
-            //        listAvailableMods.Items.Remove(listAvailableMods.Items[i]);
-
-            //        
-
-            //    }
-            //}
-
             //addto plugins.txt
 
             makeFilesReadOnly();
@@ -1065,7 +1048,6 @@ namespace Fallout_4_Launcher
             {
                 return -1;
             }
-
         }
 
         /// <summary> Populates the Active and Inactive lists with mods from Data folder and plugins.txt
@@ -1089,16 +1071,6 @@ namespace Fallout_4_Launcher
             for (int i = 0; i < espFiles.Count(); i++)
             {
                 filesTemp.Add(espFiles[i]);
-            }
-
-            //remove the Fallout4.esm since it isn't in plugins.txt
-            for (int i = 0; i < filesTemp.Count(); i++)
-            {
-                if (filesTemp[i].Contains("Fallout4.esm") || filesTemp[i].Contains("fallout4.esm"))
-                {
-                    filesTemp.RemoveAt(i);
-                    break;
-                }
             }
 
             //set the files array to the complete list of all esm and esp files
