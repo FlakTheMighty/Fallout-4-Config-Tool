@@ -397,6 +397,30 @@ namespace Fallout_4_Launcher
             makeFilesReadOnly();
         }
 
+        private void txtXResolution_TextChanged(object sender, EventArgs e)
+        {
+            int indexOfXResolution = parseFallout4PrefsINI("iSize W=");
+
+            fallout4Prefs.RemoveAt(indexOfXResolution);
+            fallout4Prefs.Insert(indexOfXResolution, "iSize W=" + txtXResolution.Text);
+
+            makeFilesReadWrite();
+            File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4Prefs.ini", fallout4Prefs);
+            makeFilesReadOnly();
+        }
+
+        private void txtYResolution_TextChanged(object sender, EventArgs e)
+        {
+            int indexOfYResolution = parseFallout4PrefsINI("iSize H=");
+
+            fallout4Prefs.RemoveAt(indexOfYResolution);
+            fallout4Prefs.Insert(indexOfYResolution, "iSize H=" + txtYResolution.Text);
+
+            makeFilesReadWrite();
+            File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4Prefs.ini", fallout4Prefs);
+            makeFilesReadOnly();
+        }
+
         private void cmbDifficulty_SelectedIndexChanged(object sender, EventArgs e)
         {
             int indexOfDifficulty = parseFallout4PrefsINI("iDifficulty=");
@@ -405,6 +429,7 @@ namespace Fallout_4_Launcher
             fallout4Prefs.RemoveAt(indexOfDifficulty);
             //add new copy with
             fallout4Prefs.Insert(indexOfDifficulty, "iDifficulty=" + cmbDifficulty.SelectedIndex);
+
             makeFilesReadWrite();
             File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4Prefs.ini", fallout4Prefs);
             makeFilesReadOnly();
@@ -593,6 +618,40 @@ namespace Fallout_4_Launcher
 
             fallout4Prefs.Remove(fallout4Prefs[indexOfAO]);
             fallout4Prefs.Insert(indexOfAO, "bSAOEnable=" + writeToFile);
+
+            makeFilesReadWrite();
+            File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4Prefs.ini", fallout4Prefs);
+            makeFilesReadOnly();
+        }
+
+        private void cmbFullscreen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int writeToFileBorderless = 0;
+            int writeToFileFullscreen = 0;
+            int indexOfBorderless = parseFallout4PrefsINI("bBorderless=");
+            int indexOfFullScreen = parseFallout4PrefsINI("bFull Screen=");
+
+            switch (cmbFullscreen.SelectedIndex)
+            {
+                case 0:
+                    writeToFileBorderless = 0;
+                    writeToFileFullscreen = 0;
+                    break;
+                case 1:
+                    writeToFileBorderless = 1;
+                    writeToFileFullscreen = 0;
+                    break;
+                case 2:
+                    writeToFileBorderless = 1;
+                    writeToFileFullscreen = 1;
+                    break;
+            }
+
+            fallout4Prefs.Remove(fallout4Prefs[indexOfBorderless]);
+            fallout4Prefs.Insert(indexOfBorderless, "bBorderless=" + writeToFileBorderless);
+
+            fallout4Prefs.Remove(fallout4Prefs[indexOfFullScreen]);
+            fallout4Prefs.Insert(indexOfFullScreen, "bFull Screen=" + writeToFileFullscreen);
 
             makeFilesReadWrite();
             File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4Prefs.ini", fallout4Prefs);
@@ -953,6 +1012,27 @@ namespace Fallout_4_Launcher
             {
                 chkLensFlare.Checked = false;
             }
+
+            //set fullscreen
+            if (Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("bBorderless=")].Substring(12)) == 1 &&
+                Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("bFull Screen=")].Substring(13)) == 0)
+            {
+                cmbFullscreen.SelectedIndex = 1;
+            }
+            else if (Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("bBorderless=")].Substring(12)) == 0 &&
+                Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("bFull Screen=")].Substring(13)) == 0)
+            {
+                cmbFullscreen.SelectedIndex = 0;
+            }
+            else if (Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("bFull Screen=")].Substring(13)) == 1)
+            {
+                cmbFullscreen.SelectedIndex = 2;
+            }
+
+            txtXResolution.Text = Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("iSize W=")].Substring(8)).ToString();
+            txtYResolution.Text = Convert.ToInt32(fallout4Prefs[parseFallout4PrefsINI("iSize H=")].Substring(8)).ToString();
+            //iSize H=1080
+            //iSize W=1920
 
             //decals
             /*
