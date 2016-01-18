@@ -61,6 +61,12 @@ namespace Fallout_4_Launcher
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //this placement is temporary, it's just for testing
+            VersionControl vc = new VersionControl();
+
+            vc.checkForUpdate();
+            lblVersion.Text = "Version " + vc.getVersion();
+
             checkSettings();
 
             loadPluginList();

@@ -36,6 +36,12 @@
             this.btnLaunch = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.tabVideoSettings = new System.Windows.Forms.TabPage();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblResolutionCross = new System.Windows.Forms.Label();
+            this.txtYResolution = new System.Windows.Forms.TextBox();
+            this.txtXResolution = new System.Windows.Forms.TextBox();
+            this.lblFullScreen = new System.Windows.Forms.Label();
+            this.cmbFullscreen = new System.Windows.Forms.ComboBox();
             this.chkLensFlare = new System.Windows.Forms.CheckBox();
             this.chkMotionBlur = new System.Windows.Forms.CheckBox();
             this.chkRainOcclusion = new System.Windows.Forms.CheckBox();
@@ -95,12 +101,7 @@
             this.lblGitLink = new System.Windows.Forms.Label();
             this.lblAbout = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.lblFullScreen = new System.Windows.Forms.Label();
-            this.cmbFullscreen = new System.Windows.Forms.ComboBox();
-            this.txtXResolution = new System.Windows.Forms.TextBox();
-            this.txtYResolution = new System.Windows.Forms.TextBox();
-            this.lblResolutionCross = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblVersion = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgFallout4)).BeginInit();
@@ -182,6 +183,7 @@
             // tabVideoSettings
             // 
             this.tabVideoSettings.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.tabVideoSettings.BackgroundImage = global::Fallout_4_Launcher.Properties.Resources.blue_background;
             this.tabVideoSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabVideoSettings.Controls.Add(this.label4);
             this.tabVideoSettings.Controls.Add(this.lblResolutionCross);
@@ -220,6 +222,73 @@
             this.tabVideoSettings.Size = new System.Drawing.Size(635, 349);
             this.tabVideoSettings.TabIndex = 4;
             this.tabVideoSettings.Text = "Video Settings";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.label4.Location = new System.Drawing.Point(402, 4);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 21);
+            this.label4.TabIndex = 30;
+            this.label4.Text = "Resolution";
+            // 
+            // lblResolutionCross
+            // 
+            this.lblResolutionCross.AutoSize = true;
+            this.lblResolutionCross.BackColor = System.Drawing.Color.Transparent;
+            this.lblResolutionCross.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.lblResolutionCross.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.lblResolutionCross.Location = new System.Drawing.Point(487, 30);
+            this.lblResolutionCross.Name = "lblResolutionCross";
+            this.lblResolutionCross.Size = new System.Drawing.Size(16, 21);
+            this.lblResolutionCross.TabIndex = 29;
+            this.lblResolutionCross.Text = "x";
+            // 
+            // txtYResolution
+            // 
+            this.txtYResolution.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.txtYResolution.Location = new System.Drawing.Point(506, 28);
+            this.txtYResolution.Name = "txtYResolution";
+            this.txtYResolution.Size = new System.Drawing.Size(77, 26);
+            this.txtYResolution.TabIndex = 28;
+            this.txtYResolution.TextChanged += new System.EventHandler(this.txtYResolution_TextChanged);
+            // 
+            // txtXResolution
+            // 
+            this.txtXResolution.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.txtXResolution.Location = new System.Drawing.Point(406, 28);
+            this.txtXResolution.Name = "txtXResolution";
+            this.txtXResolution.Size = new System.Drawing.Size(77, 26);
+            this.txtXResolution.TabIndex = 27;
+            this.txtXResolution.TextChanged += new System.EventHandler(this.txtXResolution_TextChanged);
+            // 
+            // lblFullScreen
+            // 
+            this.lblFullScreen.BackColor = System.Drawing.Color.Transparent;
+            this.lblFullScreen.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.lblFullScreen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.lblFullScreen.Location = new System.Drawing.Point(56, 228);
+            this.lblFullScreen.Name = "lblFullScreen";
+            this.lblFullScreen.Size = new System.Drawing.Size(75, 21);
+            this.lblFullScreen.TabIndex = 26;
+            this.lblFullScreen.Text = "Fullscreen:";
+            // 
+            // cmbFullscreen
+            // 
+            this.cmbFullscreen.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.cmbFullscreen.FormattingEnabled = true;
+            this.cmbFullscreen.Items.AddRange(new object[] {
+            "Windowed",
+            "Windowed Borderless",
+            "Fullscreen"});
+            this.cmbFullscreen.Location = new System.Drawing.Point(60, 252);
+            this.cmbFullscreen.Name = "cmbFullscreen";
+            this.cmbFullscreen.Size = new System.Drawing.Size(136, 29);
+            this.cmbFullscreen.TabIndex = 25;
+            this.cmbFullscreen.SelectedIndexChanged += new System.EventHandler(this.cmbFullscreen_SelectedIndexChanged);
             // 
             // chkLensFlare
             // 
@@ -900,6 +969,7 @@
             // 
             this.tabAbout.BackgroundImage = global::Fallout_4_Launcher.Properties.Resources.blue_background;
             this.tabAbout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabAbout.Controls.Add(this.lblVersion);
             this.tabAbout.Controls.Add(this.label1);
             this.tabAbout.Controls.Add(this.imgVaultBoy);
             this.tabAbout.Controls.Add(this.lblGitLink);
@@ -958,70 +1028,16 @@
             this.lblAbout.TabIndex = 3;
             this.lblAbout.Text = resources.GetString("lblAbout.Text");
             // 
-            // lblFullScreen
+            // lblVersion
             // 
-            this.lblFullScreen.BackColor = System.Drawing.Color.Transparent;
-            this.lblFullScreen.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.lblFullScreen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.lblFullScreen.Location = new System.Drawing.Point(56, 228);
-            this.lblFullScreen.Name = "lblFullScreen";
-            this.lblFullScreen.Size = new System.Drawing.Size(75, 21);
-            this.lblFullScreen.TabIndex = 26;
-            this.lblFullScreen.Text = "Fullscreen:";
-            // 
-            // cmbFullscreen
-            // 
-            this.cmbFullscreen.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.cmbFullscreen.FormattingEnabled = true;
-            this.cmbFullscreen.Items.AddRange(new object[] {
-            "Windowed",
-            "Windowed Borderless",
-            "Fullscreen"});
-            this.cmbFullscreen.Location = new System.Drawing.Point(60, 252);
-            this.cmbFullscreen.Name = "cmbFullscreen";
-            this.cmbFullscreen.Size = new System.Drawing.Size(136, 29);
-            this.cmbFullscreen.TabIndex = 25;
-            this.cmbFullscreen.SelectedIndexChanged += new System.EventHandler(this.cmbFullscreen_SelectedIndexChanged);
-            // 
-            // txtXResolution
-            // 
-            this.txtXResolution.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.txtXResolution.Location = new System.Drawing.Point(406, 28);
-            this.txtXResolution.Name = "txtXResolution";
-            this.txtXResolution.Size = new System.Drawing.Size(77, 26);
-            this.txtXResolution.TabIndex = 27;
-            this.txtXResolution.TextChanged += new System.EventHandler(this.txtXResolution_TextChanged);
-            // 
-            // txtYResolution
-            // 
-            this.txtYResolution.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.txtYResolution.Location = new System.Drawing.Point(506, 28);
-            this.txtYResolution.Name = "txtYResolution";
-            this.txtYResolution.Size = new System.Drawing.Size(77, 26);
-            this.txtYResolution.TabIndex = 28;
-            this.txtYResolution.TextChanged += new System.EventHandler(this.txtYResolution_TextChanged);
-            // 
-            // lblResolutionCross
-            // 
-            this.lblResolutionCross.AutoSize = true;
-            this.lblResolutionCross.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.lblResolutionCross.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.lblResolutionCross.Location = new System.Drawing.Point(487, 30);
-            this.lblResolutionCross.Name = "lblResolutionCross";
-            this.lblResolutionCross.Size = new System.Drawing.Size(16, 21);
-            this.lblResolutionCross.TabIndex = 29;
-            this.lblResolutionCross.Text = "x";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
-            this.label4.Location = new System.Drawing.Point(402, 4);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 21);
-            this.label4.TabIndex = 30;
-            this.label4.Text = "Resolution";
+            this.lblVersion.AutoSize = true;
+            this.lblVersion.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.lblVersion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(234)))), ((int)(((byte)(112)))));
+            this.lblVersion.Location = new System.Drawing.Point(3, 325);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(48, 21);
+            this.lblVersion.TabIndex = 7;
+            this.lblVersion.Text = "label5";
             // 
             // Form1
             // 
@@ -1051,6 +1067,7 @@
             this.tabMods.ResumeLayout(false);
             this.tabMods.PerformLayout();
             this.tabAbout.ResumeLayout(false);
+            this.tabAbout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgVaultBoy)).EndInit();
             this.ResumeLayout(false);
 
@@ -1129,6 +1146,7 @@
         private System.Windows.Forms.TextBox txtXResolution;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblResolutionCross;
+        private System.Windows.Forms.Label lblVersion;
     }
 }
 
