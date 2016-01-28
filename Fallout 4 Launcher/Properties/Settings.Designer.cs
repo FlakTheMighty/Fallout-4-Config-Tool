@@ -70,5 +70,41 @@ namespace Fallout_4_Launcher.Properties {
                 this["appdataDirectory"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int themeIndex {
+            get {
+                return ((int)(this["themeIndex"]));
+            }
+            set {
+                this["themeIndex"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public int styleIndex {
+            get {
+                return ((int)(this["styleIndex"]));
+            }
+            set {
+                this["styleIndex"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool useFloatingButtons {
+            get {
+                return ((bool)(this["useFloatingButtons"]));
+            }
+            set {
+                this["useFloatingButtons"] = value;
+            }
+        }
     }
 }

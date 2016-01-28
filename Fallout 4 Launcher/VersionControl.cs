@@ -12,7 +12,7 @@ namespace Fallout_4_Launcher
 {
     class VersionControl
     {
-        int version = 1, revision = 0;
+        int version = 1, revision = 1;
         string fullVersion;
 
         string versionLocation = "https://raw.githubusercontent.com/FlakTheMighty/Fallout-4-Config-Tool/master/Fallout%204%20Launcher/version.txt";
