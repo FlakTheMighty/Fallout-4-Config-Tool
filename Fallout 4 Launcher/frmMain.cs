@@ -60,6 +60,9 @@ namespace Fallout_4_Launcher
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            //with the switch to MetroFramework, the launcher will save a random tab for no reason to launch into
+            tabControl.SelectedIndex = 0;
+
             //this placement is temporary, it's just for testing
             VersionControl vc = new VersionControl();
 
