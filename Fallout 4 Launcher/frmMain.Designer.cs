@@ -34,25 +34,6 @@
             this.tabGame = new MetroFramework.Controls.MetroTabPage();
             this.imgFallout4 = new System.Windows.Forms.PictureBox();
             this.btnLaunch = new System.Windows.Forms.PictureBox();
-            this.tabExtraSettings = new MetroFramework.Controls.MetroTabPage();
-            this.lblSkipLauncher = new MetroFramework.Controls.MetroLabel();
-            this.togSkipLauncher = new MetroFramework.Controls.MetroToggle();
-            this.grpGeneral = new System.Windows.Forms.GroupBox();
-            this.lblDifficulty = new System.Windows.Forms.Label();
-            this.chkCompanionApp = new System.Windows.Forms.CheckBox();
-            this.cmbDifficulty = new System.Windows.Forms.ComboBox();
-            this.grpFOV = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtFOVThirdPerson = new System.Windows.Forms.TextBox();
-            this.txtFOVFirstPerson = new System.Windows.Forms.TextBox();
-            this.miscSettingsPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnReload = new System.Windows.Forms.Button();
-            this.btnGameLauncher = new System.Windows.Forms.Button();
-            this.btnRevertExecutables = new System.Windows.Forms.Button();
-            this.btnBackup = new System.Windows.Forms.Button();
-            this.btnEnableMods = new System.Windows.Forms.Button();
-            this.btnSetReadOnly = new System.Windows.Forms.Button();
             this.tabVideoSettings = new MetroFramework.Controls.MetroTabPage();
             this.lblResolution = new System.Windows.Forms.Label();
             this.lblResolutionCross = new System.Windows.Forms.Label();
@@ -85,6 +66,25 @@
             this.cmbAnisotropicFiltering = new System.Windows.Forms.ComboBox();
             this.lblAntialiasing = new System.Windows.Forms.Label();
             this.cmbAntialiasing = new System.Windows.Forms.ComboBox();
+            this.tabExtraSettings = new MetroFramework.Controls.MetroTabPage();
+            this.lblSkipLauncher = new MetroFramework.Controls.MetroLabel();
+            this.togSkipLauncher = new MetroFramework.Controls.MetroToggle();
+            this.grpGeneral = new System.Windows.Forms.GroupBox();
+            this.lblDifficulty = new System.Windows.Forms.Label();
+            this.chkCompanionApp = new System.Windows.Forms.CheckBox();
+            this.cmbDifficulty = new System.Windows.Forms.ComboBox();
+            this.grpFOV = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtFOVThirdPerson = new System.Windows.Forms.TextBox();
+            this.txtFOVFirstPerson = new System.Windows.Forms.TextBox();
+            this.miscSettingsPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnReload = new System.Windows.Forms.Button();
+            this.btnGameLauncher = new System.Windows.Forms.Button();
+            this.btnRevertExecutables = new System.Windows.Forms.Button();
+            this.btnBackup = new System.Windows.Forms.Button();
+            this.btnEnableMods = new System.Windows.Forms.Button();
+            this.btnSetReadOnly = new System.Windows.Forms.Button();
             this.tabMods = new MetroFramework.Controls.MetroTabPage();
             this.btnReloadMods = new System.Windows.Forms.Button();
             this.btnOpenDataFolder = new System.Windows.Forms.Button();
@@ -95,48 +95,48 @@
             this.lblActiveMods = new System.Windows.Forms.Label();
             this.listAvailableMods = new System.Windows.Forms.ListBox();
             this.listActiveMods = new System.Windows.Forms.ListBox();
+            this.tabLauncherSettings = new MetroFramework.Controls.MetroTabPage();
+            this.togFloatingButtons = new MetroFramework.Controls.MetroToggle();
+            this.lblFloatingButtons = new System.Windows.Forms.Label();
+            this.lblStyle = new System.Windows.Forms.Label();
+            this.cmbStyle = new MetroFramework.Controls.MetroComboBox();
+            this.lblTheme = new System.Windows.Forms.Label();
+            this.cmbTheme = new MetroFramework.Controls.MetroComboBox();
             this.tabAbout = new MetroFramework.Controls.MetroTabPage();
             this.lblVersion = new System.Windows.Forms.Label();
             this.lblAbout2 = new System.Windows.Forms.Label();
             this.imgVaultBoy = new System.Windows.Forms.PictureBox();
             this.lblGitLinkl = new System.Windows.Forms.Label();
             this.lblAbout = new System.Windows.Forms.Label();
-            this.tabLauncherSettings = new MetroFramework.Controls.MetroTabPage();
-            this.lblTheme = new System.Windows.Forms.Label();
-            this.cmbTheme = new MetroFramework.Controls.MetroComboBox();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.lblStyle = new System.Windows.Forms.Label();
-            this.cmbStyle = new MetroFramework.Controls.MetroComboBox();
             this.btnFollowingLaunch = new System.Windows.Forms.Button();
             this.btnOpenData = new System.Windows.Forms.Button();
             this.btnFollowingReload = new System.Windows.Forms.Button();
             this.followingSettingsPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblFloatingButtons = new System.Windows.Forms.Label();
-            this.togFloatingButtons = new MetroFramework.Controls.MetroToggle();
             this.tabControl.SuspendLayout();
             this.tabGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgFallout4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLaunch)).BeginInit();
+            this.tabVideoSettings.SuspendLayout();
             this.tabExtraSettings.SuspendLayout();
             this.grpGeneral.SuspendLayout();
             this.grpFOV.SuspendLayout();
             this.miscSettingsPanel.SuspendLayout();
-            this.tabVideoSettings.SuspendLayout();
             this.tabMods.SuspendLayout();
+            this.tabLauncherSettings.SuspendLayout();
             this.tabAbout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgVaultBoy)).BeginInit();
-            this.tabLauncherSettings.SuspendLayout();
             this.followingSettingsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabGame);
+            this.tabControl.Controls.Add(this.tabAbout);
             this.tabControl.Controls.Add(this.tabVideoSettings);
             this.tabControl.Controls.Add(this.tabExtraSettings);
             this.tabControl.Controls.Add(this.tabMods);
             this.tabControl.Controls.Add(this.tabLauncherSettings);
-            this.tabControl.Controls.Add(this.tabAbout);
             this.tabControl.Location = new System.Drawing.Point(20, 30);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 5;
@@ -181,254 +181,6 @@
             this.btnLaunch.TabStop = false;
             this.toolTip.SetToolTip(this.btnLaunch, "Launch the game");
             this.btnLaunch.Click += new System.EventHandler(this.btnLaunch_Click);
-            // 
-            // tabExtraSettings
-            // 
-            this.tabExtraSettings.BackColor = System.Drawing.SystemColors.Control;
-            this.tabExtraSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabExtraSettings.Controls.Add(this.lblSkipLauncher);
-            this.tabExtraSettings.Controls.Add(this.togSkipLauncher);
-            this.tabExtraSettings.Controls.Add(this.grpGeneral);
-            this.tabExtraSettings.Controls.Add(this.grpFOV);
-            this.tabExtraSettings.Controls.Add(this.miscSettingsPanel);
-            this.tabExtraSettings.Controls.Add(this.btnBackup);
-            this.tabExtraSettings.Controls.Add(this.btnEnableMods);
-            this.tabExtraSettings.Controls.Add(this.btnSetReadOnly);
-            this.tabExtraSettings.HorizontalScrollbarBarColor = true;
-            this.tabExtraSettings.Location = new System.Drawing.Point(4, 35);
-            this.tabExtraSettings.Name = "tabExtraSettings";
-            this.tabExtraSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.tabExtraSettings.Size = new System.Drawing.Size(661, 359);
-            this.tabExtraSettings.TabIndex = 1;
-            this.tabExtraSettings.Text = "Extra Settings";
-            this.tabExtraSettings.VerticalScrollbarBarColor = true;
-            // 
-            // lblSkipLauncher
-            // 
-            this.lblSkipLauncher.AutoSize = true;
-            this.lblSkipLauncher.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblSkipLauncher.Location = new System.Drawing.Point(21, 101);
-            this.lblSkipLauncher.Name = "lblSkipLauncher";
-            this.lblSkipLauncher.Size = new System.Drawing.Size(145, 19);
-            this.lblSkipLauncher.TabIndex = 9;
-            this.lblSkipLauncher.Text = "Skip Game Launcher";
-            // 
-            // togSkipLauncher
-            // 
-            this.togSkipLauncher.AutoSize = true;
-            this.togSkipLauncher.BackColor = System.Drawing.SystemColors.Control;
-            this.togSkipLauncher.FontSize = MetroFramework.MetroLinkSize.Medium;
-            this.togSkipLauncher.FontWeight = MetroFramework.MetroLinkWeight.Bold;
-            this.togSkipLauncher.Location = new System.Drawing.Point(53, 123);
-            this.togSkipLauncher.Name = "togSkipLauncher";
-            this.togSkipLauncher.Size = new System.Drawing.Size(80, 17);
-            this.togSkipLauncher.TabIndex = 8;
-            this.togSkipLauncher.Text = "Off";
-            this.togSkipLauncher.UseVisualStyleBackColor = false;
-            this.togSkipLauncher.CheckedChanged += new System.EventHandler(this.togSkipLauncher_CheckedChanged);
-            // 
-            // grpGeneral
-            // 
-            this.grpGeneral.BackColor = System.Drawing.Color.Transparent;
-            this.grpGeneral.Controls.Add(this.lblDifficulty);
-            this.grpGeneral.Controls.Add(this.chkCompanionApp);
-            this.grpGeneral.Controls.Add(this.cmbDifficulty);
-            this.grpGeneral.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.grpGeneral.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.grpGeneral.Location = new System.Drawing.Point(447, 101);
-            this.grpGeneral.Name = "grpGeneral";
-            this.grpGeneral.Size = new System.Drawing.Size(193, 111);
-            this.grpGeneral.TabIndex = 7;
-            this.grpGeneral.TabStop = false;
-            this.grpGeneral.Text = "General Options";
-            // 
-            // lblDifficulty
-            // 
-            this.lblDifficulty.AutoSize = true;
-            this.lblDifficulty.BackColor = System.Drawing.Color.Transparent;
-            this.lblDifficulty.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.lblDifficulty.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblDifficulty.Location = new System.Drawing.Point(24, 22);
-            this.lblDifficulty.Name = "lblDifficulty";
-            this.lblDifficulty.Size = new System.Drawing.Size(67, 21);
-            this.lblDifficulty.TabIndex = 9;
-            this.lblDifficulty.Text = "Difficulty:";
-            // 
-            // chkCompanionApp
-            // 
-            this.chkCompanionApp.AutoSize = true;
-            this.chkCompanionApp.BackColor = System.Drawing.Color.Transparent;
-            this.chkCompanionApp.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkCompanionApp.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.chkCompanionApp.Location = new System.Drawing.Point(28, 77);
-            this.chkCompanionApp.Name = "chkCompanionApp";
-            this.chkCompanionApp.Size = new System.Drawing.Size(122, 25);
-            this.chkCompanionApp.TabIndex = 7;
-            this.chkCompanionApp.Text = "Companion App";
-            this.toolTip.SetToolTip(this.chkCompanionApp, "Enables the companion app");
-            this.chkCompanionApp.UseVisualStyleBackColor = false;
-            this.chkCompanionApp.CheckedChanged += new System.EventHandler(this.chkCompanionApp_CheckedChanged);
-            // 
-            // cmbDifficulty
-            // 
-            this.cmbDifficulty.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.cmbDifficulty.FormattingEnabled = true;
-            this.cmbDifficulty.Items.AddRange(new object[] {
-            "Very Easy",
-            "Easy",
-            "Normal",
-            "Hard",
-            "Very Hard",
-            "Survival"});
-            this.cmbDifficulty.Location = new System.Drawing.Point(28, 46);
-            this.cmbDifficulty.Name = "cmbDifficulty";
-            this.cmbDifficulty.Size = new System.Drawing.Size(141, 29);
-            this.cmbDifficulty.TabIndex = 8;
-            this.cmbDifficulty.SelectedIndexChanged += new System.EventHandler(this.cmbDifficulty_SelectedIndexChanged);
-            // 
-            // grpFOV
-            // 
-            this.grpFOV.BackColor = System.Drawing.Color.Transparent;
-            this.grpFOV.Controls.Add(this.label3);
-            this.grpFOV.Controls.Add(this.label2);
-            this.grpFOV.Controls.Add(this.txtFOVThirdPerson);
-            this.grpFOV.Controls.Add(this.txtFOVFirstPerson);
-            this.grpFOV.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.grpFOV.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.grpFOV.Location = new System.Drawing.Point(447, 5);
-            this.grpFOV.Name = "grpFOV";
-            this.grpFOV.Size = new System.Drawing.Size(193, 90);
-            this.grpFOV.TabIndex = 6;
-            this.grpFOV.TabStop = false;
-            this.grpFOV.Text = "FOV Options";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label3.Location = new System.Drawing.Point(16, 57);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(111, 21);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Third Person FOV:";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label2.Location = new System.Drawing.Point(16, 27);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 21);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "First Person FOV:";
-            // 
-            // txtFOVThirdPerson
-            // 
-            this.txtFOVThirdPerson.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txtFOVThirdPerson.Location = new System.Drawing.Point(133, 54);
-            this.txtFOVThirdPerson.Name = "txtFOVThirdPerson";
-            this.txtFOVThirdPerson.Size = new System.Drawing.Size(43, 26);
-            this.txtFOVThirdPerson.TabIndex = 1;
-            this.txtFOVThirdPerson.Text = "70";
-            this.txtFOVThirdPerson.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtFOVThirdPerson.TextChanged += new System.EventHandler(this.txtFOVThirdPerson_TextChanged);
-            // 
-            // txtFOVFirstPerson
-            // 
-            this.txtFOVFirstPerson.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txtFOVFirstPerson.Location = new System.Drawing.Point(133, 24);
-            this.txtFOVFirstPerson.Name = "txtFOVFirstPerson";
-            this.txtFOVFirstPerson.Size = new System.Drawing.Size(43, 26);
-            this.txtFOVFirstPerson.TabIndex = 0;
-            this.txtFOVFirstPerson.Text = "80";
-            this.txtFOVFirstPerson.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtFOVFirstPerson.TextChanged += new System.EventHandler(this.txtFOVFirstPerson_TextChanged);
-            // 
-            // miscSettingsPanel
-            // 
-            this.miscSettingsPanel.BackColor = System.Drawing.Color.Transparent;
-            this.miscSettingsPanel.Controls.Add(this.btnReload);
-            this.miscSettingsPanel.Controls.Add(this.btnGameLauncher);
-            this.miscSettingsPanel.Controls.Add(this.btnRevertExecutables);
-            this.miscSettingsPanel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.miscSettingsPanel.Location = new System.Drawing.Point(21, 326);
-            this.miscSettingsPanel.Name = "miscSettingsPanel";
-            this.miscSettingsPanel.Size = new System.Drawing.Size(523, 28);
-            this.miscSettingsPanel.TabIndex = 5;
-            // 
-            // btnReload
-            // 
-            this.btnReload.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F);
-            this.btnReload.Location = new System.Drawing.Point(3, 3);
-            this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(75, 23);
-            this.btnReload.TabIndex = 2;
-            this.btnReload.Text = "Reload";
-            this.toolTip.SetToolTip(this.btnReload, "Reloads any file loaded by the launcher(configs)");
-            this.btnReload.UseVisualStyleBackColor = true;
-            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
-            // 
-            // btnGameLauncher
-            // 
-            this.btnGameLauncher.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F);
-            this.btnGameLauncher.Location = new System.Drawing.Point(84, 3);
-            this.btnGameLauncher.Name = "btnGameLauncher";
-            this.btnGameLauncher.Size = new System.Drawing.Size(130, 23);
-            this.btnGameLauncher.TabIndex = 3;
-            this.btnGameLauncher.Text = "Open Game Launcher";
-            this.btnGameLauncher.UseVisualStyleBackColor = true;
-            this.btnGameLauncher.Visible = false;
-            this.btnGameLauncher.Click += new System.EventHandler(this.btnGameLauncher_Click);
-            // 
-            // btnRevertExecutables
-            // 
-            this.btnRevertExecutables.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F);
-            this.btnRevertExecutables.Location = new System.Drawing.Point(220, 3);
-            this.btnRevertExecutables.Name = "btnRevertExecutables";
-            this.btnRevertExecutables.Size = new System.Drawing.Size(109, 23);
-            this.btnRevertExecutables.TabIndex = 6;
-            this.btnRevertExecutables.Text = "Revert Executables";
-            this.toolTip.SetToolTip(this.btnRevertExecutables, "In the event the Skip Launcher option breaks, use this option");
-            this.btnRevertExecutables.UseVisualStyleBackColor = true;
-            this.btnRevertExecutables.Click += new System.EventHandler(this.btnRevertExecutables_Click);
-            // 
-            // btnBackup
-            // 
-            this.btnBackup.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F);
-            this.btnBackup.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnBackup.Location = new System.Drawing.Point(550, 328);
-            this.btnBackup.Name = "btnBackup";
-            this.btnBackup.Size = new System.Drawing.Size(90, 23);
-            this.btnBackup.TabIndex = 3;
-            this.btnBackup.Text = "Backup Configs";
-            this.toolTip.SetToolTip(this.btnBackup, "Creates a copy of your config files located\r\nin the same folder as the original.");
-            this.btnBackup.UseVisualStyleBackColor = true;
-            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
-            // 
-            // btnEnableMods
-            // 
-            this.btnEnableMods.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnableMods.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnEnableMods.Location = new System.Drawing.Point(21, 53);
-            this.btnEnableMods.Name = "btnEnableMods";
-            this.btnEnableMods.Size = new System.Drawing.Size(113, 42);
-            this.btnEnableMods.TabIndex = 1;
-            this.btnEnableMods.Text = "Enable Loading Mods";
-            this.toolTip.SetToolTip(this.btnEnableMods, "Enables the ability to load mods by adding required lines to INI files");
-            this.btnEnableMods.UseVisualStyleBackColor = true;
-            this.btnEnableMods.Click += new System.EventHandler(this.btnEnableMods_Click);
-            // 
-            // btnSetReadOnly
-            // 
-            this.btnSetReadOnly.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F);
-            this.btnSetReadOnly.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnSetReadOnly.Location = new System.Drawing.Point(21, 5);
-            this.btnSetReadOnly.Name = "btnSetReadOnly";
-            this.btnSetReadOnly.Size = new System.Drawing.Size(113, 42);
-            this.btnSetReadOnly.TabIndex = 0;
-            this.btnSetReadOnly.Text = "Toggle Read Only";
-            this.toolTip.SetToolTip(this.btnSetReadOnly, "Toggles plugins.txt, Fallout4.ini, and Fallout4Prefs.ini from Read Only to Read W" +
-        "rite and vice-versa");
-            this.btnSetReadOnly.UseVisualStyleBackColor = true;
-            this.btnSetReadOnly.Click += new System.EventHandler(this.btnSetReadOnly_Click);
             // 
             // tabVideoSettings
             // 
@@ -870,6 +622,254 @@
             this.cmbAntialiasing.TabIndex = 0;
             this.cmbAntialiasing.SelectedIndexChanged += new System.EventHandler(this.cmbAntialiasing_SelectedIndexChanged);
             // 
+            // tabExtraSettings
+            // 
+            this.tabExtraSettings.BackColor = System.Drawing.SystemColors.Control;
+            this.tabExtraSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabExtraSettings.Controls.Add(this.lblSkipLauncher);
+            this.tabExtraSettings.Controls.Add(this.togSkipLauncher);
+            this.tabExtraSettings.Controls.Add(this.grpGeneral);
+            this.tabExtraSettings.Controls.Add(this.grpFOV);
+            this.tabExtraSettings.Controls.Add(this.miscSettingsPanel);
+            this.tabExtraSettings.Controls.Add(this.btnBackup);
+            this.tabExtraSettings.Controls.Add(this.btnEnableMods);
+            this.tabExtraSettings.Controls.Add(this.btnSetReadOnly);
+            this.tabExtraSettings.HorizontalScrollbarBarColor = true;
+            this.tabExtraSettings.Location = new System.Drawing.Point(4, 35);
+            this.tabExtraSettings.Name = "tabExtraSettings";
+            this.tabExtraSettings.Padding = new System.Windows.Forms.Padding(3);
+            this.tabExtraSettings.Size = new System.Drawing.Size(661, 359);
+            this.tabExtraSettings.TabIndex = 1;
+            this.tabExtraSettings.Text = "Extra Settings";
+            this.tabExtraSettings.VerticalScrollbarBarColor = true;
+            // 
+            // lblSkipLauncher
+            // 
+            this.lblSkipLauncher.AutoSize = true;
+            this.lblSkipLauncher.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblSkipLauncher.Location = new System.Drawing.Point(21, 101);
+            this.lblSkipLauncher.Name = "lblSkipLauncher";
+            this.lblSkipLauncher.Size = new System.Drawing.Size(145, 19);
+            this.lblSkipLauncher.TabIndex = 9;
+            this.lblSkipLauncher.Text = "Skip Game Launcher";
+            // 
+            // togSkipLauncher
+            // 
+            this.togSkipLauncher.AutoSize = true;
+            this.togSkipLauncher.BackColor = System.Drawing.SystemColors.Control;
+            this.togSkipLauncher.FontSize = MetroFramework.MetroLinkSize.Medium;
+            this.togSkipLauncher.FontWeight = MetroFramework.MetroLinkWeight.Bold;
+            this.togSkipLauncher.Location = new System.Drawing.Point(53, 123);
+            this.togSkipLauncher.Name = "togSkipLauncher";
+            this.togSkipLauncher.Size = new System.Drawing.Size(80, 17);
+            this.togSkipLauncher.TabIndex = 8;
+            this.togSkipLauncher.Text = "Off";
+            this.togSkipLauncher.UseVisualStyleBackColor = false;
+            this.togSkipLauncher.CheckedChanged += new System.EventHandler(this.togSkipLauncher_CheckedChanged);
+            // 
+            // grpGeneral
+            // 
+            this.grpGeneral.BackColor = System.Drawing.Color.Transparent;
+            this.grpGeneral.Controls.Add(this.lblDifficulty);
+            this.grpGeneral.Controls.Add(this.chkCompanionApp);
+            this.grpGeneral.Controls.Add(this.cmbDifficulty);
+            this.grpGeneral.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.grpGeneral.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.grpGeneral.Location = new System.Drawing.Point(447, 101);
+            this.grpGeneral.Name = "grpGeneral";
+            this.grpGeneral.Size = new System.Drawing.Size(193, 111);
+            this.grpGeneral.TabIndex = 7;
+            this.grpGeneral.TabStop = false;
+            this.grpGeneral.Text = "General Options";
+            // 
+            // lblDifficulty
+            // 
+            this.lblDifficulty.AutoSize = true;
+            this.lblDifficulty.BackColor = System.Drawing.Color.Transparent;
+            this.lblDifficulty.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.lblDifficulty.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblDifficulty.Location = new System.Drawing.Point(24, 22);
+            this.lblDifficulty.Name = "lblDifficulty";
+            this.lblDifficulty.Size = new System.Drawing.Size(67, 21);
+            this.lblDifficulty.TabIndex = 9;
+            this.lblDifficulty.Text = "Difficulty:";
+            // 
+            // chkCompanionApp
+            // 
+            this.chkCompanionApp.AutoSize = true;
+            this.chkCompanionApp.BackColor = System.Drawing.Color.Transparent;
+            this.chkCompanionApp.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkCompanionApp.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.chkCompanionApp.Location = new System.Drawing.Point(28, 77);
+            this.chkCompanionApp.Name = "chkCompanionApp";
+            this.chkCompanionApp.Size = new System.Drawing.Size(122, 25);
+            this.chkCompanionApp.TabIndex = 7;
+            this.chkCompanionApp.Text = "Companion App";
+            this.toolTip.SetToolTip(this.chkCompanionApp, "Enables the companion app");
+            this.chkCompanionApp.UseVisualStyleBackColor = false;
+            this.chkCompanionApp.CheckedChanged += new System.EventHandler(this.chkCompanionApp_CheckedChanged);
+            // 
+            // cmbDifficulty
+            // 
+            this.cmbDifficulty.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.cmbDifficulty.FormattingEnabled = true;
+            this.cmbDifficulty.Items.AddRange(new object[] {
+            "Very Easy",
+            "Easy",
+            "Normal",
+            "Hard",
+            "Very Hard",
+            "Survival"});
+            this.cmbDifficulty.Location = new System.Drawing.Point(28, 46);
+            this.cmbDifficulty.Name = "cmbDifficulty";
+            this.cmbDifficulty.Size = new System.Drawing.Size(141, 29);
+            this.cmbDifficulty.TabIndex = 8;
+            this.cmbDifficulty.SelectedIndexChanged += new System.EventHandler(this.cmbDifficulty_SelectedIndexChanged);
+            // 
+            // grpFOV
+            // 
+            this.grpFOV.BackColor = System.Drawing.Color.Transparent;
+            this.grpFOV.Controls.Add(this.label3);
+            this.grpFOV.Controls.Add(this.label2);
+            this.grpFOV.Controls.Add(this.txtFOVThirdPerson);
+            this.grpFOV.Controls.Add(this.txtFOVFirstPerson);
+            this.grpFOV.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.grpFOV.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.grpFOV.Location = new System.Drawing.Point(447, 5);
+            this.grpFOV.Name = "grpFOV";
+            this.grpFOV.Size = new System.Drawing.Size(193, 90);
+            this.grpFOV.TabIndex = 6;
+            this.grpFOV.TabStop = false;
+            this.grpFOV.Text = "FOV Options";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label3.Location = new System.Drawing.Point(16, 57);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(111, 21);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Third Person FOV:";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label2.Location = new System.Drawing.Point(16, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(107, 21);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "First Person FOV:";
+            // 
+            // txtFOVThirdPerson
+            // 
+            this.txtFOVThirdPerson.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtFOVThirdPerson.Location = new System.Drawing.Point(133, 54);
+            this.txtFOVThirdPerson.Name = "txtFOVThirdPerson";
+            this.txtFOVThirdPerson.Size = new System.Drawing.Size(43, 26);
+            this.txtFOVThirdPerson.TabIndex = 1;
+            this.txtFOVThirdPerson.Text = "70";
+            this.txtFOVThirdPerson.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtFOVThirdPerson.TextChanged += new System.EventHandler(this.txtFOVThirdPerson_TextChanged);
+            // 
+            // txtFOVFirstPerson
+            // 
+            this.txtFOVFirstPerson.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txtFOVFirstPerson.Location = new System.Drawing.Point(133, 24);
+            this.txtFOVFirstPerson.Name = "txtFOVFirstPerson";
+            this.txtFOVFirstPerson.Size = new System.Drawing.Size(43, 26);
+            this.txtFOVFirstPerson.TabIndex = 0;
+            this.txtFOVFirstPerson.Text = "80";
+            this.txtFOVFirstPerson.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtFOVFirstPerson.TextChanged += new System.EventHandler(this.txtFOVFirstPerson_TextChanged);
+            // 
+            // miscSettingsPanel
+            // 
+            this.miscSettingsPanel.BackColor = System.Drawing.Color.Transparent;
+            this.miscSettingsPanel.Controls.Add(this.btnReload);
+            this.miscSettingsPanel.Controls.Add(this.btnGameLauncher);
+            this.miscSettingsPanel.Controls.Add(this.btnRevertExecutables);
+            this.miscSettingsPanel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.miscSettingsPanel.Location = new System.Drawing.Point(21, 326);
+            this.miscSettingsPanel.Name = "miscSettingsPanel";
+            this.miscSettingsPanel.Size = new System.Drawing.Size(523, 28);
+            this.miscSettingsPanel.TabIndex = 5;
+            // 
+            // btnReload
+            // 
+            this.btnReload.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F);
+            this.btnReload.Location = new System.Drawing.Point(3, 3);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(75, 23);
+            this.btnReload.TabIndex = 2;
+            this.btnReload.Text = "Reload";
+            this.toolTip.SetToolTip(this.btnReload, "Reloads any file loaded by the launcher(configs)");
+            this.btnReload.UseVisualStyleBackColor = true;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
+            // 
+            // btnGameLauncher
+            // 
+            this.btnGameLauncher.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F);
+            this.btnGameLauncher.Location = new System.Drawing.Point(84, 3);
+            this.btnGameLauncher.Name = "btnGameLauncher";
+            this.btnGameLauncher.Size = new System.Drawing.Size(130, 23);
+            this.btnGameLauncher.TabIndex = 3;
+            this.btnGameLauncher.Text = "Open Game Launcher";
+            this.btnGameLauncher.UseVisualStyleBackColor = true;
+            this.btnGameLauncher.Visible = false;
+            this.btnGameLauncher.Click += new System.EventHandler(this.btnGameLauncher_Click);
+            // 
+            // btnRevertExecutables
+            // 
+            this.btnRevertExecutables.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F);
+            this.btnRevertExecutables.Location = new System.Drawing.Point(220, 3);
+            this.btnRevertExecutables.Name = "btnRevertExecutables";
+            this.btnRevertExecutables.Size = new System.Drawing.Size(109, 23);
+            this.btnRevertExecutables.TabIndex = 6;
+            this.btnRevertExecutables.Text = "Revert Executables";
+            this.toolTip.SetToolTip(this.btnRevertExecutables, "In the event the Skip Launcher option breaks, use this option");
+            this.btnRevertExecutables.UseVisualStyleBackColor = true;
+            this.btnRevertExecutables.Click += new System.EventHandler(this.btnRevertExecutables_Click);
+            // 
+            // btnBackup
+            // 
+            this.btnBackup.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F);
+            this.btnBackup.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnBackup.Location = new System.Drawing.Point(550, 328);
+            this.btnBackup.Name = "btnBackup";
+            this.btnBackup.Size = new System.Drawing.Size(90, 23);
+            this.btnBackup.TabIndex = 3;
+            this.btnBackup.Text = "Backup Configs";
+            this.toolTip.SetToolTip(this.btnBackup, "Creates a copy of your config files located\r\nin the same folder as the original.");
+            this.btnBackup.UseVisualStyleBackColor = true;
+            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
+            // 
+            // btnEnableMods
+            // 
+            this.btnEnableMods.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnableMods.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnEnableMods.Location = new System.Drawing.Point(21, 53);
+            this.btnEnableMods.Name = "btnEnableMods";
+            this.btnEnableMods.Size = new System.Drawing.Size(113, 42);
+            this.btnEnableMods.TabIndex = 1;
+            this.btnEnableMods.Text = "Enable Loading Mods";
+            this.toolTip.SetToolTip(this.btnEnableMods, "Enables the ability to load mods by adding required lines to INI files");
+            this.btnEnableMods.UseVisualStyleBackColor = true;
+            this.btnEnableMods.Click += new System.EventHandler(this.btnEnableMods_Click);
+            // 
+            // btnSetReadOnly
+            // 
+            this.btnSetReadOnly.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F);
+            this.btnSetReadOnly.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnSetReadOnly.Location = new System.Drawing.Point(21, 5);
+            this.btnSetReadOnly.Name = "btnSetReadOnly";
+            this.btnSetReadOnly.Size = new System.Drawing.Size(113, 42);
+            this.btnSetReadOnly.TabIndex = 0;
+            this.btnSetReadOnly.Text = "Toggle Read Only";
+            this.toolTip.SetToolTip(this.btnSetReadOnly, "Toggles plugins.txt, Fallout4.ini, and Fallout4Prefs.ini from Read Only to Read W" +
+        "rite and vice-versa");
+            this.btnSetReadOnly.UseVisualStyleBackColor = true;
+            this.btnSetReadOnly.Click += new System.EventHandler(this.btnSetReadOnly_Click);
+            // 
             // tabMods
             // 
             this.tabMods.BackColor = System.Drawing.SystemColors.Control;
@@ -996,6 +996,110 @@
             this.listActiveMods.Size = new System.Drawing.Size(240, 276);
             this.listActiveMods.TabIndex = 0;
             // 
+            // tabLauncherSettings
+            // 
+            this.tabLauncherSettings.Controls.Add(this.togFloatingButtons);
+            this.tabLauncherSettings.Controls.Add(this.lblFloatingButtons);
+            this.tabLauncherSettings.Controls.Add(this.lblStyle);
+            this.tabLauncherSettings.Controls.Add(this.cmbStyle);
+            this.tabLauncherSettings.Controls.Add(this.lblTheme);
+            this.tabLauncherSettings.Controls.Add(this.cmbTheme);
+            this.tabLauncherSettings.HorizontalScrollbarBarColor = true;
+            this.tabLauncherSettings.Location = new System.Drawing.Point(4, 35);
+            this.tabLauncherSettings.Name = "tabLauncherSettings";
+            this.tabLauncherSettings.Size = new System.Drawing.Size(661, 359);
+            this.tabLauncherSettings.TabIndex = 5;
+            this.tabLauncherSettings.Text = "Launcher Settings";
+            this.tabLauncherSettings.VerticalScrollbarBarColor = true;
+            // 
+            // togFloatingButtons
+            // 
+            this.togFloatingButtons.AutoSize = true;
+            this.togFloatingButtons.BackColor = System.Drawing.SystemColors.Control;
+            this.togFloatingButtons.FontSize = MetroFramework.MetroLinkSize.Medium;
+            this.togFloatingButtons.FontWeight = MetroFramework.MetroLinkWeight.Bold;
+            this.togFloatingButtons.Location = new System.Drawing.Point(23, 156);
+            this.togFloatingButtons.Name = "togFloatingButtons";
+            this.togFloatingButtons.Size = new System.Drawing.Size(80, 17);
+            this.togFloatingButtons.TabIndex = 9;
+            this.togFloatingButtons.Text = "Off";
+            this.togFloatingButtons.UseVisualStyleBackColor = false;
+            this.togFloatingButtons.CheckedChanged += new System.EventHandler(this.togFloatingButtons_CheckedChanged);
+            // 
+            // lblFloatingButtons
+            // 
+            this.lblFloatingButtons.AutoSize = true;
+            this.lblFloatingButtons.BackColor = System.Drawing.Color.Transparent;
+            this.lblFloatingButtons.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFloatingButtons.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblFloatingButtons.Location = new System.Drawing.Point(3, 132);
+            this.lblFloatingButtons.Name = "lblFloatingButtons";
+            this.lblFloatingButtons.Size = new System.Drawing.Size(129, 21);
+            this.lblFloatingButtons.TabIndex = 7;
+            this.lblFloatingButtons.Text = "Use Floating Buttons";
+            // 
+            // lblStyle
+            // 
+            this.lblStyle.AutoSize = true;
+            this.lblStyle.BackColor = System.Drawing.Color.Transparent;
+            this.lblStyle.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStyle.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblStyle.Location = new System.Drawing.Point(-1, 75);
+            this.lblStyle.Name = "lblStyle";
+            this.lblStyle.Size = new System.Drawing.Size(46, 21);
+            this.lblStyle.TabIndex = 5;
+            this.lblStyle.Text = "Style: ";
+            // 
+            // cmbStyle
+            // 
+            this.cmbStyle.FormattingEnabled = true;
+            this.cmbStyle.ItemHeight = 23;
+            this.cmbStyle.Items.AddRange(new object[] {
+            "Black",
+            "White",
+            "Silver",
+            "Blue",
+            "Green",
+            "Lime",
+            "Teal",
+            "Orange",
+            "Brown",
+            "Pink",
+            "Magenta",
+            "Purple",
+            "Red",
+            "Yellow"});
+            this.cmbStyle.Location = new System.Drawing.Point(3, 99);
+            this.cmbStyle.Name = "cmbStyle";
+            this.cmbStyle.Size = new System.Drawing.Size(166, 29);
+            this.cmbStyle.TabIndex = 2;
+            this.cmbStyle.SelectedIndexChanged += new System.EventHandler(this.cmbStyle_SelectedIndexChanged);
+            // 
+            // lblTheme
+            // 
+            this.lblTheme.AutoSize = true;
+            this.lblTheme.BackColor = System.Drawing.Color.Transparent;
+            this.lblTheme.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTheme.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTheme.Location = new System.Drawing.Point(-1, 19);
+            this.lblTheme.Name = "lblTheme";
+            this.lblTheme.Size = new System.Drawing.Size(55, 21);
+            this.lblTheme.TabIndex = 3;
+            this.lblTheme.Text = "Theme: ";
+            // 
+            // cmbTheme
+            // 
+            this.cmbTheme.FormattingEnabled = true;
+            this.cmbTheme.ItemHeight = 23;
+            this.cmbTheme.Items.AddRange(new object[] {
+            "Light",
+            "Dark"});
+            this.cmbTheme.Location = new System.Drawing.Point(3, 43);
+            this.cmbTheme.Name = "cmbTheme";
+            this.cmbTheme.Size = new System.Drawing.Size(166, 29);
+            this.cmbTheme.TabIndex = 1;
+            this.cmbTheme.SelectedIndexChanged += new System.EventHandler(this.cmbTheme_SelectedIndexChanged);
+            // 
             // tabAbout
             // 
             this.tabAbout.BackColor = System.Drawing.SystemColors.Control;
@@ -1073,84 +1177,6 @@
             this.lblAbout.TabIndex = 3;
             this.lblAbout.Text = resources.GetString("lblAbout.Text");
             // 
-            // tabLauncherSettings
-            // 
-            this.tabLauncherSettings.Controls.Add(this.togFloatingButtons);
-            this.tabLauncherSettings.Controls.Add(this.lblFloatingButtons);
-            this.tabLauncherSettings.Controls.Add(this.lblStyle);
-            this.tabLauncherSettings.Controls.Add(this.cmbStyle);
-            this.tabLauncherSettings.Controls.Add(this.lblTheme);
-            this.tabLauncherSettings.Controls.Add(this.cmbTheme);
-            this.tabLauncherSettings.HorizontalScrollbarBarColor = true;
-            this.tabLauncherSettings.Location = new System.Drawing.Point(4, 35);
-            this.tabLauncherSettings.Name = "tabLauncherSettings";
-            this.tabLauncherSettings.Size = new System.Drawing.Size(661, 359);
-            this.tabLauncherSettings.TabIndex = 5;
-            this.tabLauncherSettings.Text = "Launcher Settings";
-            this.tabLauncherSettings.VerticalScrollbarBarColor = true;
-            // 
-            // lblTheme
-            // 
-            this.lblTheme.AutoSize = true;
-            this.lblTheme.BackColor = System.Drawing.Color.Transparent;
-            this.lblTheme.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTheme.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblTheme.Location = new System.Drawing.Point(-1, 19);
-            this.lblTheme.Name = "lblTheme";
-            this.lblTheme.Size = new System.Drawing.Size(55, 21);
-            this.lblTheme.TabIndex = 3;
-            this.lblTheme.Text = "Theme: ";
-            // 
-            // cmbTheme
-            // 
-            this.cmbTheme.FormattingEnabled = true;
-            this.cmbTheme.ItemHeight = 23;
-            this.cmbTheme.Items.AddRange(new object[] {
-            "Light",
-            "Dark"});
-            this.cmbTheme.Location = new System.Drawing.Point(3, 43);
-            this.cmbTheme.Name = "cmbTheme";
-            this.cmbTheme.Size = new System.Drawing.Size(166, 29);
-            this.cmbTheme.TabIndex = 1;
-            this.cmbTheme.SelectedIndexChanged += new System.EventHandler(this.cmbTheme_SelectedIndexChanged);
-            // 
-            // lblStyle
-            // 
-            this.lblStyle.AutoSize = true;
-            this.lblStyle.BackColor = System.Drawing.Color.Transparent;
-            this.lblStyle.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStyle.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblStyle.Location = new System.Drawing.Point(-1, 75);
-            this.lblStyle.Name = "lblStyle";
-            this.lblStyle.Size = new System.Drawing.Size(46, 21);
-            this.lblStyle.TabIndex = 5;
-            this.lblStyle.Text = "Style: ";
-            // 
-            // cmbStyle
-            // 
-            this.cmbStyle.FormattingEnabled = true;
-            this.cmbStyle.ItemHeight = 23;
-            this.cmbStyle.Items.AddRange(new object[] {
-            "Black",
-            "White",
-            "Silver",
-            "Blue",
-            "Green",
-            "Lime",
-            "Teal",
-            "Orange",
-            "Brown",
-            "Pink",
-            "Magenta",
-            "Purple",
-            "Red",
-            "Yellow"});
-            this.cmbStyle.Location = new System.Drawing.Point(3, 99);
-            this.cmbStyle.Name = "cmbStyle";
-            this.cmbStyle.Size = new System.Drawing.Size(166, 29);
-            this.cmbStyle.TabIndex = 2;
-            this.cmbStyle.SelectedIndexChanged += new System.EventHandler(this.cmbStyle_SelectedIndexChanged);
-            // 
             // btnFollowingLaunch
             // 
             this.btnFollowingLaunch.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F);
@@ -1161,6 +1187,7 @@
             this.btnFollowingLaunch.Text = "Launch Game";
             this.toolTip.SetToolTip(this.btnFollowingLaunch, "Reloads any file loaded by the launcher(configs)");
             this.btnFollowingLaunch.UseVisualStyleBackColor = true;
+            this.btnFollowingLaunch.Click += new System.EventHandler(this.btnFollowingLaunch_Click);
             // 
             // btnOpenData
             // 
@@ -1172,6 +1199,7 @@
             this.btnOpenData.Text = "Open Data Folder";
             this.toolTip.SetToolTip(this.btnOpenData, "Reloads any file loaded by the launcher(configs)");
             this.btnOpenData.UseVisualStyleBackColor = true;
+            this.btnOpenData.Click += new System.EventHandler(this.btnOpenData_Click);
             // 
             // btnFollowingReload
             // 
@@ -1183,6 +1211,7 @@
             this.btnFollowingReload.Text = "Reload Launcher";
             this.toolTip.SetToolTip(this.btnFollowingReload, "Reloads any file loaded by the launcher(configs)");
             this.btnFollowingReload.UseVisualStyleBackColor = true;
+            this.btnFollowingReload.Click += new System.EventHandler(this.btnFollowingReload_Click);
             // 
             // followingSettingsPanel
             // 
@@ -1194,33 +1223,7 @@
             this.followingSettingsPanel.Size = new System.Drawing.Size(661, 30);
             this.followingSettingsPanel.TabIndex = 1;
             // 
-            // lblFloatingButtons
-            // 
-            this.lblFloatingButtons.AutoSize = true;
-            this.lblFloatingButtons.BackColor = System.Drawing.Color.Transparent;
-            this.lblFloatingButtons.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFloatingButtons.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblFloatingButtons.Location = new System.Drawing.Point(3, 132);
-            this.lblFloatingButtons.Name = "lblFloatingButtons";
-            this.lblFloatingButtons.Size = new System.Drawing.Size(129, 21);
-            this.lblFloatingButtons.TabIndex = 7;
-            this.lblFloatingButtons.Text = "Use Floating Buttons";
-            // 
-            // togFloatingButtons
-            // 
-            this.togFloatingButtons.AutoSize = true;
-            this.togFloatingButtons.BackColor = System.Drawing.SystemColors.Control;
-            this.togFloatingButtons.FontSize = MetroFramework.MetroLinkSize.Medium;
-            this.togFloatingButtons.FontWeight = MetroFramework.MetroLinkWeight.Bold;
-            this.togFloatingButtons.Location = new System.Drawing.Point(23, 156);
-            this.togFloatingButtons.Name = "togFloatingButtons";
-            this.togFloatingButtons.Size = new System.Drawing.Size(80, 17);
-            this.togFloatingButtons.TabIndex = 9;
-            this.togFloatingButtons.Text = "Off";
-            this.togFloatingButtons.UseVisualStyleBackColor = false;
-            this.togFloatingButtons.CheckedChanged += new System.EventHandler(this.togFloatingButtons_CheckedChanged);
-            // 
-            // Form1
+            // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1231,15 +1234,20 @@
             this.DisplayHeader = false;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "frmMain";
             this.Padding = new System.Windows.Forms.Padding(20, 30, 20, 20);
             this.Resizable = false;
+            this.ShadowType = MetroFramework.Forms.MetroForm.MetroFormShadowType.AeroShadow;
+            this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Fallout 4 Config Tool";
+            this.Theme = MetroFramework.MetroThemeStyle.Default;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl.ResumeLayout(false);
             this.tabGame.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgFallout4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLaunch)).EndInit();
+            this.tabVideoSettings.ResumeLayout(false);
+            this.tabVideoSettings.PerformLayout();
             this.tabExtraSettings.ResumeLayout(false);
             this.tabExtraSettings.PerformLayout();
             this.grpGeneral.ResumeLayout(false);
@@ -1247,15 +1255,13 @@
             this.grpFOV.ResumeLayout(false);
             this.grpFOV.PerformLayout();
             this.miscSettingsPanel.ResumeLayout(false);
-            this.tabVideoSettings.ResumeLayout(false);
-            this.tabVideoSettings.PerformLayout();
             this.tabMods.ResumeLayout(false);
             this.tabMods.PerformLayout();
+            this.tabLauncherSettings.ResumeLayout(false);
+            this.tabLauncherSettings.PerformLayout();
             this.tabAbout.ResumeLayout(false);
             this.tabAbout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgVaultBoy)).EndInit();
-            this.tabLauncherSettings.ResumeLayout(false);
-            this.tabLauncherSettings.PerformLayout();
             this.followingSettingsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 

@@ -1592,5 +1592,25 @@ namespace Fallout_4_Launcher
 
             Properties.Settings.Default.Save();
         }
+
+        private void btnFollowingLaunch_Click(object sender, EventArgs e)
+        {
+            Process.Start("steam://run/377160");
+        }
+
+        private void btnFollowingReload_Click(object sender, EventArgs e)
+        {
+            listActiveMods.Items.Clear();
+            listAvailableMods.Items.Clear();
+
+            loadPluginList();
+            loadFallout4Prefs();
+            loadFallout4();
+        }
+
+        private void btnOpenData_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer.exe", txtDataDirectory.Text = fallout4InstallDirectory + @"\Data");
+        }
     }
 }
