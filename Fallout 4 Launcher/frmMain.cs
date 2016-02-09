@@ -449,7 +449,6 @@ namespace Fallout_4_Launcher
             int indexOfAliasing = parseFallout4PrefsINI("sAntiAliasing=");
             switch (cmbAntialiasing.SelectedIndex)
             {
-
                 case 0:
                     break;
                 case 1:
@@ -473,7 +472,6 @@ namespace Fallout_4_Launcher
             int indexOfAnisotropic = parseFallout4PrefsINI("iMaxAnisotropy=");
             switch (cmbAnisotropicFiltering.SelectedIndex)
             {
-
                 case 0:
                     break;
                 case 1:
@@ -1047,7 +1045,7 @@ namespace Fallout_4_Launcher
             //iSize H=1080
             //iSize W=1920
 
-            //decals
+            //decals - so much work
             /*
              * iMaxSkinDecalsPerFrame=
              * iMaxDecalsPerFrame=
@@ -1346,6 +1344,7 @@ namespace Fallout_4_Launcher
 
                     lblSkipLauncher.Theme = MetroFramework.MetroThemeStyle.Light;
                     lblTheme.ForeColor = SystemColors.ControlText;
+                    lblStyle.ForeColor = SystemColors.ControlText;
                     lblAbout.ForeColor = SystemColors.ControlText;
                     lblAbout2.ForeColor = SystemColors.ControlText;
                     lblActiveMods.ForeColor = SystemColors.ControlText;
@@ -1398,6 +1397,7 @@ namespace Fallout_4_Launcher
 
                     lblSkipLauncher.Theme = MetroFramework.MetroThemeStyle.Dark;
                     lblTheme.ForeColor = Color.FromArgb(170, 170, 170);
+                    lblStyle.ForeColor = Color.FromArgb(170, 170, 170);
                     lblAbout.ForeColor = Color.FromArgb(170, 170, 170);
                     lblAbout2.ForeColor = Color.FromArgb(170, 170, 170);
                     lblActiveMods.ForeColor = Color.FromArgb(170, 170, 170);
