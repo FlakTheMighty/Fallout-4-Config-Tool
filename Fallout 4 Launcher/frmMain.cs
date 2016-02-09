@@ -732,6 +732,351 @@ namespace Fallout_4_Launcher
             refreshModLists();
         }
 
+        private void togSkipLauncher_CheckedChanged(object sender, EventArgs e)
+        {
+            //backups just in case ;)
+            if (!File.Exists(fallout4InstallDirectory + @"\Fallout4-BACKUP.exe"))
+            {
+                File.Copy(fallout4InstallDirectory + @"\Fallout4.exe", fallout4InstallDirectory + @"\Fallout4-BACKUP.exe");
+
+            }
+
+            if (!File.Exists(fallout4InstallDirectory + @"\Fallout4Launcher-BACKUP.exe"))
+            {
+                File.Copy(fallout4InstallDirectory + @"\Fallout4Launcher.exe", fallout4InstallDirectory + @"\Fallout4Launcher-BACKUP.exe");
+
+            }
+
+            if (togSkipLauncher.Checked && !Properties.Settings.Default.skipLauncher)
+            {
+                //temporarily name Fallout4Launcher to a temporary name so we can rename Fallout4 to Fallout4Launcher
+                File.Move(fallout4InstallDirectory + @"\Fallout4Launcher.exe", fallout4InstallDirectory + @"\Fallout4-t.exe");
+                File.Move(fallout4InstallDirectory + @"\Fallout4.exe", fallout4InstallDirectory + @"\Fallout4Launcher.exe");
+                File.Move(fallout4InstallDirectory + @"\Fallout4-t.exe", fallout4InstallDirectory + @"\Fallout4.exe");
+            }
+            else if (!togSkipLauncher.Checked && Properties.Settings.Default.skipLauncher)
+            {
+                //just redo it
+                File.Move(fallout4InstallDirectory + @"\Fallout4Launcher.exe", fallout4InstallDirectory + @"\Fallout4-t.exe");
+                File.Move(fallout4InstallDirectory + @"\Fallout4.exe", fallout4InstallDirectory + @"\Fallout4Launcher.exe");
+                File.Move(fallout4InstallDirectory + @"\Fallout4-t.exe", fallout4InstallDirectory + @"\Fallout4.exe");
+            }
+
+            if (togSkipLauncher.Checked)
+            {
+                Properties.Settings.Default.skipLauncher = true;
+            }
+            else
+            {
+                Properties.Settings.Default.skipLauncher = false;
+
+            }
+
+            Properties.Settings.Default.Save();
+
+            if (togSkipLauncher.Checked)
+            {
+                btnGameLauncher.Visible = true;
+            }
+            else
+            {
+                btnGameLauncher.Visible = false;
+            }
+        }
+
+        private void cmbTheme_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cmbTheme.SelectedIndex)
+            {
+                case 0:
+                    this.Theme = MetroFramework.MetroThemeStyle.Light;
+                    tabControl.Theme = MetroFramework.MetroThemeStyle.Light;
+                    tabExtraSettings.Theme = MetroFramework.MetroThemeStyle.Light;
+                    tabGame.Theme = MetroFramework.MetroThemeStyle.Light;
+                    tabMods.Theme = MetroFramework.MetroThemeStyle.Light;
+                    tabVideoSettings.Theme = MetroFramework.MetroThemeStyle.Light;
+                    tabAbout.Theme = MetroFramework.MetroThemeStyle.Light;
+                    tabLauncherSettings.Theme = MetroFramework.MetroThemeStyle.Light;
+
+                    lblSkipLauncher.Theme = MetroFramework.MetroThemeStyle.Light;
+                    lblTheme.ForeColor = SystemColors.ControlText;
+                    lblStyle.ForeColor = SystemColors.ControlText;
+                    lblAbout.ForeColor = SystemColors.ControlText;
+                    lblAbout2.ForeColor = SystemColors.ControlText;
+                    lblActiveMods.ForeColor = SystemColors.ControlText;
+                    lblAmbientOcclusion.ForeColor = SystemColors.ControlText;
+                    lblAnisotropicFiltering.ForeColor = SystemColors.ControlText; ;
+                    lblAntialiasing.ForeColor = SystemColors.ControlText;
+                    lblDecalQuantity.ForeColor = SystemColors.ControlText;
+                    lblDifficulty.ForeColor = SystemColors.ControlText;
+                    lblDOF.ForeColor = SystemColors.ControlText;
+                    lblFullScreen.ForeColor = SystemColors.ControlText;
+                    //lblGitLinkl.ForeColor = SystemColors.ControlText;
+                    lblGodrayQualtiy.ForeColor = SystemColors.ControlText;
+                    lblInactiveMods.ForeColor = SystemColors.ControlText;
+                    lblLightingQuality.ForeColor = SystemColors.ControlText;
+                    lblResolutionCross.ForeColor = SystemColors.ControlText;
+                    lblShadowDistance.ForeColor = SystemColors.ControlText;
+                    lblShadowQuality.ForeColor = SystemColors.ControlText;
+                    lblTextureQuality.ForeColor = SystemColors.ControlText;
+                    lblVersion.ForeColor = SystemColors.ControlText;
+                    lblResolution.ForeColor = SystemColors.ControlText;
+                    lblFloatingButtons.ForeColor = SystemColors.ControlText;
+
+                    chkCompanionApp.ForeColor = SystemColors.ControlText;
+                    chkLensFlare.ForeColor = SystemColors.ControlText;
+                    chkMotionBlur.ForeColor = SystemColors.ControlText;
+                    chkRainOcclusion.ForeColor = SystemColors.ControlText;
+                    chkScreenSpaceReflections.ForeColor = SystemColors.ControlText;
+                    chkWetness.ForeColor = SystemColors.ControlText;
+
+                    grpFOV.ForeColor = SystemColors.ControlText;
+                    grpGeneral.ForeColor = SystemColors.ControlText;
+
+                    togSkipLauncher.Theme = MetroFramework.MetroThemeStyle.Light;
+
+                    togFloatingButtons.Theme = MetroFramework.MetroThemeStyle.Light;
+                    imgFallout4.BackgroundImage = Properties.Resources.fallout4_logo;
+
+                    Properties.Settings.Default.themeIndex = 0;
+
+                    break;
+                case 1:
+                    this.Theme = MetroFramework.MetroThemeStyle.Dark;
+                    tabControl.Theme = MetroFramework.MetroThemeStyle.Dark;
+                    tabExtraSettings.Theme = MetroFramework.MetroThemeStyle.Dark;
+                    tabGame.Theme = MetroFramework.MetroThemeStyle.Dark;
+                    tabMods.Theme = MetroFramework.MetroThemeStyle.Dark;
+                    tabVideoSettings.Theme = MetroFramework.MetroThemeStyle.Dark;
+                    tabAbout.Theme = MetroFramework.MetroThemeStyle.Dark;
+                    tabLauncherSettings.Theme = MetroFramework.MetroThemeStyle.Dark;
+
+                    lblSkipLauncher.Theme = MetroFramework.MetroThemeStyle.Dark;
+                    lblTheme.ForeColor = Color.FromArgb(170, 170, 170);
+                    lblStyle.ForeColor = Color.FromArgb(170, 170, 170);
+                    lblAbout.ForeColor = Color.FromArgb(170, 170, 170);
+                    lblAbout2.ForeColor = Color.FromArgb(170, 170, 170);
+                    lblActiveMods.ForeColor = Color.FromArgb(170, 170, 170);
+                    lblAmbientOcclusion.ForeColor = Color.FromArgb(170, 170, 170);
+                    lblAnisotropicFiltering.ForeColor = Color.FromArgb(170, 170, 170); ;
+                    lblAntialiasing.ForeColor = Color.FromArgb(170, 170, 170);
+                    lblDecalQuantity.ForeColor = Color.FromArgb(170, 170, 170);
+                    lblDifficulty.ForeColor = Color.FromArgb(170, 170, 170);
+                    lblDOF.ForeColor = Color.FromArgb(170, 170, 170);
+                    lblFullScreen.ForeColor = Color.FromArgb(170, 170, 170);
+                    //lblGitLinkl.ForeColor = Color.FromArgb(170, 170, 170);
+                    lblGodrayQualtiy.ForeColor = Color.FromArgb(170, 170, 170);
+                    lblInactiveMods.ForeColor = Color.FromArgb(170, 170, 170);
+                    lblLightingQuality.ForeColor = Color.FromArgb(170, 170, 170);
+                    lblResolutionCross.ForeColor = Color.FromArgb(170, 170, 170);
+                    lblShadowDistance.ForeColor = Color.FromArgb(170, 170, 170);
+                    lblShadowQuality.ForeColor = Color.FromArgb(170, 170, 170);
+                    lblTextureQuality.ForeColor = Color.FromArgb(170, 170, 170);
+                    lblVersion.ForeColor = Color.FromArgb(170, 170, 170);
+                    lblResolution.ForeColor = Color.FromArgb(170, 170, 170);
+                    lblFloatingButtons.ForeColor = Color.FromArgb(170, 170, 170);
+
+                    chkCompanionApp.ForeColor = Color.FromArgb(170, 170, 170);
+                    chkLensFlare.ForeColor = Color.FromArgb(170, 170, 170);
+                    chkMotionBlur.ForeColor = Color.FromArgb(170, 170, 170);
+                    chkRainOcclusion.ForeColor = Color.FromArgb(170, 170, 170);
+                    chkScreenSpaceReflections.ForeColor = Color.FromArgb(170, 170, 170);
+                    chkWetness.ForeColor = Color.FromArgb(170, 170, 170);
+
+                    grpFOV.ForeColor = Color.FromArgb(170, 170, 170);
+                    grpGeneral.ForeColor = Color.FromArgb(170, 170, 170);
+
+                    togSkipLauncher.Theme = MetroFramework.MetroThemeStyle.Dark;
+                    togFloatingButtons.Theme = MetroFramework.MetroThemeStyle.Dark;
+
+                    imgFallout4.BackgroundImage = Properties.Resources.fallout4_logo_dark;
+
+                    Properties.Settings.Default.themeIndex = 1;
+
+                    break;
+            }
+            Properties.Settings.Default.Save();
+
+            //fix the background color not being updated
+            followingSettingsPanel.Visible = false;
+            followingSettingsPanel.Visible = true;
+        }
+
+        private void cmbStyle_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cmbStyle.SelectedIndex)
+            {
+                case 0:
+                    this.Style = MetroFramework.MetroColorStyle.Black;
+                    tabControl.Style = MetroFramework.MetroColorStyle.Black;
+                    togSkipLauncher.Style = MetroFramework.MetroColorStyle.Black;
+                    togFloatingButtons.Style = MetroFramework.MetroColorStyle.Black;
+
+                    Properties.Settings.Default.styleIndex = 0;
+
+                    break;
+                case 1:
+                    this.Style = MetroFramework.MetroColorStyle.White;
+                    tabControl.Style = MetroFramework.MetroColorStyle.White;
+                    togSkipLauncher.Style = MetroFramework.MetroColorStyle.White;
+                    togFloatingButtons.Style = MetroFramework.MetroColorStyle.White;
+
+                    Properties.Settings.Default.styleIndex = 1;
+
+                    break;
+                case 2:
+                    this.Style = MetroFramework.MetroColorStyle.Silver;
+                    tabControl.Style = MetroFramework.MetroColorStyle.Silver;
+                    togSkipLauncher.Style = MetroFramework.MetroColorStyle.Silver;
+                    togFloatingButtons.Style = MetroFramework.MetroColorStyle.Silver;
+
+                    Properties.Settings.Default.styleIndex = 2;
+
+                    break;
+                case 3:
+                    this.Style = MetroFramework.MetroColorStyle.Blue;
+                    tabControl.Style = MetroFramework.MetroColorStyle.Blue;
+                    togSkipLauncher.Style = MetroFramework.MetroColorStyle.Blue;
+                    togFloatingButtons.Style = MetroFramework.MetroColorStyle.Blue;
+
+                    Properties.Settings.Default.styleIndex = 3;
+
+                    break;
+                case 4:
+                    this.Style = MetroFramework.MetroColorStyle.Green;
+                    tabControl.Style = MetroFramework.MetroColorStyle.Green;
+                    togSkipLauncher.Style = MetroFramework.MetroColorStyle.Green;
+                    togFloatingButtons.Style = MetroFramework.MetroColorStyle.Green;
+
+                    Properties.Settings.Default.styleIndex = 4;
+
+                    break;
+                case 5:
+                    this.Style = MetroFramework.MetroColorStyle.Lime;
+                    tabControl.Style = MetroFramework.MetroColorStyle.Lime;
+                    togSkipLauncher.Style = MetroFramework.MetroColorStyle.Lime;
+                    togFloatingButtons.Style = MetroFramework.MetroColorStyle.Lime;
+
+                    Properties.Settings.Default.styleIndex = 5;
+
+                    break;
+                case 6:
+                    this.Style = MetroFramework.MetroColorStyle.Teal;
+                    tabControl.Style = MetroFramework.MetroColorStyle.Teal;
+                    togSkipLauncher.Style = MetroFramework.MetroColorStyle.Teal;
+                    togFloatingButtons.Style = MetroFramework.MetroColorStyle.Teal;
+
+                    Properties.Settings.Default.styleIndex = 6;
+
+                    break;
+                case 7:
+                    this.Style = MetroFramework.MetroColorStyle.Orange;
+                    tabControl.Style = MetroFramework.MetroColorStyle.Orange;
+                    togSkipLauncher.Style = MetroFramework.MetroColorStyle.Orange;
+                    togFloatingButtons.Style = MetroFramework.MetroColorStyle.Orange;
+
+                    Properties.Settings.Default.styleIndex = 7;
+
+                    break;
+                case 8:
+                    this.Style = MetroFramework.MetroColorStyle.Brown;
+                    tabControl.Style = MetroFramework.MetroColorStyle.Brown;
+                    togSkipLauncher.Style = MetroFramework.MetroColorStyle.Brown;
+                    togFloatingButtons.Style = MetroFramework.MetroColorStyle.Brown;
+
+                    Properties.Settings.Default.styleIndex = 8;
+
+                    break;
+                case 9:
+                    this.Style = MetroFramework.MetroColorStyle.Pink;
+                    tabControl.Style = MetroFramework.MetroColorStyle.Pink;
+                    togSkipLauncher.Style = MetroFramework.MetroColorStyle.Pink;
+                    togFloatingButtons.Style = MetroFramework.MetroColorStyle.Pink;
+
+                    Properties.Settings.Default.styleIndex = 9;
+
+                    break;
+                case 10:
+                    this.Style = MetroFramework.MetroColorStyle.Magenta;
+                    tabControl.Style = MetroFramework.MetroColorStyle.Magenta;
+                    togSkipLauncher.Style = MetroFramework.MetroColorStyle.Magenta;
+                    togFloatingButtons.Style = MetroFramework.MetroColorStyle.Magenta;
+
+                    Properties.Settings.Default.styleIndex = 10;
+
+                    break;
+                case 11:
+                    this.Style = MetroFramework.MetroColorStyle.Purple;
+                    tabControl.Style = MetroFramework.MetroColorStyle.Purple;
+                    togSkipLauncher.Style = MetroFramework.MetroColorStyle.Purple;
+                    togFloatingButtons.Style = MetroFramework.MetroColorStyle.Purple;
+
+                    Properties.Settings.Default.styleIndex = 11;
+
+                    break;
+                case 12:
+                    this.Style = MetroFramework.MetroColorStyle.Red;
+                    tabControl.Style = MetroFramework.MetroColorStyle.Red;
+                    togSkipLauncher.Style = MetroFramework.MetroColorStyle.Red;
+                    togFloatingButtons.Style = MetroFramework.MetroColorStyle.Red;
+
+                    Properties.Settings.Default.styleIndex = 12;
+
+                    break;
+                case 13:
+                    this.Style = MetroFramework.MetroColorStyle.Yellow;
+                    tabControl.Style = MetroFramework.MetroColorStyle.Yellow;
+                    togSkipLauncher.Style = MetroFramework.MetroColorStyle.Yellow;
+                    togFloatingButtons.Style = MetroFramework.MetroColorStyle.Yellow;
+
+                    Properties.Settings.Default.styleIndex = 13;
+
+                    break;
+            }
+            Properties.Settings.Default.Save();
+        }
+
+        private void togFloatingButtons_CheckedChanged(object sender, EventArgs e)
+        {
+            if (togFloatingButtons.Checked)
+            {
+                this.Height = 462;
+                Properties.Settings.Default.useFloatingButtons = true;
+            }
+            else
+            {
+                this.Height = 430;
+                Properties.Settings.Default.useFloatingButtons = false;
+            }
+
+            Properties.Settings.Default.Save();
+        }
+
+        private void btnFollowingLaunch_Click(object sender, EventArgs e)
+        {
+            Process.Start("steam://run/377160");
+        }
+
+        private void btnFollowingReload_Click(object sender, EventArgs e)
+        {
+            listActiveMods.Items.Clear();
+            listAvailableMods.Items.Clear();
+
+            loadPluginList();
+            loadFallout4Prefs();
+            loadFallout4();
+        }
+
+        private void btnOpenData_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer.exe", txtDataDirectory.Text = fallout4InstallDirectory + @"\Data");
+        }
+
+        private void btnEnableArchiveInvalidation_Click(object sender, EventArgs e)
+        {
+            enableArchiveInvalidation();
+        }
+
         /// <summary> Loads plugins.txt into List pluginList
         /// </summary>
         private void loadPluginList()
@@ -1260,360 +1605,59 @@ namespace Fallout_4_Launcher
         {
             try
             {
-                fallout4Prefs.Insert(fallout4Prefs.IndexOf("[Launcher]") + 1, "bEnableFileSelection=1");
-                fallout4.Insert(fallout4.IndexOf(@"sResourceDataDirsFinal=STRINGS\"),
-                    @"sResourceDataDirsFinal=STRINGS\, TEXTURES\, MUSIC\, SOUND\, INTERFACE\, MESHES\, PROGRAMS\, MATERIALS\, LODSETTINGS\, VIS\, MISC\, SCRIPTS\, SHADERSFX\ ");
-                fallout4.RemoveAt(fallout4.IndexOf(@"sResourceDataDirsFinal=STRINGS\"));
+                try
+                {
+                    //if the user has already had mods enabled before, we're going to want to do this
+                    fallout4.IndexOf(@"sResourceDataDirsFinal=STRINGS\, TEXTURES\, MUSIC\, SOUND\, INTERFACE\, MESHES\, PROGRAMS\, MATERIALS\, LODSETTINGS\, VIS\, MISC\, SCRIPTS\, SHADERSFX\");
+                    fallout4.Insert(fallout4.IndexOf(@"sResourceDataDirsFinal=STRINGS\, TEXTURES\, MUSIC\, SOUND\, INTERFACE\, MESHES\, PROGRAMS\, MATERIALS\, LODSETTINGS\, VIS\, MISC\, SCRIPTS\, SHADERSFX\"),
+                        @"sResourceDataDirsFinal=");
+                    fallout4.RemoveAt(fallout4.IndexOf(@"sResourceDataDirsFinal=STRINGS\, TEXTURES\, MUSIC\, SOUND\, INTERFACE\, MESHES\, PROGRAMS\, MATERIALS\, LODSETTINGS\, VIS\, MISC\, SCRIPTS\, SHADERSFX\"));
+                }
+                catch (Exception e)
+                {
+                    //default situation
+                    fallout4Prefs.Insert(fallout4Prefs.IndexOf("[Launcher]") + 1, "bEnableFileSelection=1");
+                    fallout4.Insert(fallout4.IndexOf(@"sResourceDataDirsFinal=STRINGS\"),
+                        @"sResourceDataDirsFinal=");
+                    //this is no longer needed as of the discovery of archive invalidation
+                    //@"sResourceDataDirsFinal=STRINGS\, TEXTURES\, MUSIC\, SOUND\, INTERFACE\, MESHES\, PROGRAMS\, MATERIALS\, LODSETTINGS\, VIS\, MISC\, SCRIPTS\, SHADERSFX\ ");
+                    fallout4.RemoveAt(fallout4.IndexOf(@"sResourceDataDirsFinal=STRINGS\"));
+                }
+                
+
+                enableArchiveInvalidation();
 
                 makeFilesReadWrite();
                 File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4.ini", fallout4);
                 File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4Prefs.ini", fallout4Prefs);
                 makeFilesReadOnly();
+
+                btnEnableMods.Enabled = false;
             }
             catch (Exception e)
             {
                 MessageBox.Show("Looks like you already have mod loading enabled.", "Whoops", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnEnableMods.Enabled = false;
             }
         }
 
-        private void togSkipLauncher_CheckedChanged(object sender, EventArgs e)
+        /// <summary>Adds the required line to the ini file to enable archive invalidation
+        /// </summary>
+        private void enableArchiveInvalidation()
         {
-            //backups just in case ;)
-            if (!File.Exists(fallout4InstallDirectory + @"\Fallout4-BACKUP.exe"))
+            try
             {
-                File.Copy(fallout4InstallDirectory + @"\Fallout4.exe", fallout4InstallDirectory + @"\Fallout4-BACKUP.exe");
-
+                //just try to access it, that's all we need, if it returns an errror, we need to enable Archive Invalidation
+                fallout4.IndexOf("bInvalidateOlderFiles=");
+            }
+            catch (Exception e)
+            {
+                fallout4.Insert(fallout4.IndexOf("[Archive]") + 1, "bInvalidateOlderFiles=1");
             }
 
-            if (!File.Exists(fallout4InstallDirectory + @"\Fallout4Launcher-BACKUP.exe"))
-            {
-                File.Copy(fallout4InstallDirectory + @"\Fallout4Launcher.exe", fallout4InstallDirectory + @"\Fallout4Launcher-BACKUP.exe");
-
-            }
-
-            if (togSkipLauncher.Checked && !Properties.Settings.Default.skipLauncher)
-            {
-                //temporarily name Fallout4Launcher to a temporary name so we can rename Fallout4 to Fallout4Launcher
-                File.Move(fallout4InstallDirectory + @"\Fallout4Launcher.exe", fallout4InstallDirectory + @"\Fallout4-t.exe");
-                File.Move(fallout4InstallDirectory + @"\Fallout4.exe", fallout4InstallDirectory + @"\Fallout4Launcher.exe");
-                File.Move(fallout4InstallDirectory + @"\Fallout4-t.exe", fallout4InstallDirectory + @"\Fallout4.exe");
-            }
-            else if (!togSkipLauncher.Checked && Properties.Settings.Default.skipLauncher)
-            {
-                //just redo it
-                File.Move(fallout4InstallDirectory + @"\Fallout4Launcher.exe", fallout4InstallDirectory + @"\Fallout4-t.exe");
-                File.Move(fallout4InstallDirectory + @"\Fallout4.exe", fallout4InstallDirectory + @"\Fallout4Launcher.exe");
-                File.Move(fallout4InstallDirectory + @"\Fallout4-t.exe", fallout4InstallDirectory + @"\Fallout4.exe");
-            }
-
-            if (togSkipLauncher.Checked)
-            {
-                Properties.Settings.Default.skipLauncher = true;
-            }
-            else
-            {
-                Properties.Settings.Default.skipLauncher = false;
-
-            }
-
-            Properties.Settings.Default.Save();
-
-            if (togSkipLauncher.Checked)
-            {
-                btnGameLauncher.Visible = true;
-            }
-            else
-            {
-                btnGameLauncher.Visible = false;
-            }
-        }
-
-        private void cmbTheme_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch (cmbTheme.SelectedIndex)
-            {
-                case 0:
-                    this.Theme = MetroFramework.MetroThemeStyle.Light;
-                    tabControl.Theme = MetroFramework.MetroThemeStyle.Light;
-                    tabExtraSettings.Theme = MetroFramework.MetroThemeStyle.Light;
-                    tabGame.Theme = MetroFramework.MetroThemeStyle.Light;
-                    tabMods.Theme = MetroFramework.MetroThemeStyle.Light;
-                    tabVideoSettings.Theme = MetroFramework.MetroThemeStyle.Light;
-                    tabAbout.Theme = MetroFramework.MetroThemeStyle.Light;
-                    tabLauncherSettings.Theme = MetroFramework.MetroThemeStyle.Light;
-
-                    lblSkipLauncher.Theme = MetroFramework.MetroThemeStyle.Light;
-                    lblTheme.ForeColor = SystemColors.ControlText;
-                    lblStyle.ForeColor = SystemColors.ControlText;
-                    lblAbout.ForeColor = SystemColors.ControlText;
-                    lblAbout2.ForeColor = SystemColors.ControlText;
-                    lblActiveMods.ForeColor = SystemColors.ControlText;
-                    lblAmbientOcclusion.ForeColor = SystemColors.ControlText;
-                    lblAnisotropicFiltering.ForeColor = SystemColors.ControlText; ;
-                    lblAntialiasing.ForeColor = SystemColors.ControlText;
-                    lblDecalQuantity.ForeColor = SystemColors.ControlText;
-                    lblDifficulty.ForeColor = SystemColors.ControlText;
-                    lblDOF.ForeColor = SystemColors.ControlText;
-                    lblFullScreen.ForeColor = SystemColors.ControlText;
-                    //lblGitLinkl.ForeColor = SystemColors.ControlText;
-                    lblGodrayQualtiy.ForeColor = SystemColors.ControlText;
-                    lblInactiveMods.ForeColor = SystemColors.ControlText;
-                    lblLightingQuality.ForeColor = SystemColors.ControlText;
-                    lblResolutionCross.ForeColor = SystemColors.ControlText;
-                    lblShadowDistance.ForeColor = SystemColors.ControlText;
-                    lblShadowQuality.ForeColor = SystemColors.ControlText;
-                    lblTextureQuality.ForeColor = SystemColors.ControlText;
-                    lblVersion.ForeColor = SystemColors.ControlText;
-                    lblResolution.ForeColor = SystemColors.ControlText;
-                    lblFloatingButtons.ForeColor = SystemColors.ControlText;
-
-                    chkCompanionApp.ForeColor = SystemColors.ControlText;
-                    chkLensFlare.ForeColor = SystemColors.ControlText;
-                    chkMotionBlur.ForeColor = SystemColors.ControlText;
-                    chkRainOcclusion.ForeColor = SystemColors.ControlText;
-                    chkScreenSpaceReflections.ForeColor = SystemColors.ControlText;
-                    chkWetness.ForeColor = SystemColors.ControlText;
-
-                    grpFOV.ForeColor = SystemColors.ControlText;
-                    grpGeneral.ForeColor = SystemColors.ControlText;
-
-                    togSkipLauncher.Theme = MetroFramework.MetroThemeStyle.Light;
-
-                    togFloatingButtons.Theme = MetroFramework.MetroThemeStyle.Light;
-                    imgFallout4.BackgroundImage = Properties.Resources.fallout4_logo;
-
-                    Properties.Settings.Default.themeIndex = 0;
-
-                    break;
-                case 1:
-                    this.Theme = MetroFramework.MetroThemeStyle.Dark;
-                    tabControl.Theme = MetroFramework.MetroThemeStyle.Dark;
-                    tabExtraSettings.Theme = MetroFramework.MetroThemeStyle.Dark;
-                    tabGame.Theme = MetroFramework.MetroThemeStyle.Dark;
-                    tabMods.Theme = MetroFramework.MetroThemeStyle.Dark;
-                    tabVideoSettings.Theme = MetroFramework.MetroThemeStyle.Dark;
-                    tabAbout.Theme = MetroFramework.MetroThemeStyle.Dark;
-                    tabLauncherSettings.Theme = MetroFramework.MetroThemeStyle.Dark;
-
-                    lblSkipLauncher.Theme = MetroFramework.MetroThemeStyle.Dark;
-                    lblTheme.ForeColor = Color.FromArgb(170, 170, 170);
-                    lblStyle.ForeColor = Color.FromArgb(170, 170, 170);
-                    lblAbout.ForeColor = Color.FromArgb(170, 170, 170);
-                    lblAbout2.ForeColor = Color.FromArgb(170, 170, 170);
-                    lblActiveMods.ForeColor = Color.FromArgb(170, 170, 170);
-                    lblAmbientOcclusion.ForeColor = Color.FromArgb(170, 170, 170);
-                    lblAnisotropicFiltering.ForeColor = Color.FromArgb(170, 170, 170); ;
-                    lblAntialiasing.ForeColor = Color.FromArgb(170, 170, 170);
-                    lblDecalQuantity.ForeColor = Color.FromArgb(170, 170, 170);
-                    lblDifficulty.ForeColor = Color.FromArgb(170, 170, 170);
-                    lblDOF.ForeColor = Color.FromArgb(170, 170, 170);
-                    lblFullScreen.ForeColor = Color.FromArgb(170, 170, 170);
-                    //lblGitLinkl.ForeColor = Color.FromArgb(170, 170, 170);
-                    lblGodrayQualtiy.ForeColor = Color.FromArgb(170, 170, 170);
-                    lblInactiveMods.ForeColor = Color.FromArgb(170, 170, 170);
-                    lblLightingQuality.ForeColor = Color.FromArgb(170, 170, 170);
-                    lblResolutionCross.ForeColor = Color.FromArgb(170, 170, 170);
-                    lblShadowDistance.ForeColor = Color.FromArgb(170, 170, 170);
-                    lblShadowQuality.ForeColor = Color.FromArgb(170, 170, 170);
-                    lblTextureQuality.ForeColor = Color.FromArgb(170, 170, 170);
-                    lblVersion.ForeColor = Color.FromArgb(170, 170, 170);
-                    lblResolution.ForeColor = Color.FromArgb(170, 170, 170);
-                    lblFloatingButtons.ForeColor = Color.FromArgb(170, 170, 170);
-
-                    chkCompanionApp.ForeColor = Color.FromArgb(170, 170, 170);
-                    chkLensFlare.ForeColor = Color.FromArgb(170, 170, 170);
-                    chkMotionBlur.ForeColor = Color.FromArgb(170, 170, 170);
-                    chkRainOcclusion.ForeColor = Color.FromArgb(170, 170, 170);
-                    chkScreenSpaceReflections.ForeColor = Color.FromArgb(170, 170, 170);
-                    chkWetness.ForeColor = Color.FromArgb(170, 170, 170);
-
-                    grpFOV.ForeColor = Color.FromArgb(170, 170, 170);
-                    grpGeneral.ForeColor = Color.FromArgb(170, 170, 170);
-
-                    togSkipLauncher.Theme = MetroFramework.MetroThemeStyle.Dark;
-                    togFloatingButtons.Theme = MetroFramework.MetroThemeStyle.Dark;
-
-                    imgFallout4.BackgroundImage = Properties.Resources.fallout4_logo_dark;
-
-                    Properties.Settings.Default.themeIndex = 1;
-
-                    break;
-            }
-            Properties.Settings.Default.Save();
-
-            //fix the background color not being updated
-            followingSettingsPanel.Visible = false;
-            followingSettingsPanel.Visible = true;
-        }
-
-        private void cmbStyle_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch (cmbStyle.SelectedIndex)
-            {
-                case 0:
-                    this.Style = MetroFramework.MetroColorStyle.Black;
-                    tabControl.Style = MetroFramework.MetroColorStyle.Black;
-                    togSkipLauncher.Style = MetroFramework.MetroColorStyle.Black;
-                    togFloatingButtons.Style = MetroFramework.MetroColorStyle.Black;
-                    
-                    Properties.Settings.Default.styleIndex = 0;
-
-                    break;
-                case 1:
-                    this.Style = MetroFramework.MetroColorStyle.White;
-                    tabControl.Style = MetroFramework.MetroColorStyle.White;
-                    togSkipLauncher.Style = MetroFramework.MetroColorStyle.White;
-                    togFloatingButtons.Style = MetroFramework.MetroColorStyle.White;
-
-                    Properties.Settings.Default.styleIndex = 1;
-
-                    break;
-                case 2:
-                    this.Style = MetroFramework.MetroColorStyle.Silver;
-                    tabControl.Style = MetroFramework.MetroColorStyle.Silver;
-                    togSkipLauncher.Style = MetroFramework.MetroColorStyle.Silver;
-                    togFloatingButtons.Style = MetroFramework.MetroColorStyle.Silver;
-
-                    Properties.Settings.Default.styleIndex = 2;
-
-                    break;
-                case 3:
-                    this.Style = MetroFramework.MetroColorStyle.Blue;
-                    tabControl.Style = MetroFramework.MetroColorStyle.Blue;
-                    togSkipLauncher.Style = MetroFramework.MetroColorStyle.Blue;
-                    togFloatingButtons.Style = MetroFramework.MetroColorStyle.Blue;
-
-                    Properties.Settings.Default.styleIndex = 3;
-
-                    break;
-                case 4:
-                    this.Style = MetroFramework.MetroColorStyle.Green;
-                    tabControl.Style = MetroFramework.MetroColorStyle.Green;
-                    togSkipLauncher.Style = MetroFramework.MetroColorStyle.Green;
-                    togFloatingButtons.Style = MetroFramework.MetroColorStyle.Green;
-
-                    Properties.Settings.Default.styleIndex = 4;
-
-                    break;
-                case 5:
-                    this.Style = MetroFramework.MetroColorStyle.Lime;
-                    tabControl.Style = MetroFramework.MetroColorStyle.Lime;
-                    togSkipLauncher.Style = MetroFramework.MetroColorStyle.Lime;
-                    togFloatingButtons.Style = MetroFramework.MetroColorStyle.Lime;
-
-                    Properties.Settings.Default.styleIndex = 5;
-
-                    break;
-                case 6:
-                    this.Style = MetroFramework.MetroColorStyle.Teal;
-                    tabControl.Style = MetroFramework.MetroColorStyle.Teal;
-                    togSkipLauncher.Style = MetroFramework.MetroColorStyle.Teal;
-                    togFloatingButtons.Style = MetroFramework.MetroColorStyle.Teal;
-
-                    Properties.Settings.Default.styleIndex = 6;
-
-                    break;
-                case 7:
-                    this.Style = MetroFramework.MetroColorStyle.Orange;
-                    tabControl.Style = MetroFramework.MetroColorStyle.Orange;
-                    togSkipLauncher.Style = MetroFramework.MetroColorStyle.Orange;
-                    togFloatingButtons.Style = MetroFramework.MetroColorStyle.Orange;
-
-                    Properties.Settings.Default.styleIndex = 7;
-
-                    break;
-                case 8:
-                    this.Style = MetroFramework.MetroColorStyle.Brown;
-                    tabControl.Style = MetroFramework.MetroColorStyle.Brown;
-                    togSkipLauncher.Style = MetroFramework.MetroColorStyle.Brown;
-                    togFloatingButtons.Style = MetroFramework.MetroColorStyle.Brown;
-
-                    Properties.Settings.Default.styleIndex = 8;
-
-                    break;
-                case 9:
-                    this.Style = MetroFramework.MetroColorStyle.Pink;
-                    tabControl.Style = MetroFramework.MetroColorStyle.Pink;
-                    togSkipLauncher.Style = MetroFramework.MetroColorStyle.Pink;
-                    togFloatingButtons.Style = MetroFramework.MetroColorStyle.Pink;
-
-                    Properties.Settings.Default.styleIndex = 9;
-
-                    break;
-                case 10:
-                    this.Style = MetroFramework.MetroColorStyle.Magenta;
-                    tabControl.Style = MetroFramework.MetroColorStyle.Magenta;
-                    togSkipLauncher.Style = MetroFramework.MetroColorStyle.Magenta;
-                    togFloatingButtons.Style = MetroFramework.MetroColorStyle.Magenta;
-
-                    Properties.Settings.Default.styleIndex = 10;
-
-                    break;
-                case 11:
-                    this.Style = MetroFramework.MetroColorStyle.Purple;
-                    tabControl.Style = MetroFramework.MetroColorStyle.Purple;
-                    togSkipLauncher.Style = MetroFramework.MetroColorStyle.Purple;
-                    togFloatingButtons.Style = MetroFramework.MetroColorStyle.Purple;
-
-                    Properties.Settings.Default.styleIndex = 11;
-
-                    break;
-                case 12:
-                    this.Style = MetroFramework.MetroColorStyle.Red;
-                    tabControl.Style = MetroFramework.MetroColorStyle.Red;
-                    togSkipLauncher.Style = MetroFramework.MetroColorStyle.Red;
-                    togFloatingButtons.Style = MetroFramework.MetroColorStyle.Red;
-
-                    Properties.Settings.Default.styleIndex = 12;
-
-                    break;
-                case 13:
-                    this.Style = MetroFramework.MetroColorStyle.Yellow;
-                    tabControl.Style = MetroFramework.MetroColorStyle.Yellow;
-                    togSkipLauncher.Style = MetroFramework.MetroColorStyle.Yellow;
-                    togFloatingButtons.Style = MetroFramework.MetroColorStyle.Yellow;
-
-                    Properties.Settings.Default.styleIndex = 13;
-
-                    break;
-            }
-            Properties.Settings.Default.Save();
-        }
-
-        private void togFloatingButtons_CheckedChanged(object sender, EventArgs e)
-        {
-            if (togFloatingButtons.Checked)
-            {
-                this.Height = 462;
-                Properties.Settings.Default.useFloatingButtons = true;
-            }
-            else
-            {
-                this.Height = 430;
-                Properties.Settings.Default.useFloatingButtons = false;
-            }
-
-            Properties.Settings.Default.Save();
-        }
-
-        private void btnFollowingLaunch_Click(object sender, EventArgs e)
-        {
-            Process.Start("steam://run/377160");
-        }
-
-        private void btnFollowingReload_Click(object sender, EventArgs e)
-        {
-            listActiveMods.Items.Clear();
-            listAvailableMods.Items.Clear();
-
-            loadPluginList();
-            loadFallout4Prefs();
-            loadFallout4();
-        }
-
-        private void btnOpenData_Click(object sender, EventArgs e)
-        {
-            Process.Start("explorer.exe", txtDataDirectory.Text = fallout4InstallDirectory + @"\Data");
+            makeFilesReadWrite();
+            File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4.ini", fallout4);
+            makeFilesReadOnly();
         }
     }
 }
