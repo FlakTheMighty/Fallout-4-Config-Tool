@@ -1607,37 +1607,35 @@ namespace Fallout_4_Launcher
             {
                 try
                 {
-                    //if the user has already had mods enabled before, we're going to want to do this
-                    fallout4.IndexOf(@"sResourceDataDirsFinal=STRINGS\, TEXTURES\, MUSIC\, SOUND\, INTERFACE\, MESHES\, PROGRAMS\, MATERIALS\, LODSETTINGS\, VIS\, MISC\, SCRIPTS\, SHADERSFX\");
-                    fallout4.Insert(fallout4.IndexOf(@"sResourceDataDirsFinal=STRINGS\, TEXTURES\, MUSIC\, SOUND\, INTERFACE\, MESHES\, PROGRAMS\, MATERIALS\, LODSETTINGS\, VIS\, MISC\, SCRIPTS\, SHADERSFX\"),
-                        @"sResourceDataDirsFinal=");
-                    fallout4.RemoveAt(fallout4.IndexOf(@"sResourceDataDirsFinal=STRINGS\, TEXTURES\, MUSIC\, SOUND\, INTERFACE\, MESHES\, PROGRAMS\, MATERIALS\, LODSETTINGS\, VIS\, MISC\, SCRIPTS\, SHADERSFX\"));
+                    //let's just go ahead an overwrite the whoooooole resourcedatadirectory string
+                    int indexOfResourceDataDirs = parseFallout4INI("sResourceDataDirsFinal=");
+                    if (fallout4[indexOfResourceDataDirs].Count() > 23 && fallout4[indexOfResourceDataDirs].Contains("sResourceDataDirsFinal="))
+                    {
+                        //this is no longer needed as of the discovery of how to enable archive invalidation but is kept for legacy purposes
+                        //@"sResourceDataDirsFinal=STRINGS\, TEXTURES\, MUSIC\, SOUND\, INTERFACE\, MESHES\, PROGRAMS\, MATERIALS\, LODSETTINGS\, VIS\, MISC\, SCRIPTS\, SHADERSFX\ ");
+                        fallout4.Insert(indexOfResourceDataDirs + 1, @"sResourceDataDirsFinal=");
+                        fallout4.RemoveAt(indexOfResourceDataDirs);
+                    }
+                    else if (!fallout4.Contains("sResourceDataDirsFinal="))
+                    {
+                        fallout4.Insert(fallout4.IndexOf("[Archive]") + 1, @"sResourceDataDirsFinal=");
+                    }
+
+                    enableArchiveInvalidation();
+
+                    makeFilesReadWrite();
+                    File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4.ini", fallout4);
+                    File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4Prefs.ini", fallout4Prefs);
+                    makeFilesReadOnly();
                 }
                 catch (Exception e)
                 {
-                    //default situation
-                    fallout4Prefs.Insert(fallout4Prefs.IndexOf("[Launcher]") + 1, "bEnableFileSelection=1");
-                    fallout4.Insert(fallout4.IndexOf(@"sResourceDataDirsFinal=STRINGS\"),
-                        @"sResourceDataDirsFinal=");
-                    //this is no longer needed as of the discovery of archive invalidation
-                    //@"sResourceDataDirsFinal=STRINGS\, TEXTURES\, MUSIC\, SOUND\, INTERFACE\, MESHES\, PROGRAMS\, MATERIALS\, LODSETTINGS\, VIS\, MISC\, SCRIPTS\, SHADERSFX\ ");
-                    fallout4.RemoveAt(fallout4.IndexOf(@"sResourceDataDirsFinal=STRINGS\"));
+                    //don't want to always display that mods are enabled, now do we?
                 }
-                
-
-                enableArchiveInvalidation();
-
-                makeFilesReadWrite();
-                File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4.ini", fallout4);
-                File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4Prefs.ini", fallout4Prefs);
-                makeFilesReadOnly();
-
-                btnEnableMods.Enabled = false;
             }
             catch (Exception e)
             {
                 MessageBox.Show("Looks like you already have mod loading enabled.", "Whoops", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                btnEnableMods.Enabled = false;
             }
         }
 
@@ -1647,17 +1645,16 @@ namespace Fallout_4_Launcher
         {
             try
             {
-                //just try to access it, that's all we need, if it returns an errror, we need to enable Archive Invalidation
-                fallout4.IndexOf("bInvalidateOlderFiles=");
+                //see if it's already there, if it returns -1, we need to enable Archive Invalidation
+                if (fallout4.IndexOf("bInvalidateOlderFiles=") == -1)
+                {
+                    fallout4.Insert(fallout4.IndexOf("[Archive]") + 1, "bInvalidateOlderFiles=1");
+                }
             }
             catch (Exception e)
             {
-                fallout4.Insert(fallout4.IndexOf("[Archive]") + 1, "bInvalidateOlderFiles=1");
-            }
 
-            makeFilesReadWrite();
-            File.WriteAllLines(fallout4DocsDirectory + @"\Fallout4.ini", fallout4);
-            makeFilesReadOnly();
+            }
         }
     }
 }
