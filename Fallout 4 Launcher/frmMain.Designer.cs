@@ -139,7 +139,7 @@
             this.tabControl.Controls.Add(this.tabAbout);
             this.tabControl.Location = new System.Drawing.Point(20, 30);
             this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 2;
+            this.tabControl.SelectedIndex = 5;
             this.tabControl.Size = new System.Drawing.Size(669, 398);
             this.tabControl.TabIndex = 0;
             // 
@@ -1141,7 +1141,7 @@
             this.imgVaultBoy.BackColor = System.Drawing.Color.Transparent;
             this.imgVaultBoy.BackgroundImage = global::Fallout_4_Launcher.Properties.Resources.vaultboy_thumbs;
             this.imgVaultBoy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.imgVaultBoy.Location = new System.Drawing.Point(217, 0);
+            this.imgVaultBoy.Location = new System.Drawing.Point(451, 145);
             this.imgVaultBoy.Name = "imgVaultBoy";
             this.imgVaultBoy.Size = new System.Drawing.Size(214, 214);
             this.imgVaultBoy.TabIndex = 5;
