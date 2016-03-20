@@ -48,7 +48,6 @@ namespace Fallout_4_Launcher
             }
             else if (version == servVersion && revision < servRevision)
             {
-                Console.WriteLine("There's a new version up on Github, why don't you download it?");
                 if (InputBox.ShowDialog("There's a new version up on Github,\n        why don't you download it?", "Update") == 1)
                 {
                     downloadUpdate();

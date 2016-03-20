@@ -34,12 +34,6 @@
             this.tabGame = new MetroFramework.Controls.MetroTabPage();
             this.imgFallout4 = new System.Windows.Forms.PictureBox();
             this.btnLaunch = new System.Windows.Forms.PictureBox();
-            this.tabAbout = new MetroFramework.Controls.MetroTabPage();
-            this.imgVaultBoy = new System.Windows.Forms.PictureBox();
-            this.lblVersion = new System.Windows.Forms.Label();
-            this.lblAbout2 = new System.Windows.Forms.Label();
-            this.lblGitLinkl = new System.Windows.Forms.Label();
-            this.lblAbout = new System.Windows.Forms.Label();
             this.tabVideoSettings = new MetroFramework.Controls.MetroTabPage();
             this.lblResolution = new System.Windows.Forms.Label();
             this.lblResolutionCross = new System.Windows.Forms.Label();
@@ -108,6 +102,12 @@
             this.cmbStyle = new MetroFramework.Controls.MetroComboBox();
             this.lblTheme = new System.Windows.Forms.Label();
             this.cmbTheme = new MetroFramework.Controls.MetroComboBox();
+            this.tabAbout = new MetroFramework.Controls.MetroTabPage();
+            this.imgVaultBoy = new System.Windows.Forms.PictureBox();
+            this.lblVersion = new System.Windows.Forms.Label();
+            this.lblAbout2 = new System.Windows.Forms.Label();
+            this.lblGitLinkl = new System.Windows.Forms.Label();
+            this.lblAbout = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnFollowingLaunch = new System.Windows.Forms.Button();
             this.btnOpenData = new System.Windows.Forms.Button();
@@ -117,8 +117,6 @@
             this.tabGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgFallout4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLaunch)).BeginInit();
-            this.tabAbout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgVaultBoy)).BeginInit();
             this.tabVideoSettings.SuspendLayout();
             this.tabExtraSettings.SuspendLayout();
             this.grpGeneral.SuspendLayout();
@@ -126,14 +124,16 @@
             this.miscSettingsPanel.SuspendLayout();
             this.tabMods.SuspendLayout();
             this.tabLauncherSettings.SuspendLayout();
+            this.tabAbout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgVaultBoy)).BeginInit();
             this.followingSettingsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabGame);
-            this.tabControl.Controls.Add(this.tabVideoSettings);
             this.tabControl.Controls.Add(this.tabExtraSettings);
+            this.tabControl.Controls.Add(this.tabVideoSettings);
             this.tabControl.Controls.Add(this.tabMods);
             this.tabControl.Controls.Add(this.tabLauncherSettings);
             this.tabControl.Controls.Add(this.tabAbout);
@@ -181,83 +181,6 @@
             this.btnLaunch.TabStop = false;
             this.toolTip.SetToolTip(this.btnLaunch, "Launch the game");
             this.btnLaunch.Click += new System.EventHandler(this.btnLaunch_Click);
-            // 
-            // tabAbout
-            // 
-            this.tabAbout.BackColor = System.Drawing.SystemColors.Control;
-            this.tabAbout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabAbout.Controls.Add(this.imgVaultBoy);
-            this.tabAbout.Controls.Add(this.lblVersion);
-            this.tabAbout.Controls.Add(this.lblAbout2);
-            this.tabAbout.Controls.Add(this.lblGitLinkl);
-            this.tabAbout.Controls.Add(this.lblAbout);
-            this.tabAbout.HorizontalScrollbarBarColor = true;
-            this.tabAbout.Location = new System.Drawing.Point(4, 35);
-            this.tabAbout.Name = "tabAbout";
-            this.tabAbout.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAbout.Size = new System.Drawing.Size(661, 359);
-            this.tabAbout.TabIndex = 3;
-            this.tabAbout.Text = "About";
-            this.tabAbout.VerticalScrollbarBarColor = true;
-            // 
-            // imgVaultBoy
-            // 
-            this.imgVaultBoy.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.imgVaultBoy.BackColor = System.Drawing.Color.Transparent;
-            this.imgVaultBoy.BackgroundImage = global::Fallout_4_Launcher.Properties.Resources.vaultboy_thumbs;
-            this.imgVaultBoy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.imgVaultBoy.Location = new System.Drawing.Point(451, 149);
-            this.imgVaultBoy.Name = "imgVaultBoy";
-            this.imgVaultBoy.Size = new System.Drawing.Size(214, 214);
-            this.imgVaultBoy.TabIndex = 5;
-            this.imgVaultBoy.TabStop = false;
-            this.toolTip.SetToolTip(this.imgVaultBoy, "Thanks for downloading, if you could star the repo that would be awesome!");
-            // 
-            // lblVersion
-            // 
-            this.lblVersion.AutoSize = true;
-            this.lblVersion.BackColor = System.Drawing.Color.Transparent;
-            this.lblVersion.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
-            this.lblVersion.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblVersion.Location = new System.Drawing.Point(-4, 342);
-            this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(59, 21);
-            this.lblVersion.TabIndex = 7;
-            this.lblVersion.Text = "Version: ";
-            // 
-            // lblAbout2
-            // 
-            this.lblAbout2.BackColor = System.Drawing.Color.Transparent;
-            this.lblAbout2.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAbout2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblAbout2.Location = new System.Drawing.Point(82, 149);
-            this.lblAbout2.Name = "lblAbout2";
-            this.lblAbout2.Size = new System.Drawing.Size(295, 105);
-            this.lblAbout2.TabIndex = 6;
-            this.lblAbout2.Text = resources.GetString("lblAbout2.Text");
-            // 
-            // lblGitLinkl
-            // 
-            this.lblGitLinkl.BackColor = System.Drawing.Color.Transparent;
-            this.lblGitLinkl.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGitLinkl.ForeColor = System.Drawing.Color.DarkCyan;
-            this.lblGitLinkl.Location = new System.Drawing.Point(82, 128);
-            this.lblGitLinkl.Name = "lblGitLinkl";
-            this.lblGitLinkl.Size = new System.Drawing.Size(349, 21);
-            this.lblGitLinkl.TabIndex = 4;
-            this.lblGitLinkl.Text = "https://github.com/FlakTheMighty/Fallout-4-Config-Tool";
-            this.lblGitLinkl.Click += new System.EventHandler(this.lblGitLink_Click);
-            // 
-            // lblAbout
-            // 
-            this.lblAbout.BackColor = System.Drawing.Color.Transparent;
-            this.lblAbout.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAbout.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblAbout.Location = new System.Drawing.Point(82, 23);
-            this.lblAbout.Name = "lblAbout";
-            this.lblAbout.Size = new System.Drawing.Size(472, 105);
-            this.lblAbout.TabIndex = 3;
-            this.lblAbout.Text = resources.GetString("lblAbout.Text");
             // 
             // tabVideoSettings
             // 
@@ -349,12 +272,13 @@
             // 
             // lblFullScreen
             // 
+            this.lblFullScreen.AutoSize = true;
             this.lblFullScreen.BackColor = System.Drawing.Color.Transparent;
             this.lblFullScreen.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
             this.lblFullScreen.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblFullScreen.Location = new System.Drawing.Point(67, 237);
             this.lblFullScreen.Name = "lblFullScreen";
-            this.lblFullScreen.Size = new System.Drawing.Size(75, 21);
+            this.lblFullScreen.Size = new System.Drawing.Size(74, 21);
             this.lblFullScreen.TabIndex = 26;
             this.lblFullScreen.Text = "Fullscreen:";
             // 
@@ -375,6 +299,7 @@
             // 
             // chkLensFlare
             // 
+            this.chkLensFlare.AutoSize = true;
             this.chkLensFlare.BackColor = System.Drawing.Color.Transparent;
             this.chkLensFlare.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
             this.chkLensFlare.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -388,6 +313,7 @@
             // 
             // chkMotionBlur
             // 
+            this.chkMotionBlur.AutoSize = true;
             this.chkMotionBlur.BackColor = System.Drawing.Color.Transparent;
             this.chkMotionBlur.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
             this.chkMotionBlur.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -400,6 +326,7 @@
             // 
             // chkRainOcclusion
             // 
+            this.chkRainOcclusion.AutoSize = true;
             this.chkRainOcclusion.BackColor = System.Drawing.Color.Transparent;
             this.chkRainOcclusion.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
             this.chkRainOcclusion.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -413,6 +340,7 @@
             // 
             // chkWetness
             // 
+            this.chkWetness.AutoSize = true;
             this.chkWetness.BackColor = System.Drawing.Color.Transparent;
             this.chkWetness.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
             this.chkWetness.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -426,6 +354,7 @@
             // 
             // chkScreenSpaceReflections
             // 
+            this.chkScreenSpaceReflections.AutoSize = true;
             this.chkScreenSpaceReflections.BackColor = System.Drawing.Color.Transparent;
             this.chkScreenSpaceReflections.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
             this.chkScreenSpaceReflections.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -438,6 +367,7 @@
             // 
             // lblAmbientOcclusion
             // 
+            this.lblAmbientOcclusion.AutoSize = true;
             this.lblAmbientOcclusion.BackColor = System.Drawing.Color.Transparent;
             this.lblAmbientOcclusion.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
             this.lblAmbientOcclusion.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -463,6 +393,7 @@
             // 
             // lblDOF
             // 
+            this.lblDOF.AutoSize = true;
             this.lblDOF.BackColor = System.Drawing.Color.Transparent;
             this.lblDOF.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
             this.lblDOF.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -489,6 +420,7 @@
             // 
             // lblGodrayQualtiy
             // 
+            this.lblGodrayQualtiy.AutoSize = true;
             this.lblGodrayQualtiy.BackColor = System.Drawing.Color.Transparent;
             this.lblGodrayQualtiy.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
             this.lblGodrayQualtiy.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -517,6 +449,7 @@
             // 
             // lblLightingQuality
             // 
+            this.lblLightingQuality.AutoSize = true;
             this.lblLightingQuality.BackColor = System.Drawing.Color.Transparent;
             this.lblLightingQuality.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
             this.lblLightingQuality.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -542,6 +475,7 @@
             // 
             // lblDecalQuantity
             // 
+            this.lblDecalQuantity.AutoSize = true;
             this.lblDecalQuantity.BackColor = System.Drawing.Color.Transparent;
             this.lblDecalQuantity.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
             this.lblDecalQuantity.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -568,6 +502,7 @@
             // 
             // lblShadowDistance
             // 
+            this.lblShadowDistance.AutoSize = true;
             this.lblShadowDistance.BackColor = System.Drawing.Color.Transparent;
             this.lblShadowDistance.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
             this.lblShadowDistance.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -594,6 +529,7 @@
             // 
             // lblShadowQuality
             // 
+            this.lblShadowQuality.AutoSize = true;
             this.lblShadowQuality.BackColor = System.Drawing.Color.Transparent;
             this.lblShadowQuality.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
             this.lblShadowQuality.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -620,6 +556,7 @@
             // 
             // lblTextureQuality
             // 
+            this.lblTextureQuality.AutoSize = true;
             this.lblTextureQuality.BackColor = System.Drawing.Color.Transparent;
             this.lblTextureQuality.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
             this.lblTextureQuality.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -646,6 +583,7 @@
             // 
             // lblAnisotropicFiltering
             // 
+            this.lblAnisotropicFiltering.AutoSize = true;
             this.lblAnisotropicFiltering.BackColor = System.Drawing.Color.Transparent;
             this.lblAnisotropicFiltering.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
             this.lblAnisotropicFiltering.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -675,6 +613,7 @@
             // 
             // lblAntialiasing
             // 
+            this.lblAntialiasing.AutoSize = true;
             this.lblAntialiasing.BackColor = System.Drawing.Color.Transparent;
             this.lblAntialiasing.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
             this.lblAntialiasing.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -866,7 +805,7 @@
             this.miscSettingsPanel.Controls.Add(this.btnGameLauncher);
             this.miscSettingsPanel.Controls.Add(this.btnRevertExecutables);
             this.miscSettingsPanel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.miscSettingsPanel.Location = new System.Drawing.Point(21, 326);
+            this.miscSettingsPanel.Location = new System.Drawing.Point(0, 327);
             this.miscSettingsPanel.Name = "miscSettingsPanel";
             this.miscSettingsPanel.Size = new System.Drawing.Size(523, 28);
             this.miscSettingsPanel.TabIndex = 5;
@@ -1178,6 +1117,83 @@
             this.cmbTheme.TabIndex = 1;
             this.cmbTheme.SelectedIndexChanged += new System.EventHandler(this.cmbTheme_SelectedIndexChanged);
             // 
+            // tabAbout
+            // 
+            this.tabAbout.BackColor = System.Drawing.SystemColors.Control;
+            this.tabAbout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabAbout.Controls.Add(this.imgVaultBoy);
+            this.tabAbout.Controls.Add(this.lblVersion);
+            this.tabAbout.Controls.Add(this.lblAbout2);
+            this.tabAbout.Controls.Add(this.lblGitLinkl);
+            this.tabAbout.Controls.Add(this.lblAbout);
+            this.tabAbout.HorizontalScrollbarBarColor = true;
+            this.tabAbout.Location = new System.Drawing.Point(4, 35);
+            this.tabAbout.Name = "tabAbout";
+            this.tabAbout.Padding = new System.Windows.Forms.Padding(3);
+            this.tabAbout.Size = new System.Drawing.Size(661, 359);
+            this.tabAbout.TabIndex = 3;
+            this.tabAbout.Text = "About";
+            this.tabAbout.VerticalScrollbarBarColor = true;
+            // 
+            // imgVaultBoy
+            // 
+            this.imgVaultBoy.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgVaultBoy.BackColor = System.Drawing.Color.Transparent;
+            this.imgVaultBoy.BackgroundImage = global::Fallout_4_Launcher.Properties.Resources.vaultboy_thumbs;
+            this.imgVaultBoy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgVaultBoy.Location = new System.Drawing.Point(217, 0);
+            this.imgVaultBoy.Name = "imgVaultBoy";
+            this.imgVaultBoy.Size = new System.Drawing.Size(214, 214);
+            this.imgVaultBoy.TabIndex = 5;
+            this.imgVaultBoy.TabStop = false;
+            this.toolTip.SetToolTip(this.imgVaultBoy, "Thanks for downloading, if you could star the repo that would be awesome!");
+            // 
+            // lblVersion
+            // 
+            this.lblVersion.AutoSize = true;
+            this.lblVersion.BackColor = System.Drawing.Color.Transparent;
+            this.lblVersion.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F);
+            this.lblVersion.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblVersion.Location = new System.Drawing.Point(-4, 342);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(59, 21);
+            this.lblVersion.TabIndex = 7;
+            this.lblVersion.Text = "Version: ";
+            // 
+            // lblAbout2
+            // 
+            this.lblAbout2.BackColor = System.Drawing.Color.Transparent;
+            this.lblAbout2.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAbout2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblAbout2.Location = new System.Drawing.Point(82, 149);
+            this.lblAbout2.Name = "lblAbout2";
+            this.lblAbout2.Size = new System.Drawing.Size(295, 105);
+            this.lblAbout2.TabIndex = 6;
+            this.lblAbout2.Text = resources.GetString("lblAbout2.Text");
+            // 
+            // lblGitLinkl
+            // 
+            this.lblGitLinkl.BackColor = System.Drawing.Color.Transparent;
+            this.lblGitLinkl.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGitLinkl.ForeColor = System.Drawing.Color.DarkCyan;
+            this.lblGitLinkl.Location = new System.Drawing.Point(82, 128);
+            this.lblGitLinkl.Name = "lblGitLinkl";
+            this.lblGitLinkl.Size = new System.Drawing.Size(349, 21);
+            this.lblGitLinkl.TabIndex = 4;
+            this.lblGitLinkl.Text = "https://github.com/FlakTheMighty/Fallout-4-Config-Tool";
+            this.lblGitLinkl.Click += new System.EventHandler(this.lblGitLink_Click);
+            // 
+            // lblAbout
+            // 
+            this.lblAbout.BackColor = System.Drawing.Color.Transparent;
+            this.lblAbout.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAbout.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblAbout.Location = new System.Drawing.Point(82, 23);
+            this.lblAbout.Name = "lblAbout";
+            this.lblAbout.Size = new System.Drawing.Size(472, 105);
+            this.lblAbout.TabIndex = 3;
+            this.lblAbout.Text = resources.GetString("lblAbout.Text");
+            // 
             // btnFollowingLaunch
             // 
             this.btnFollowingLaunch.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9.75F);
@@ -1244,9 +1260,6 @@
             this.tabGame.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgFallout4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLaunch)).EndInit();
-            this.tabAbout.ResumeLayout(false);
-            this.tabAbout.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgVaultBoy)).EndInit();
             this.tabVideoSettings.ResumeLayout(false);
             this.tabVideoSettings.PerformLayout();
             this.tabExtraSettings.ResumeLayout(false);
@@ -1260,6 +1273,9 @@
             this.tabMods.PerformLayout();
             this.tabLauncherSettings.ResumeLayout(false);
             this.tabLauncherSettings.PerformLayout();
+            this.tabAbout.ResumeLayout(false);
+            this.tabAbout.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgVaultBoy)).EndInit();
             this.followingSettingsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 

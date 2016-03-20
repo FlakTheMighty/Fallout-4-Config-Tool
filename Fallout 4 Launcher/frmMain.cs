@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Forms;
+using System.Threading;
 
 //default size 709, 430
 //floating button size 709, 462
@@ -57,17 +58,18 @@ namespace Fallout_4_Launcher
             cmbLightingQuality.Enabled = false;
             chkMotionBlur.Enabled = false;
             chkScreenSpaceReflections.Enabled = false;
-        }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            //with the switch to MetroFramework, the launcher will save a random tab for no reason to launch into
-            tabControl.SelectedIndex = 0;
 
             //this placement is temporary, it's just for testing
             VersionControl vc = new VersionControl();
 
             vc.checkForUpdate();
             lblVersion.Text = "Version " + vc.getVersion();
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+            //with the switch to MetroFramework, the launcher will save a random tab to launch into for no reason 
+            tabControl.SelectedIndex = 0;
 
             checkSettings();
 
@@ -1653,7 +1655,7 @@ namespace Fallout_4_Launcher
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e.Message);
             }
         }
     }
