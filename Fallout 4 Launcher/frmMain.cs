@@ -337,21 +337,21 @@ namespace Fallout_4_Launcher
         private void txtFOVFirstPerson_TextChanged(object sender, EventArgs e)
         {
             //this one has to stay the same without the parse methods, otherwise it's going to break and use the wrong entry for FOV
-            int indexOfFirstPersonFOV = -1;
-            foreach (string line in fallout4)
-            {
-                indexOfFirstPersonFOV++;//"fDefault1stPersonFOV="
-                if (line.Contains("[Display]"))
-                {
-                    indexOfFirstPersonFOV++;
-                    break;
-                }
-            }
+            int indexOfFirstPersonFOV = parseFallout4INI("fDefault1stPersonFOV=");
+            //foreach (string line in fallout4)
+            //{
+            //    indexOfFirstPersonFOV++;//"fDefault1stPersonFOV="
+            //    if (line.Contains("[Display]"))
+            //    {
+            //        indexOfFirstPersonFOV++;
+            //        break;
+            //    }
+            //}
 
-            if (!fallout4[indexOfFirstPersonFOV].Contains("fDefault1stPersonFOV="))
-            {
-                fallout4.Insert(indexOfFirstPersonFOV, "fDefault1stPersonFOV=");
-            }
+            //if (!fallout4[indexOfFirstPersonFOV].Contains("fDefault1stPersonFOV="))
+            //{
+            //    fallout4.Insert(indexOfFirstPersonFOV, "fDefault1stPersonFOV=");
+            //}
 
             //make sure the value is only an int
             int parsedValue;
@@ -373,22 +373,22 @@ namespace Fallout_4_Launcher
         private void txtFOVThirdPerson_TextChanged(object sender, EventArgs e)
         {
             //this one has to stay the same without the parse methods, otherwise it's going to break and use the wrong entry for FOV
-            int indexOfThirdPersonFOV = -1;
-            foreach (string line in fallout4)
-            {
-                indexOfThirdPersonFOV++;//fDefaultWorldFOV=
-                if (line.Contains("[Display]"))
-                {
-                    indexOfThirdPersonFOV += 2;
+            int indexOfThirdPersonFOV = parseFallout4INI("fDefaultWorldFOV=");
+            //foreach (string line in fallout4)
+            //{
+            //    indexOfThirdPersonFOV++;//fDefaultWorldFOV=
+            //    if (line.Contains("[Display]"))
+            //    {
+            //        indexOfThirdPersonFOV += 2;
 
-                    break;
-                }
-            }
+            //        break;
+            //    }
+            //}
 
-            if (!fallout4[indexOfThirdPersonFOV].Contains("fDefaultWorldFOV="))
-            {
-                fallout4.Insert(indexOfThirdPersonFOV, "fDefaultWorldFOV=");
-            }
+            //if (!fallout4[indexOfThirdPersonFOV].Contains("fDefaultWorldFOV="))
+            //{
+            //    fallout4.Insert(indexOfThirdPersonFOV, "fDefaultWorldFOV=");
+            //}
 
             //make sure the value is only an int
             int parsedValue;
